@@ -60,10 +60,6 @@ Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_50MS, TCS3472
 int skittleCount = 0;
 // Time when the last skittle was being sorted
 unsigned long lastSkittleTime = 0;
-// The speed in which the top servo moves
-int topServoSpeed = 0;
-// Is the color sensor measuring the Skittle right now
-boolean isColorBeingMeasured = false;
 
 void setup() {
   // Set up the serial for debugging purposes
@@ -90,12 +86,8 @@ void updateTopServo() {
   static boolean reverseDirection = false;
   // Set the speed of the top servo
   // with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement.
-  servoTop.write(reverseDirection ? 180 : topServoSpeed);
+  servoTop.write(reverseDirection ? 180 : 0);
   // servoTop.write(180);
-
-  // If color is being measured right now, skip the stuck detection
-  if (isColorBeingMeasured)
-    return;
 
   // If the top servo gets stuck
   if (topServoTimeoutEnable && millis() - lastSkittleTime > topServoTimeout) {
@@ -131,47 +123,60 @@ void updateBtmServo() {
   servoBtm.write(btmAngle);
 }
 
+void calibrateColors(uint16_t *r, uint16_t *g, uint16_t *b, uint16_t *c){
+  /* Calibrated colors against the unit 8-bits color standard where the maximum
+   *  color value is 256. 
+  */
+  *r /= C_CYCLES; *g /= C_CYCLES; *b /= C_CYCLES; *c /= C_CYCLES;
+}
+
 void updateColorSensor() {
+  // Is the color sensor measuring the Skittle right now
+  static boolean isColorBeingMeasured = false;
+  // The best colors during a measuring cycle
+  static uint16_t min_clear, best_r, best_g, best_b;
   // Get color measurement values
   uint16_t r, g, b, c;
   tcs.getRawData(&r, &g, &b, &c);
-  r /= C_CYCLES; g /= C_CYCLES; b /= C_CYCLES; c /= C_CYCLES;
-
+  calibrateColors(&r, &g, &b, &c);
   // If clear value is less than 300
-  if (c < 150 && !isColorBeingMeasured) {
+  if (c < 300 && !isColorBeingMeasured) {
     // This is when the color sensor sees into the hole
 
     if (millis() - lastSkittleTime > 1000) {
       skittleCount ++;
       Serial.println(millis() - lastSkittleTime);
       lastSkittleTime = millis();
-
-      // Slow down the top servo's speed for better accuracy
-    /*
-        topServoSpeed = 90;
-        Serial.println("Start measuring this Skittle's color.");
+      Serial.println("Start measuring this Skittle's color.");
       isColorBeingMeasured = true;
-     */
-
+      min_clear = 200;
     }
 
   }
+  if(isColorBeingMeasured){
+    if(c < min_clear){
+      min_clear = c;
+      best_r = r;
+      best_g = g;
+      best_b = b;
+    }
 
-  if (c < 150) {
-    Serial.print("R: "); Serial.print(r, DEC); Serial.print(" ");
-    Serial.print("G: "); Serial.print(g, DEC); Serial.print(" ");
-    Serial.print("B: "); Serial.print(b, DEC); Serial.print(" ");
-    Serial.print("C: "); Serial.print(c, DEC); Serial.print(" ");
-    Serial.println(" ");
+     if (c > 300) {
 
-    if (millis() - lastSkittleTime > 1000) {
-      topServoSpeed = 0;
-      Serial.println("Finish measuring.");
-      isColorBeingMeasured = false;
-      lastSkittleTime = millis();
-
+          Serial.println("Finish measuring.");
+          isColorBeingMeasured = false;
+          lastSkittleTime = millis();
+          Serial.print("R: "); Serial.print(best_r, DEC); Serial.print(" ");
+          Serial.print("G: "); Serial.print(best_g, DEC); Serial.print(" ");
+          Serial.print("B: "); Serial.print(best_b, DEC); Serial.print(" ");
+          Serial.print("C: "); Serial.print(min_clear, DEC); Serial.print(" ");
+          Serial.println(" ");
+    
+   
     }
   }
+
+ 
 
     if (c < 300) {
       
@@ -181,8 +186,6 @@ void updateColorSensor() {
     }
 
   /*
-//    Serial.print("Color Temp: "); Serial.print(colorTemp, DEC); Serial.print(" K - ");
-  //  Serial.print("Lux: "); Serial.print(lux, DEC); Serial.print(" - ");
     Serial.print("R: "); Serial.print(r, DEC); Serial.print(" ");
     Serial.print("G: "); Serial.print(g, DEC); Serial.print(" ");
     Serial.print("B: "); Serial.print(b, DEC); Serial.print(" ");
@@ -195,10 +198,9 @@ void updateColorSensor() {
 }
 
 void loop() {
-  // static byte frames = 0;
-
   lcd.clear();
-  lcd.print("Count: "); lcd.print(skittleCount, DEC);
+  lcd.print("Count: "); 
+  lcd.print(skittleCount, DEC);
 
   // Update the top servo
   updateTopServo();
