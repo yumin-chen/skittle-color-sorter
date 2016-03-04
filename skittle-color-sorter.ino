@@ -35,15 +35,17 @@
 
 
 // Constants
-#define C_ATIME TCS34725_INTEGRATIONTIME_101MS //  Color sensor integration time 50ms
+#define C_ATIME TCS34725_INTEGRATIONTIME_154MS //  Color sensor integration time 154ms
 #define C_CYCLES (256-C_ATIME) // Color sensor cycles according to the integration time
 
 #define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
+#define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
+#define C_ALLOWED_COLOR_VARIANCE 64 // The allowed color variance
 
 #define F_CALIBRATING false // Is calibration in progress
 
 const boolean topServoTimeoutEnable = true; // Enable the timeout for the top servo
-const int topServoTimeout = 5000; // Timeout to determine if the top servo is stuck
+const int topServoTimeout = 6000; // Timeout to determine if the top servo is stuck
 
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
@@ -52,15 +54,15 @@ const int topServoTimeout = 5000; // Timeout to determine if the top servo is st
 #include "C_Color.h"            // Color operations
 
 // Calibrated Skittle's Colors
-// These are the skittle's colors 
+// These are the skittle's colors
 #define C_COLOR_EMPTY C_Color(61, 88, 72)
-#define C_SKITTLE_GREEN C_Color(64, 109, 51) 
-#define C_SKITTLE_RED C_Color(97, 62, 55) 
+#define C_SKITTLE_GREEN C_Color(64, 109, 51)
+#define C_SKITTLE_RED C_Color(97, 62, 55)
 #define C_SKITTLE_YELLOW C_Color(88, 91, 36)
 #define C_SKITTLE_PURPLE C_Color(65, 74, 77)
 #define C_SKITTLE_ORANGE C_Color(107, 66, 40)
 
-const C_Color colorList [] = {C_COLOR_EMPTY, C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
+const C_Color colorList [] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
 
 // Initialize the display with the numbers of the interface pins
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7);
@@ -138,17 +140,17 @@ void updateBtmServo() {
   servoBtm.write(btmAngle);
 }
 
-void __calibrating(C_Color new_color){
-  /* This function is used to test and get the average color 
-   *  of a certain Skittle
+void __calibrating(C_Color new_color) {
+  /* This function is used to test and get the average color
+      of a certain Skittle
   */
   static C_Color avg_c = C_Color(new_color.r, new_color.g, new_color.b);
   static int count = 0;
   int diff = avg_c.compare(new_color).aggregate();
   Serial.print("Diff: "); Serial.println(diff);
-  if(diff > 64){
+  if (diff > C_ALLOWED_COLOR_VARIANCE) {
     Serial.println("Difference too big. This data is discarded.");
-  }else{
+  } else {
     avg_c.r = (avg_c.r * count + new_color.r) / (count + 1);
     avg_c.g = (avg_c.g * count + new_color.g) / (count + 1);
     avg_c.b = (avg_c.b * count + new_color.b) / (count + 1);
@@ -156,8 +158,8 @@ void __calibrating(C_Color new_color){
     Serial.println("Average color:");
     avg_c.print();
   }
-  
-  
+
+
 }
 
 void updateColorSensor() {
@@ -165,7 +167,7 @@ void updateColorSensor() {
   static boolean isColorBeingMeasured = false;
   // The best colors during a measuring cycle
   static uint16_t min_clear;
-  static C_Color best_color = C_Color(0, 0 ,0);
+  static C_Color best_color = C_Color(0, 0 , 0);
   // Get color measurement values
   uint16_t r, g, b, c;
   tcs.getRawData(&r, &g, &b, &c);
@@ -173,79 +175,77 @@ void updateColorSensor() {
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   // Check if the hole arrives at the color sensor
   if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured) {
-      Serial.println(millis() - lastSkittleTime);
-      lastSkittleTime = millis();
-      // Serial.println("Start measuring this Skittle's color.");
-      isColorBeingMeasured = true;
-      min_clear = C_HOLE_CLEAR;
+    //Serial.println(millis() - lastSkittleTime);
+    lastSkittleTime = millis();
+    // Serial.println("Start measuring this Skittle's color.");
+    isColorBeingMeasured = true;
+    min_clear = C_HOLE_CLEAR;
   }
-  if(isColorBeingMeasured){
-    if(colors.c < min_clear){
+  if (isColorBeingMeasured) {
+    if (colors.c < min_clear && colors.c > C_IDEAL_CLEAR) {
       min_clear = colors.c;
       best_color = colors;
     }
 
-     if (c > C_HOLE_CLEAR) {
+    if (colors.c > C_HOLE_CLEAR) {
+      
+      best_color.maximize(); // Maximize color
+      
+      if (best_color.compare(C_COLOR_EMPTY).aggregate() < 16) {
+        // If this is an empty hole.
+        Serial.println("Empty hole");
+      } else {
+        skittleCount ++;
+        Serial.println("A Skittle has been detected!");
+        //Serial.println("Maximized colors:");
+        //best_color.print();
 
-              best_color.maximize();
-              if(best_color.compare(colorList[0]).aggregate() < 16){
-                
-                        Serial.println("Empty hole");
-                
-              }else{
-                        skittleCount ++;
-                        Serial.println("A Skittle has been detected!");
-                        Serial.println("Maximized colors:");
-                        best_color.print();
+        if (F_CALIBRATING) {
+          // If we are calibrating colors
+          __calibrating(best_color);
+        } else {
+
+          int min_diff = C_ALLOWED_COLOR_VARIANCE;
+          int result = -1;
+          for (int i = 0; i < sizeof(colorList) / 8; i++) {
+            C_Color diff = best_color.compare(colorList[i]);
+            int agg = diff.aggregate();
+            if (agg < min_diff) {
+              min_diff = agg;
+              result = i;
+            }
+          }
+          
+          switch(result){
+            case 0:
+              Serial.println("RED");
+              break;
+            case 1:
+              Serial.println("GREEN");
+              break;
+            case 2:
+              Serial.println("YELLOW");
+              break;
+            case 3:
+              Serial.println("PURPLE");
+              break;
+            case 4:
+              Serial.println("ORANGE");
+              break;
+            default:
+              Serial.println("Unknown color");
+              break;
+          }
+
+        }
+
+      }
+
+      // Serial.println("Finish measuring.");
+      isColorBeingMeasured = false;
+      lastSkittleTime = millis();
 
 
-                              if(F_CALIBRATING){
-                                __calibrating(best_color);
-                              }else{
-                                    
-                                    int min_diff = 64;
-                                    int result = -1;
-                                    for(int i = 0; i < sizeof(colorList)/8; i++){
-                                      C_Color diff = best_color.compare(colorList[i]);
-                                      int agg = diff.aggregate();
-                                      if(agg < min_diff){
-                                        min_diff = agg;
-                                        result = i;
-                                      }
-                                    }
-                                    switch(result){
-                                      case 0:
-                                        Serial.println("Empty hole");
-                                        break;
-                                      case 1:
-                                        Serial.println("RED");
-                                        break;
-                                      case 2:
-                                        Serial.println("GREEN");
-                                        break;
-                                      case 3:
-                                        Serial.println("YELLOW");
-                                        break;
-                                      case 4:
-                                        Serial.println("PURPLE");
-                                        break;
-                                      case 5:
-                                        Serial.println("ORANGE");
-                                        break;
-                                      default:
-                                        Serial.println("Unknown color");
-                                        break;
-                                    }
-                                      
-                              }
-                
-              }
-
-          // Serial.println("Finish measuring.");
-          isColorBeingMeasured = false;
-          lastSkittleTime = millis();
-    
-   
     }
   }
 
@@ -256,7 +256,7 @@ void updateColorSensor() {
 
 void loop() {
   lcd.clear();
-  lcd.print("Count: "); 
+  lcd.print("Count: ");
   lcd.print(skittleCount, DEC);
 
   // Update the top servo
@@ -268,5 +268,4 @@ void loop() {
   // Update the color sensor
   updateColorSensor();
 
-  delay(100);
 }
