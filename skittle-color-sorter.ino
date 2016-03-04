@@ -46,26 +46,15 @@
 const boolean topServoTimeoutEnable = true; // Enable the timeout for the top servo
 const int topServoTimeout = 5000; // Timeout to determine if the top servo is stuck
 
-// Colors
-typedef struct{
-  uint16_t r;
-  uint16_t g;
-  uint16_t b;
-} c_color;
-
-c_color rgb(uint16_t r, uint16_t g, uint16_t b){
-  c_color c;
-  c.r = r; c.g = g; c.b = b;
-  return c;
-}
-// Calibrated Skittle's Colors
-// These are the skittle's colors 
-#define C_COLOR_GREEN rgb(64, 109, 51) 
-
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
 #include <Servo.h>              // Servos
 #include "Adafruit_TCS34725.h"  // Color Sensor
+#include "C_Color.h"            // Color Processing Class
+
+// Calibrated Skittle's Colors
+// These are the skittle's colors 
+#define C_SKITTLE_GREEN C_Color(64, 109, 51) 
 
 // Initialize the display with the numbers of the interface pins
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7);
@@ -143,21 +132,6 @@ void updateBtmServo() {
   servoBtm.write(btmAngle);
 }
 
-void standardizeColors(uint16_t *r, uint16_t *g, uint16_t *b, uint16_t *c){
-  /* Standardize colors to the unit 8-bits color standard where the 
-   *  maximum color value is 256. 
-  */
-  *r /= C_CYCLES; *g /= C_CYCLES; *b /= C_CYCLES; *c /= C_CYCLES;
-}
-
-void maximizeColors(uint16_t *r, uint16_t *g, uint16_t *b, uint16_t *c){
-  /* Maximize colors based on the clear value.
-  */
-  float scale = 256.0 / *c;
-  Serial.print("scale");Serial.print(scale);
-  *r *= scale; *g *= scale; *b *= scale;
-}
-
 void __calibrating(uint16_t r, uint16_t g, uint16_t b){
   /* This function is used to test and get the average color 
    *  of a certain Skittle
@@ -171,43 +145,25 @@ void __calibrating(uint16_t r, uint16_t g, uint16_t b){
     a_b = (a_b * count + b) / (count + 1);
     count++;
     Serial.println("Average color:");
-    printColors(a_r, a_g, a_b, 0);
+    C_Color(a_r, a_g, a_b).print();
   //}
   
   
-}
-
-int checkColor(c_color c){
-  c_color c2 = C_COLOR_GREEN;
-  uint16_t color_diff_r = abs(int(c.r) - int(c2.r));
-  uint16_t color_diff_g = abs(int(c.g) - int(c2.g));
-  uint16_t color_diff_b = abs(int(c.b) - int(c2.b));
-  Serial.println("Color diff:");
-  printColors(color_diff_r, color_diff_g, color_diff_b, 0);
-  return 0;
-}
-
-void printColors(uint16_t r, uint16_t g, uint16_t b, uint16_t c){
-  Serial.print("R: "); Serial.print(r, DEC); Serial.print(" ");
-  Serial.print("G: "); Serial.print(g, DEC); Serial.print(" ");
-  Serial.print("B: "); Serial.print(b, DEC); Serial.print(" ");
-  Serial.print("C: "); Serial.print(c, DEC); Serial.print(" ");
-  Serial.println(" ");
 }
 
 void updateColorSensor() {
   // Is the color sensor measuring the Skittle right now
   static boolean isColorBeingMeasured = false;
   // The best colors during a measuring cycle
-  static uint16_t min_clear, best_r, best_g, best_b;
+  static uint16_t min_clear;
+  static C_Color best_color = C_Color(0, 0 ,0);
   // Get color measurement values
   uint16_t r, g, b, c;
   tcs.getRawData(&r, &g, &b, &c);
-  // Convert colors to the 8-bits color standard values
-  standardizeColors(&r, &g, &b, &c);
-  
+  // Create a C_Color object from raw colors
+  C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   // Check if the hole arrives at the color sensor
-  if (c < C_HOLE_CLEAR && !isColorBeingMeasured) {
+  if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured) {
       Serial.println(millis() - lastSkittleTime);
       lastSkittleTime = millis();
       // Serial.println("Start measuring this Skittle's color.");
@@ -215,11 +171,9 @@ void updateColorSensor() {
       min_clear = C_HOLE_CLEAR;// C_SKITTLE_CLEAR;
   }
   if(isColorBeingMeasured){
-    if(c < min_clear){
-      min_clear = c;
-      best_r = r;
-      best_g = g;
-      best_b = b;
+    if(colors.c < min_clear){
+      min_clear = colors.c;
+      best_color = colors;
     }
 
      if (c > C_HOLE_CLEAR) {
@@ -227,15 +181,17 @@ void updateColorSensor() {
           if(min_clear < C_SKITTLE_CLEAR){
               skittleCount ++;
               Serial.println("A Skittle has been detected!");
-              printColors(best_r, best_g, best_b, min_clear);
-              uint16_t m_r = best_r, m_g = best_g, m_b = best_b;
-              maximizeColors(&m_r, &m_g, &m_b, &min_clear);
+              best_color.print();
+              best_color.maximize();
               Serial.println("Maximized colors:");
-              printColors(m_r, m_g, m_b, min_clear);
+              best_color.print();
               if(F_CALIBRATING){
-                __calibrating(m_r, m_g, m_b);
+                __calibrating(best_color.r, best_color.g, best_color.b);
               }
-              int result = checkColor(rgb(m_r, m_g, m_b));
+              Serial.println("Diff:");
+              C_Color diff = best_color.compare(C_SKITTLE_GREEN);
+              diff.print();
+              Serial.println( diff.aggregate());
 
           }
           else{
@@ -250,7 +206,6 @@ void updateColorSensor() {
    
     }
   }
-
 
   // printColors(r, g, b, c);
 
