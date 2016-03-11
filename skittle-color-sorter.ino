@@ -18,6 +18,9 @@
 //    Color View Red pin to diginal pin 7
 //    Color View Green pin to diginal pin 9
 //    Color View Blue pin to diginal pin 6
+#define PIN_COLOR_RED 7
+#define PIN_COLOR_GREEN 9
+#define PIN_COLOR_BLUE 6
 // * LCD
 //    RS pin to digital pin 12
 #define PIN_LCD_RS 12
@@ -40,12 +43,16 @@
 
 #define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
 #define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
-#define C_ALLOWED_COLOR_VARIANCE 64 // The allowed color variance
+#define C_ALLOWED_COLOR_VARIANCE 64 // Allowed color variance for color detection
+
+#define F_TOP_SERVO_TIMEOUT_ENABLED true // Enable the timeout for the top servo
+#define C_TOP_SERVO_TIMEOUT 6000 // Timeout to determine if the top servo is stuck
+
+#define C_COLOR_SIGNAL_TIME 1000 // Each Skittle gets 1s color view signal
 
 #define F_CALIBRATING false // Is calibration in progress
 
-const boolean topServoTimeoutEnable = true; // Enable the timeout for the top servo
-const int topServoTimeout = 6000; // Timeout to determine if the top servo is stuck
+
 
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
@@ -73,10 +80,10 @@ Servo servoBtm;
 // Create the color sensor object
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X);
 
-// The number of skittles sorted
-int skittleCount = 0;
-// Time when the last skittle was being sorted
-unsigned long lastSkittleTime = 0;
+
+int skittleCount = 0; // The number of skittles sorted
+unsigned long lastSkittleTime = 0; // Time when the last skittle was being sorted
+int sortingResult = -1; // The sorting result, this number is the index for colorList
 
 void setup() {
   // Set up the serial for debugging purposes
@@ -104,10 +111,9 @@ void updateTopServo() {
   // Set the speed of the top servo
   // with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement.
   servoTop.write(reverseDirection ? 180 : 0);
-  // servoTop.write(180);
 
   // If the top servo gets stuck
-  if (topServoTimeoutEnable && millis() - lastSkittleTime > topServoTimeout) {
+  if (F_TOP_SERVO_TIMEOUT_ENABLED && millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT) {
     Serial.println("Top servo is stuck; Direction reversed.");
     // Reserve the top servo's direction
     reverseDirection = true;
@@ -115,8 +121,8 @@ void updateTopServo() {
     lastSkittleTime = millis();
   }
 
-  if (topServoTimeoutEnable && reverseDirection && millis() - lastSkittleTime > 500) {
-    // Set direction back to normal after .5s
+  if (F_TOP_SERVO_TIMEOUT_ENABLED && reverseDirection && millis() - lastSkittleTime > 1000) {
+    // Set direction back to normal after 1s
     reverseDirection = false;
   }
 
@@ -188,9 +194,9 @@ void updateColorSensor() {
     }
 
     if (colors.c > C_HOLE_CLEAR) {
-      
+
       best_color.maximize(); // Maximize color
-      
+
       if (best_color.compare(C_COLOR_EMPTY).aggregate() < 16) {
         // If this is an empty hole.
         Serial.println("Empty hole");
@@ -206,35 +212,14 @@ void updateColorSensor() {
         } else {
 
           int min_diff = C_ALLOWED_COLOR_VARIANCE;
-          int result = -1;
+          sortingResult = -1;
           for (int i = 0; i < sizeof(colorList) / 8; i++) {
             C_Color diff = best_color.compare(colorList[i]);
             int agg = diff.aggregate();
             if (agg < min_diff) {
               min_diff = agg;
-              result = i;
+              sortingResult = i;
             }
-          }
-          
-          switch(result){
-            case 0:
-              Serial.println("RED");
-              break;
-            case 1:
-              Serial.println("GREEN");
-              break;
-            case 2:
-              Serial.println("YELLOW");
-              break;
-            case 3:
-              Serial.println("PURPLE");
-              break;
-            case 4:
-              Serial.println("ORANGE");
-              break;
-            default:
-              Serial.println("Unknown color");
-              break;
           }
 
         }
@@ -254,6 +239,59 @@ void updateColorSensor() {
 
 }
 
+void updateColorView() {
+  static int oldSortingResult = -1;
+  if (sortingResult != oldSortingResult) {
+    oldSortingResult = sortingResult;
+    switch (sortingResult) {
+      case 0:
+        Serial.println("RED");
+        analogWrite(PIN_COLOR_RED, 255);
+        analogWrite(PIN_COLOR_GREEN, 0);
+        analogWrite(PIN_COLOR_BLUE, 0);
+        break;
+      case 1:
+        Serial.println("GREEN");
+        analogWrite(PIN_COLOR_RED, 0);
+        analogWrite(PIN_COLOR_GREEN, 255);
+        analogWrite(PIN_COLOR_BLUE, 0);
+        break;
+      case 2:
+        Serial.println("YELLOW");
+        analogWrite(PIN_COLOR_RED, 255);
+        analogWrite(PIN_COLOR_GREEN, 255);
+        analogWrite(PIN_COLOR_BLUE, 0);
+        break;
+      case 3:
+        Serial.println("PURPLE");
+        analogWrite(PIN_COLOR_RED, 128);
+        analogWrite(PIN_COLOR_GREEN, 32);
+        analogWrite(PIN_COLOR_BLUE, 128);
+        break;
+      case 4:
+        Serial.println("ORANGE");
+        analogWrite(PIN_COLOR_RED, 255);
+        analogWrite(PIN_COLOR_GREEN, 128);
+        analogWrite(PIN_COLOR_BLUE, 32);
+        break;
+      default:
+        Serial.println("Unknown color");
+        analogWrite(PIN_COLOR_RED, 0);
+        analogWrite(PIN_COLOR_GREEN, 0);
+        analogWrite(PIN_COLOR_BLUE, 0);
+        break;
+    }
+  } else {
+    // Check if the color view signal has lasted enough time
+    if (millis() - lastSkittleTime > C_COLOR_SIGNAL_TIME) {
+      // Set it back to black
+      analogWrite(PIN_COLOR_RED, 0);
+      analogWrite(PIN_COLOR_GREEN, 0);
+      analogWrite(PIN_COLOR_BLUE, 0);
+    }
+  }
+}
+
 void loop() {
   lcd.clear();
   lcd.print("Count: ");
@@ -267,5 +305,8 @@ void loop() {
 
   // Update the color sensor
   updateColorSensor();
+
+  // Update the color view LED output
+  updateColorView();
 
 }
