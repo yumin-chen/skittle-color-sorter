@@ -129,20 +129,12 @@ void updateTopServo() {
 }
 
 void updateBtmServo() {
-
   // Calculate the angle of the bottom servo arm
-  static int btmAngle = 0;
-  static bool btmReversed = false;
-  btmAngle += btmReversed ? -10 : 10;
-
-  // The bottom arm angle range from 30 to 150 degrees
-  if (btmAngle >= 150)
-    btmReversed = true;
-  if (btmAngle <= 30)
-    btmReversed = false;
-
-  // Set the angle of the shaft (in degrees), ranging from 0 to 180
-  //servoBtm.write(90);
+#define MAX_BTM_ANGLE 150 // Maximum bottom servo angle
+#define MIN_BTM_ANGLE 30 // Minimum bottom servo angle
+#define NUM_OF_CUPS 5 // The number of cups at the bottom
+#define EACH_CUP_ANGLE_INTERVAL ((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)
+  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * sortingResult;
   servoBtm.write(btmAngle);
 }
 
@@ -301,7 +293,7 @@ void loop() {
   updateTopServo();
 
   // Update the bottom servo (arm)
-  //updateBtmServo();
+  updateBtmServo();
 
   // Update the color sensor
   updateColorSensor();
