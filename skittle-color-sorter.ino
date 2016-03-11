@@ -50,9 +50,8 @@
 
 #define C_COLOR_SIGNAL_TIME 1000 // Each Skittle gets 1s color view signal
 
-#define F_CALIBRATING false // Is calibration in progress
-
-
+// Uncomment the following line to enter calibration mode
+// #define F_CALIBRATING true // Is calibration in progress
 
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
