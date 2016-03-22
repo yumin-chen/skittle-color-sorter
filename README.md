@@ -25,6 +25,8 @@ The circuit:
 |                       |                |                | D7 - digital pin 2      |
 |                       |                |                | R/W - ground            |  
 
+![Schematic](/images/schematic.jpg?raw=true "Schematic")  
+
 Because the color sensor might report color values differently due to various factors, such as the lighting condition, the distance between the sensor and the object, etc, before this [Skittle Color Sorter][2] can work properly for your specific set of Skittles, each color needs to be calibrated.  
 
 To use the sketch in calibration mode, uncomment this line at the head of [skittle-color-sorter.ino](skittle-color-sorter.ino).
@@ -64,14 +66,21 @@ Please see the file named [LICENSE.md](LICENSE.md).
 Author
 ------------------------
 * Charlie Chen  
-	founder of [CharmySoft][1]
+	founder of [CharmySoft][1]  
+	contributor of the Arduino sketch code for this project  
+
+* Paul Boyle  
+	contributor of the hardware frame for this project  
+
+* Paul Lawlor  
+	contributor of the hardware frame for this project  
 
 
 Contact
 ------------------------
 * CharmySoft: [*http://www.CharmySoft.com/*][1]  
 * About: [*http://www.CharmySoft.com/about.htm*][3]  
-* Email: [Charlie@CharmySoft.com](mailto:Charlie@CharmySoft.com)  
+* Email: [*Charlie@CharmySoft.com*](mailto:Charlie@CharmySoft.com)  
 
 [1]: http://www.CharmySoft.com/ "CharmySoft"
 [2]: http://www.CharmySoft.com/app/skittle-sorter.htm "Skittle Color Sorter"
