@@ -5,10 +5,6 @@
   assembled.
 */
 
-// The circuit:
-// * Top Servo
-//    Digital pin 13
-#define PIN_TOP_SERVO 13
 // * Bottom Servo (Arm)
 //    Digital pin 10
 #define PIN_BTM_SERVO 10
@@ -47,10 +43,6 @@
 #define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
 #define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
 #define C_ALLOWED_COLOR_VARIANCE 48 // Allowed color variance for color detection
-#define C_RETRY_UNKNOWN_COLOR 2 // If the color cannot be detected, retry this many times 
-
-#define F_TOP_SERVO_TIMEOUT_ENABLED true // Enable the timeout for the top servo
-#define C_TOP_SERVO_TIMEOUT 6000 // Timeout to determine if the top servo is stuck
 
 #define C_COLOR_SIGNAL_TIME 3000 // Each Skittle gets 1s color view signal
 
@@ -59,6 +51,7 @@
 #include <Servo.h>              // Servos
 #include "Adafruit_TCS34725.h"  // Color Sensor
 #include "C_Color.h"            // Color operations
+#include "TopServo.h"           // Top Servo
 
 // Calibrated Skittle's Colors
 // These are the skittle's colors
@@ -73,15 +66,13 @@ const C_Color colorList [] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, 
 
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4,
                   PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
-Servo servoTop; // Declare the object for the top continuous rotation servo
+TopServo servoTop; // Declare the object for the top continuous rotation servo
 Servo servoBtm; // Declare the object for the bottom standard servo
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X); // Initialize the color sensor object
 
 int skittleCount = 0; // The number of skittles sorted
 unsigned long lastSkittleTime = 0; // Time when the last skittle was being sorted
 static boolean isColorBeingMeasured = false; // Is the color sensor measuring a Skittle right now
-boolean isRemeasuring = false; // Is the color being re-measured
-int remeasuringReverseDirection = false; // The top servo's direction when remeasuring the color
 byte colorResults [256]; // An array to store all the detected colors;
 #define RESULT_UNKNOWN 255
 #define HAS_RESULT(color_index) (color_index >= 0 && color_index < sizeof(colorList))
@@ -94,7 +85,7 @@ void setup() {
   lcd.begin(16, 2);
 
   // Attach the servos on corresponding pins to the servo objects
-  servoTop.attach(PIN_TOP_SERVO);
+  servoTop.setup();
   servoBtm.attach(PIN_BTM_SERVO);
 
   if (!tcs.begin()) {
@@ -108,35 +99,6 @@ void setup() {
   // Set every element in colorResults to RESULT_NO_DATA_YET
   for (int i = 0; i < sizeof(colorResults); i++) {
     colorResults[i] = RESULT_UNKNOWN;
-  }
-
-}
-
-void updateTopServo() {
-  static boolean reverseDirection = false;
-  // Check if the color is being re-measured
-  if (isRemeasuring) {
-    boolean drct = remeasuringReverseDirection;
-    if (reverseDirection) drct = !drct;
-    servoTop.write(drct ? 180 : 0);
-  } else {
-    // Set the speed of the top servo
-    // with 0 being full-speed in one direction, 180 being full speed in the other, and a value near 90 being no movement.
-    servoTop.write(reverseDirection ? 180 : 0);
-  }
-
-  // If the top servo gets stuck
-  if (F_TOP_SERVO_TIMEOUT_ENABLED && millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT) {
-    Serial.println("Top servo is stuck; Direction reversed.");
-    // Reserve the top servo's direction
-    reverseDirection = true;
-
-    lastSkittleTime = millis();
-  }
-
-  if (F_TOP_SERVO_TIMEOUT_ENABLED && reverseDirection && millis() - lastSkittleTime > 1000) {
-    // Set direction back to normal after 1s
-    reverseDirection = false;
   }
 
 }
@@ -181,16 +143,12 @@ void __calibrating(C_Color new_color) {
 }
 
 void analyzeColor(C_Color best_color) {
-  // How many times have tried to detect the color
-  static int retried = 0;
   if (!F_CALI_EMPTY_HOLE && best_color.compare(C_COLOR_EMPTY).aggregate() < 16
       && abs(int(best_color.c) - int(C_COLOR_EMPTY.c)) < 32) {
     // If this is an empty hole.
     Serial.println("Empty hole");
-    if (isRemeasuring) {
-      isRemeasuring = false;
-      remeasuringReverseDirection = false;
-      retried = 0;
+    if (servoTop.isRemeasuring()) {
+      servoTop.stopRemeasuring();
     }
   } else {
     Serial.println("A Skittle has been detected!");
@@ -232,30 +190,13 @@ void analyzeColor(C_Color best_color) {
       colorResults[skittleCount] = temp_result;
     }
 
-    if (!HAS_RESULT(colorResults[skittleCount]) && retried < C_RETRY_UNKNOWN_COLOR ) {
+    if (!HAS_RESULT(colorResults[skittleCount])) {
       // If color cannot be detected, try again
-      retried++;
-      isRemeasuring = true;
-      Serial.println("Color cannot be determined. Go back and re-measure it.");
-    }
-    if (isRemeasuring) {
-      remeasuringReverseDirection = !remeasuringReverseDirection;
-      Serial.print("The top servo is now going ");
-      Serial.println(remeasuringReverseDirection ? "backwards" : "forwards");
-      if (HAS_RESULT(colorResults[skittleCount])) {
-        // If we've got a result on re-measurement
+      servoTop.remeasureColor();
+    }else{
+      if(servoTop.isRemeasuring()){
         Serial.println("We've got the color on re-measurement.");
-        isRemeasuring = false;
-        remeasuringReverseDirection = false;
-        retried = 0;
-      }
-      if (retried >= C_RETRY_UNKNOWN_COLOR) {
-        // If tried many times still can't get the color
-        // Just f*ck it cuz we ain't gonna get color however we try
-        Serial.println("re-measurement still couldn't get the color.");
-        isRemeasuring = false;
-        remeasuringReverseDirection = false;
-        retried = 0;
+        servoTop.stopRemeasuring();
       }
     }
 #endif
@@ -263,7 +204,7 @@ void analyzeColor(C_Color best_color) {
   // Serial.println("Finish measuring.");
   isColorBeingMeasured = false;
   lastSkittleTime = millis();
-  if (!isRemeasuring && HAS_RESULT(colorResults[skittleCount])) {
+  if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
     skittleCount++;
   }
 }
@@ -361,7 +302,7 @@ void loop() {
   lcd.print(skittleCount, DEC);
 
   // Update the top servo
-  updateTopServo();
+  servoTop.update(lastSkittleTime);
 
   // Update the bottom servo (arm)
   updateBtmServo();
