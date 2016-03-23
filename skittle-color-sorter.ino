@@ -36,6 +36,8 @@
 #define PIN_LCD_D7 2
 //    LCD R/W pin to ground
 
+// Uncomment the following line to enter calibration mode
+// #define F_CALIBRATING true // Is calibration in progress
 
 // Constants
 #define C_ATIME TCS34725_INTEGRATIONTIME_154MS //  Color sensor integration time 154ms
@@ -50,9 +52,6 @@
 
 #define C_COLOR_SIGNAL_TIME 1000 // Each Skittle gets 1s color view signal
 
-// Uncomment the following line to enter calibration mode
-// #define F_CALIBRATING true // Is calibration in progress
-
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
 #include <Servo.h>              // Servos
@@ -62,23 +61,19 @@
 // Calibrated Skittle's Colors
 // These are the skittle's colors
 #define C_COLOR_EMPTY C_Color(61, 88, 72)
-#define C_SKITTLE_GREEN C_Color(64, 109, 51)
 #define C_SKITTLE_RED C_Color(97, 62, 55)
+#define C_SKITTLE_GREEN C_Color(64, 109, 51)
 #define C_SKITTLE_YELLOW C_Color(88, 91, 36)
 #define C_SKITTLE_PURPLE C_Color(65, 74, 77)
 #define C_SKITTLE_ORANGE C_Color(107, 66, 40)
 
 const C_Color colorList [] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
 
-// Initialize the display with the numbers of the interface pins
-LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7);
-// Create the object for the top continuous rotation servo
-Servo servoTop;
-// Create the object for the bottom standard servo
-Servo servoBtm;
-// Create the color sensor object
-Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X);
-
+LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, 
+  PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
+Servo servoTop; // Declare the object for the top continuous rotation servo
+Servo servoBtm; // Declare the object for the bottom standard servo
+Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X); // Initialize the color sensor object
 
 int skittleCount = 0; // The number of skittles sorted
 unsigned long lastSkittleTime = 0; // Time when the last skittle was being sorted
@@ -133,7 +128,8 @@ void updateBtmServo() {
 #define MIN_BTM_ANGLE 30 // Minimum bottom servo angle
 #define NUM_OF_CUPS 5 // The number of cups at the bottom
 #define EACH_CUP_ANGLE_INTERVAL ((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)
-  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * sortingResult;
+  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * 
+    (sortingResult == -1? int(NUM_OF_CUPS/2): sortingResult);
   servoBtm.write(btmAngle);
 }
 
@@ -146,7 +142,7 @@ void __calibrating(C_Color new_color) {
   int diff = avg_c.compare(new_color).aggregate();
   Serial.print("Diff: "); Serial.println(diff);
   if (diff > C_ALLOWED_COLOR_VARIANCE) {
-    Serial.println("Difference too big. This data is discarded.");
+    Serial.println("Difference too big. This sample data is discarded.");
   } else {
     avg_c.r = (avg_c.r * count + new_color.r) / (count + 1);
     avg_c.g = (avg_c.g * count + new_color.g) / (count + 1);
@@ -155,8 +151,6 @@ void __calibrating(C_Color new_color) {
     Serial.println("Average color:");
     avg_c.print();
   }
-
-
 }
 
 void updateColorSensor() {
@@ -183,11 +177,8 @@ void updateColorSensor() {
       min_clear = colors.c;
       best_color = colors;
     }
-
     if (colors.c > C_HOLE_CLEAR) {
-
       best_color.maximize(); // Maximize color
-
       if (best_color.compare(C_COLOR_EMPTY).aggregate() < 16) {
         // If this is an empty hole.
         Serial.println("Empty hole");
@@ -197,37 +188,39 @@ void updateColorSensor() {
         //Serial.println("Maximized colors:");
         //best_color.print();
 
-        if (F_CALIBRATING) {
+        #if F_CALIBRATING 
           // If we are calibrating colors
           __calibrating(best_color);
-        } else {
-
-          int min_diff = C_ALLOWED_COLOR_VARIANCE;
-          sortingResult = -1;
+        #else
+          // Compare the reported color with the pre-defined colors in the colorList
+          // and set the result to the color with the least color variance, if the 
+          // variance is still under the allowed variance range (C_ALLOWED_COLOR_VARIANCE)
+    
+          int min_diff = C_ALLOWED_COLOR_VARIANCE; // Set the mininum difference to the allowed color variance
+          sortingResult = -1; // Set the result to -1
+           
           for (int i = 0; i < sizeof(colorList) / 8; i++) {
+            // Compare the reported color with the color defined in the colorList
             C_Color diff = best_color.compare(colorList[i]);
+            
+            // Add the color difference's primary colors (R + G + B) together
             int agg = diff.aggregate();
+            // Check if the aggregated color difference value is less than the minimum color difference
             if (agg < min_diff) {
-              min_diff = agg;
-              sortingResult = i;
-            }
+              // If this is less than the minimun
+              min_diff = agg; // Set the minimun difference to this aggregated color difference
+              sortingResult = i; // Set the result to this color's index
+            }            
           }
-
-        }
-
+        #endif
       }
-
       // Serial.println("Finish measuring.");
       isColorBeingMeasured = false;
       lastSkittleTime = millis();
-
-
     }
   }
 
   // printColors(r, g, b, c);
-
-
 }
 
 void updateColorView() {
