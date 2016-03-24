@@ -1,7 +1,7 @@
 /*
-  Bottom Servo
+  Color View
 
-  This class defines the standard servo at the top
+  This class defines the color LED output
 
 */
 #ifndef  _COLOR_VIEW_H_

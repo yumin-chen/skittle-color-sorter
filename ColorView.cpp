@@ -1,7 +1,7 @@
 /*
-  Bottom Servo
+  Color View
 
-  This class defines the standard servo at the bottom
+  This class defines the color LED output
 
 */
 
@@ -14,7 +14,7 @@
 //    Blue pin to diginal pin 6
 #define PIN_COLOR_BLUE 6
 
-#define C_COLOR_SIGNAL_TIME 3000 // Each Skittle gets 1s color view signal
+#define C_COLOR_SIGNAL_TIME 3000 // Each Skittle gets 3s color view signal
 
 #include "ColorView.h"
 
