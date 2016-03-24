@@ -30,7 +30,7 @@ C_Color C_Color::compare(C_Color compared_color){
 	return C_Color(color_diff_r, color_diff_g, color_diff_b);
 }
 
-int C_Color::aggregate(){
+int C_Color::aggregate() const{
 	/* Returns the sum of all primary color elements.
 	*/
 	return r + g + b;
@@ -45,7 +45,7 @@ void C_Color::maximize(){
 }
 
 
-void C_Color::print(){
+void C_Color::print() const{
 	/* Prints color values.
 	*/
 	Serial.print("R: "); Serial.print(r, DEC); Serial.print(" ");

@@ -51,8 +51,6 @@ void ColorView::update(){
 void ColorView::write(const C_Color& c){
   /* Writes the analog color values. 
   */
-  Serial.print("Writing out signal: ");
-  C_Color(c).print();
   analogWrite(PIN_COLOR_RED, (c.r));
   analogWrite(PIN_COLOR_GREEN, (c.g));
   analogWrite(PIN_COLOR_BLUE, (c.b));
