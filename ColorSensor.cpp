@@ -41,7 +41,7 @@ void ColorSensor::update(TopServo& servoTop){
   getRawData(&r, &g, &b, &c);
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
-  colors.print();
+  //colors.print();
   // Check if the hole arrives at the color sensor
   if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured && millis() - lastSkittleTime > 1000) {
     //Serial.println(millis() - lastSkittleTime);
@@ -49,6 +49,7 @@ void ColorSensor::update(TopServo& servoTop){
     // Serial.println("Start measuring this Skittle's color.");
     isColorBeingMeasured = true;
     min_clear = C_HOLE_CLEAR;
+    best_color = colors;
   }
   // Check if a Skittle's color is being measured right now
   if (isColorBeingMeasured) {
@@ -60,12 +61,16 @@ void ColorSensor::update(TopServo& servoTop){
     }
     // If the skittle moves away and there's nothing left for the color sensor there
     if (colors.c > C_HOLE_CLEAR || (colors.c - min_clear) > C_ALLOWED_COLOR_VARIANCE) {
-      //best_color.print();
       best_color.maximize(); // Maximize color
-      //best_color.print();
+      best_color.print();
 
       // Analyze the color
-      analyzeColor(servoTop);
+      analyzeColor(servoTop); 
+      // Serial.println("Finish measuring.");
+      isColorBeingMeasured = false;
+      if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
+        skittleCount++;
+      }
     }
   }
 
@@ -151,10 +156,5 @@ void ColorSensor::analyzeColor(TopServo& servoTop) {
       }
     }
 #endif
-  }
-  // Serial.println("Finish measuring.");
-  isColorBeingMeasured = false;
-  if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
-    skittleCount++;
   }
 }
