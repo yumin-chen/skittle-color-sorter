@@ -20,7 +20,7 @@ BottomServo   Context::servoBtm;          // The bottom standard servo
 ColorView     Context::colorView;         // The color LED
 ColorSensor   Context::colorSensor;       // The Adafruit color sensor
 
-const C_Color Context::colorList [SKITTLE_COLORS] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
+const C_Color Context::colorList [] = { COLORS_DEFINITION };
 int Context::skittleCount = 0;
 unsigned long Context::lastSkittleTime = 0;
 boolean Context::isColorBeingMeasured = false;

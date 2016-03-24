@@ -15,7 +15,7 @@
 
 // Constants
 #define C_ATIME TCS34725_INTEGRATIONTIME_154MS //  Color sensor integration time 154ms
-#define C_CYCLES (256-C_ATIME) // Color sensor cycles according to the integration time
+#define C_CYCLES (256 - C_ATIME) // Color sensor cycles according to the integration time
 
 #define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
 #define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
@@ -111,8 +111,9 @@ void ColorSensor::calibrating(C_Color new_color) {
 }
 
 void ColorSensor::analyzeColor() {
-  if (!F_CALI_EMPTY_HOLE && best_color.compare(C_COLOR_EMPTY).aggregate() < 16
-      && abs(int(best_color.c) - int(C_COLOR_EMPTY.c)) < 32) {
+  // Compare the best color with the colorList and get the closest result
+  colorResult temp_result = compareWithColorList(best_color);
+  if(!F_CALI_EMPTY_HOLE && temp_result == RESULT_EMPTY){
     // If this is an empty hole.
     Serial.println("Empty hole");
     if (servoTop.isRemeasuring()) {
@@ -127,25 +128,6 @@ void ColorSensor::analyzeColor() {
     // If we are calibrating colors
     calibrating(best_color);
 #else
-    // Compare the reported color with the pre-defined colors in the colorList
-    // and set the result to the color with the least color variance, if the
-    // variance is still under the allowed variance range (C_ALLOWED_COLOR_VARIANCE)
-
-    int min_diff = C_ALLOWED_COLOR_VARIANCE; // Set the mininum difference to the allowed color variance
-    colorResult temp_result = RESULT_UNKNOWN;
-    for (int i = 0; i < sizeof(colorList) / 8; i++) {
-      // Compare the reported color with the color defined in the colorList
-      C_Color diff = best_color.compare(colorList[i]);
-
-      // Add the color difference's primary colors (R + G + B) together
-      int agg = diff.aggregate();
-      // Check if the aggregated color difference value is less than the minimum color difference
-      if (agg < min_diff) {
-        // If this is less than the minimun
-        min_diff = agg; // Set the minimun difference to this aggregated color difference
-        temp_result = static_cast<colorResult>(i);; // Set the result to this color's index
-      }
-    }
 
     // Check if the clear value is out of allowed range
     if (HAS_RESULT(temp_result) && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
@@ -169,4 +151,29 @@ void ColorSensor::analyzeColor() {
     }
 #endif
   }
+}
+
+colorResult ColorSensor::compareWithColorList(C_Color color) {
+  /* Compares the color with the pre-defined colors in the colorList
+  and returns the result that is the closest to the source color. 
+  Returns RESULT_UNKNOWN if no color in the colorList is matched.
+  */
+
+  // Set the mininum difference to the allowed color variance
+  int min_diff = C_ALLOWED_COLOR_VARIANCE; 
+  // Set the temperary result to RESULT_UNKNOWN
+  colorResult temp_result = RESULT_UNKNOWN;
+  for (int i = 0; i < COLOR_LIST_SIZE; i++) {
+    // Compare the source color with the color defined in the colorList
+    C_Color diff = color.compare(colorList[i]);
+    // Add the color difference's primary colors (R + G + B) together
+    int agg = diff.aggregate();
+    // Check if the aggregated color difference value is less than the minimum color difference
+    if (agg < min_diff) {
+      // If this is less than the minimun
+      min_diff = agg; // Set the minimun difference to this aggregated color difference
+      temp_result = static_cast<colorResult>(i);; // Set the result to this color's index
+    }
+  }
+  return temp_result;
 }

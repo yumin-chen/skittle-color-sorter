@@ -6,28 +6,34 @@
 
 #include "C_Color.h"
 
-#define SKITTLE_COLORS 5 // Types of colors of Skittles
-
 // Calibrated Skittle's Colors
 // These are the skittle's colors
-#define C_COLOR_EMPTY		C_Color(66, 89, 71, 170)	/* Empty hole		*/
-#define C_SKITTLE_RED		C_Color(97, 73, 62, 117)	/* Red Skittle		*/
-#define C_SKITTLE_GREEN		C_Color(58, 106, 54, 148)	/* Green Skittle	*/
-#define C_SKITTLE_YELLOW	C_Color(90, 90, 34, 210)	/* Yellow Skittle	*/
-#define C_SKITTLE_PURPLE	C_Color(65, 84, 81, 122)	/* Purple Skittle	*/
-#define C_SKITTLE_ORANGE	C_Color(122, 64, 40, 154) 	/* Orange Skittle	*/
+#define COLORS_DEFINITION \
+	/* Put your valid colors first*/\
+	COLOR_DEF( RESULT_RED,		C_Color(97, 73, 62, 117) ),		/* Red Skittle		*/\
+	COLOR_DEF( RESULT_GREEN,	C_Color(58, 106, 54, 148) ),	/* Green Skittle	*/\
+	COLOR_DEF( RESULT_YELLOW,	C_Color(90, 90, 34, 210) ),		/* Yellow Skittle	*/\
+	COLOR_DEF( RESULT_PURPLE,	C_Color(65, 84, 81, 122) ),		/* Purple Skittle	*/\
+	COLOR_DEF( RESULT_ORANGE,	C_Color(122, 64, 40, 154) ),	/* Orange Skittle	*/\
+	/* Don't forget to exclude these invalid colors in the HAS_COLOR macro function */\
+	COLOR_DEF( RESULT_EMPTY,	C_Color(66, 89, 71, 170) )		/* Empty hole		*/
 
-typedef enum : uint8_t
-{
-	RESULT_RED				= 0x00,		/* Red Skittle		*/
-	RESULT_GREEN			= 0x01,		/* Green Skittle	*/
-	RESULT_YELLOW			= 0x02,		/* Yellow Skittle	*/
-	RESULT_PURPLE			= 0x03,		/* Purple Skittle	*/
-	RESULT_ORANGE			= 0x04,		/* Orange Skittle	*/
-	RESULT_UNKNOWN			= 0x7F		/* Unknown Color	*/
+// Use macro to generate the colorResult enum
+#define COLOR_DEF( identifier, color )  identifier
+typedef enum : uint8_t 
+{ 
+	COLORS_DEFINITION,
+	RESULT_UNKNOWN			/* Add a special key for unknown colors */
 } colorResult;
+#undef COLOR_DEF
 
-#define HAS_RESULT(result) (result != RESULT_UNKNOWN)
+#define COLOR_LIST_SIZE RESULT_UNKNOWN 
+
+// Define a macro that can be later used to generate the colorResult enum-indexed colorList constant array
+#define COLOR_DEF( identifier, color )  color
+
+// Define a macro function to check if the result is a valid color
+#define HAS_RESULT(result) (result != RESULT_UNKNOWN && result != RESULT_EMPTY)
 
 // Declare some of the components
 class LCD;
@@ -44,7 +50,7 @@ public:
 	static ColorView colorView;
 	static ColorSensor colorSensor; 
 
-	static const C_Color colorList [SKITTLE_COLORS];
+	static const C_Color colorList [];
 	static int skittleCount; // The number of skittles sorted
 	static unsigned long lastSkittleTime; // Time when the last skittle was being sorted
 	static boolean isColorBeingMeasured; // Is the color sensor measuring a Skittle right now

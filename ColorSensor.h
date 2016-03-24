@@ -20,6 +20,7 @@ public:
 private:
 	void calibrating(C_Color);
 	void analyzeColor();
+	colorResult compareWithColorList(C_Color);
 	C_Color best_color = C_Color(0, 0, 0);
 };
 
