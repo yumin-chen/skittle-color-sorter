@@ -8,12 +8,6 @@
 // * Color Sensor
 //    SDA pin to analog pin 4
 //    SCL pin to analog pin 5
-//    Color View Red pin to diginal pin 7
-//    Color View Green pin to diginal pin 9
-//    Color View Blue pin to diginal pin 6
-#define PIN_COLOR_RED 7
-#define PIN_COLOR_GREEN 9
-#define PIN_COLOR_BLUE 6
 // * LCD
 //    RS pin to digital pin 12
 #define PIN_LCD_RS 12
@@ -42,8 +36,6 @@
 #define C_ALLOWED_COLOR_VARIANCE 64 // Allowed color variance for color detection
 #define C_ALLOWED_CLEAR_VARIANCE 128 // Allowed clear variance for color detection
 
-#define C_COLOR_SIGNAL_TIME 3000 // Each Skittle gets 1s color view signal
-
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
 #include <Servo.h>              // Servos
@@ -51,12 +43,14 @@
 #include "C_Color.h"            // Color operations
 #include "TopServo.h"           // Top Servo
 #include "BottomServo.h"        // Bottom Servo
-#include "Context.h"             // Global variables
+#include "ColorView.h"          // Color View
+#include "Context.h"            // Context (global variables)
 
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4,
                   PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
 TopServo servoTop; // Declare the object for the top continuous rotation servo
 BottomServo servoBtm; // Declare the object for the bottom standard servo
+ColorView colorView; // Declare the object for the color output LED
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X); // Initialize the color sensor object
 
 const C_Color Context::colorList [SKITTLE_COLORS] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
@@ -218,55 +212,6 @@ void updateColorSensor() {
   // printColors(r, g, b, c);
 }
 
-void updateColorView() {
-  static int index = 0;
-  unsigned long lastColorSignalTime = 0;
-  if (HAS_RESULT(Context::colorResults[index])) {
-    lastColorSignalTime = millis();
-    switch (Context::colorResults[index]) {
-      case 0:
-        Serial.println("RED");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 0);
-        analogWrite(PIN_COLOR_BLUE, 0);
-        break;
-      case 1:
-        Serial.println("GREEN");
-        analogWrite(PIN_COLOR_RED, 0);
-        analogWrite(PIN_COLOR_GREEN, 255);
-        analogWrite(PIN_COLOR_BLUE, 0);
-        break;
-      case 2:
-        Serial.println("YELLOW");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 255);
-        analogWrite(PIN_COLOR_BLUE, 0);
-        break;
-      case 3:
-        Serial.println("PURPLE");
-        analogWrite(PIN_COLOR_RED, 128);
-        analogWrite(PIN_COLOR_GREEN, 32);
-        analogWrite(PIN_COLOR_BLUE, 128);
-        break;
-      case 4:
-        Serial.println("ORANGE");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 128);
-        analogWrite(PIN_COLOR_BLUE, 32);
-        break;
-    }
-    index++;
-  }
-
-  // Check if the color view signal has lasted enough time
-  if (millis() - lastColorSignalTime > C_COLOR_SIGNAL_TIME) {
-    // Set it back to black
-    analogWrite(PIN_COLOR_RED, 0);
-    analogWrite(PIN_COLOR_GREEN, 0);
-    analogWrite(PIN_COLOR_BLUE, 0);
-  }
-}
-
 void loop() {
   lcd.clear();
   lcd.print("Count: ");
@@ -282,6 +227,6 @@ void loop() {
   updateColorSensor();
 
   // Update the color view LED output
-  updateColorView();
+  colorView.update();
 
 }
