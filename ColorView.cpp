@@ -47,7 +47,19 @@ void ColorView::update(){
 void ColorView::write(const C_Color& c){
   /* Writes the analog color values. 
   */
-  analogWrite(PIN_COLOR_RED, c.r);
-  analogWrite(PIN_COLOR_GREEN, c.g);
-  analogWrite(PIN_COLOR_BLUE, c.b);
+  C_Color maxmized_color = c;
+  maxmized_color.maximize();
+  analogWrite(PIN_COLOR_RED, colorCorrect(maxmized_color.r));
+  analogWrite(PIN_COLOR_GREEN, colorCorrect(maxmized_color.g));
+  analogWrite(PIN_COLOR_BLUE, colorCorrect(maxmized_color.b));
+}
+
+uint8_t ColorView::colorCorrect(uint8_t i){
+  /*  RGB -> gamma color correction
+  */
+  float x = i;
+  x /= 255;
+  x = pow(x, 2.5);
+  x *= 255;
+  return 256 - x;
 }
