@@ -12,7 +12,7 @@
 
 #define F_TOP_SERVO_TIMEOUT_ENABLED true // Enable the timeout for the top servo
 #define C_TOP_SERVO_TIMEOUT 6000 // Timeout to determine if the top servo is stuck
-#define C_RETRY_UNKNOWN_COLOR 0 // If the color cannot be detected, how many times should retry. If 0, no retry.
+#define C_RETRY_UNKNOWN_COLOR 1 // If the color cannot be detected, how many times should retry. If 0, no retry.
 
 #include "TopServo.h"
 

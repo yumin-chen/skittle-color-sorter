@@ -23,20 +23,20 @@
 
 // Include libraries
 #include <LiquidCrystal.h>      // LCD display
+#include "Context.h"            // Context (global variables)
 #include "TopServo.h"           // Top Servo
 #include "BottomServo.h"        // Bottom Servo
 #include "ColorView.h"          // Color View
 #include "ColorSensor.h"        // Color Sensor
-#include "Context.h"            // Context (global variables)
 
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4,
                   PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
 
 // Initialize global variables
-TopServo servoTop; 
-BottomServo servoBtm; 
-ColorView colorView;
-ColorSensor colorSensor; 
+TopServo Context::servoTop; 
+BottomServo Context::servoBtm; 
+ColorView Context::colorView;
+ColorSensor Context::colorSensor; 
 const C_Color Context::colorList [SKITTLE_COLORS] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
 int Context::skittleCount = 0;
 unsigned long Context::lastSkittleTime = 0;
@@ -52,10 +52,10 @@ void setup() {
   lcd.begin(16, 2);
 
   // Set up the servos
-  servoTop.setup();
-  servoBtm.setup();
+  Context::servoTop.setup();
+  Context::servoBtm.setup();
 
-  if (!colorSensor.begin()) {
+  if (!Context::colorSensor.begin()) {
     // If the color sensor failed to initialize, print out an error
     lcd.print("ERR: Color Sensor Connection");
     while (1);
@@ -76,15 +76,15 @@ void loop() {
   lcd.print(Context::skittleCount, DEC);
 
   // Update the top servo
-  servoTop.update();
+  Context::servoTop.update();
 
   // Update the bottom servo (arm)
-  servoBtm.update();
+  Context::servoBtm.update();
 
   // Update the color sensor
-  colorSensor.update(servoTop);
+  Context::colorSensor.update();
 
   // Update the color view LED output
-  colorView.update();
+  Context::colorView.update();
 
 }

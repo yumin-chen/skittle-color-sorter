@@ -30,7 +30,7 @@ ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) // Ini
 {
 }
 
-void ColorSensor::update(TopServo& servoTop){
+void ColorSensor::update(){
 	/* This function should be called on the main loop. 
 	*/
 
@@ -65,7 +65,7 @@ void ColorSensor::update(TopServo& servoTop){
       best_color.print();
 
       // Analyze the color
-      analyzeColor(servoTop); 
+      analyzeColor(); 
       // Serial.println("Finish measuring.");
       isColorBeingMeasured = false;
       if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
@@ -98,7 +98,7 @@ void ColorSensor::calibrating(C_Color new_color) {
   }
 }
 
-void ColorSensor::analyzeColor(TopServo& servoTop) {
+void ColorSensor::analyzeColor() {
   if (!F_CALI_EMPTY_HOLE && best_color.compare(C_COLOR_EMPTY).aggregate() < 16
       && abs(int(best_color.c) - int(C_COLOR_EMPTY.c)) < 32) {
     // If this is an empty hole.

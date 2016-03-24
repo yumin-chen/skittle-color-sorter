@@ -20,8 +20,19 @@
 #define RESULT_UNKNOWN 255
 #define HAS_RESULT(color_index) (color_index >= 0 && color_index < SKITTLE_COLORS)
 
+// Declare some of the components
+class TopServo;
+class BottomServo;
+class ColorView;
+class ColorSensor;
+
 class Context{
 public:
+	static TopServo servoTop; 
+	static BottomServo servoBtm; 
+	static ColorView colorView;
+	static ColorSensor colorSensor; 
+
 	static const C_Color colorList [SKITTLE_COLORS];
 	static int skittleCount; // The number of skittles sorted
 	static unsigned long lastSkittleTime; // Time when the last skittle was being sorted
