@@ -9,13 +9,14 @@
 
 #include <Arduino.h>
 #include <Servo.h>
+#include "global.h"
 
 class TopServo : public Servo 
 {
 public:
   TopServo();
   void setup();
-  void update(unsigned long);
+  void update(global*);
   void remeasureColor();
   void stopRemeasuring();
   boolean isRemeasuring();

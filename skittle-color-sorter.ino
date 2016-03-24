@@ -53,6 +53,7 @@
 #include "Adafruit_TCS34725.h"  // Color Sensor
 #include "C_Color.h"            // Color operations
 #include "TopServo.h"           // Top Servo
+#include "global.h"             // Global variables
 
 // Calibrated Skittle's Colors
 // These are the skittle's colors
@@ -71,14 +72,13 @@ TopServo servoTop; // Declare the object for the top continuous rotation servo
 Servo servoBtm; // Declare the object for the bottom standard servo
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X); // Initialize the color sensor object
 
-int skittleCount = 0; // The number of skittles sorted
-unsigned long lastSkittleTime = 0; // Time when the last skittle was being sorted
-static boolean isColorBeingMeasured = false; // Is the color sensor measuring a Skittle right now
-byte colorResults [256]; // An array to store all the detected colors;
+global *env; // Declare a pointer for global variables
+
 #define RESULT_UNKNOWN 255
 #define HAS_RESULT(color_index) (color_index >= 0 && color_index < sizeof(colorList))
 
 void setup() {
+  
   // Set up the serial for debugging purposes
   Serial.begin(9600);
 
@@ -97,9 +97,9 @@ void setup() {
 
   lcd.print("Color Sorter");
 
-  // Set every element in colorResults to RESULT_NO_DATA_YET
-  for (int i = 0; i < sizeof(colorResults); i++) {
-    colorResults[i] = RESULT_UNKNOWN;
+  // Set every element in env->colorResults to RESULT_NO_DATA_YET
+  for (int i = 0; i < sizeof(env->colorResults); i++) {
+    env->colorResults[i] = RESULT_UNKNOWN;
   }
 
 }
@@ -111,10 +111,10 @@ void updateBtmServo() {
 #define NUM_OF_CUPS 5 // The number of cups at the bottom
 #define EACH_CUP_ANGLE_INTERVAL ((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)
   int result;
-  if (skittleCount > 1 && HAS_RESULT(colorResults[skittleCount - 1])) {
-    result = colorResults[skittleCount - 1];
-  } else if (skittleCount > 2) {
-    result = colorResults[skittleCount - 2];
+  if (env->skittleCount > 1 && HAS_RESULT(env->colorResults[env->skittleCount - 1])) {
+    result = env->colorResults[env->skittleCount - 1];
+  } else if (env->skittleCount > 2) {
+    result = env->colorResults[env->skittleCount - 2];
   } else {
     result = 2;
   }
@@ -188,10 +188,10 @@ void analyzeColor(C_Color best_color) {
 
     // If we've got a temp result
     if (temp_result != -1) {
-      colorResults[skittleCount] = temp_result;
+      env->colorResults[env->skittleCount] = temp_result;
     }
 
-    if (!HAS_RESULT(colorResults[skittleCount])) {
+    if (!HAS_RESULT(env->colorResults[env->skittleCount])) {
       // If color cannot be detected, try again
       servoTop.remeasureColor();
     }else{
@@ -203,9 +203,9 @@ void analyzeColor(C_Color best_color) {
 #endif
   }
   // Serial.println("Finish measuring.");
-  isColorBeingMeasured = false;
-  if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
-    skittleCount++;
+  env->isColorBeingMeasured = false;
+  if (!servoTop.isRemeasuring() && HAS_RESULT(env->colorResults[env->skittleCount])) {
+    env->skittleCount++;
   }
 }
 
@@ -219,15 +219,15 @@ void updateColorSensor() {
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   // Check if the hole arrives at the color sensor
-  if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured && millis() - lastSkittleTime > 1000) {
-    //Serial.println(millis() - lastSkittleTime);
-    lastSkittleTime = millis();
+  if (colors.c < C_HOLE_CLEAR && !env->isColorBeingMeasured && millis() - env->lastSkittleTime > 1000) {
+    //Serial.println(millis() - env->lastSkittleTime);
+    env->lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
-    isColorBeingMeasured = true;
+    env->isColorBeingMeasured = true;
     min_clear = C_HOLE_CLEAR;
   }
   // Check if a Skittle's color is being measured right now
-  if (isColorBeingMeasured) {
+  if (env->isColorBeingMeasured) {
     // Try and reach the ideal clear value
     if (colors.c < min_clear && colors.c > C_IDEAL_CLEAR) {
       // The best color sample is picked when the clear is minimum while still larger than C_IDEAL_CLEAR
@@ -250,9 +250,9 @@ void updateColorSensor() {
 void updateColorView() {
   static int index = 0;
   unsigned long lastColorSignalTime = 0;
-  if (HAS_RESULT(colorResults[index])) {
+  if (HAS_RESULT(env->colorResults[index])) {
     lastColorSignalTime = millis();
-    switch (colorResults[index]) {
+    switch (env->colorResults[index]) {
       case 0:
         Serial.println("RED");
         analogWrite(PIN_COLOR_RED, 255);
@@ -299,10 +299,10 @@ void updateColorView() {
 void loop() {
   lcd.clear();
   lcd.print("Count: ");
-  lcd.print(skittleCount, DEC);
+  lcd.print(env->skittleCount, DEC);
 
   // Update the top servo
-  servoTop.update(lastSkittleTime);
+  servoTop.update(env);
 
   // Update the bottom servo (arm)
   updateBtmServo();
