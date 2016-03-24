@@ -21,7 +21,7 @@ ColorView     Context::colorView;         // The color LED
 ColorSensor   Context::colorSensor;       // The Adafruit color sensor
 
 // Use a macro to generate the colorResult enum-indexed colorList constant array
-#define COLOR_DEF( identifier, name, color )  color
+#define COLOR_DEF( identifier, name, color, color_view )  color
 const C_Color Context::colorList [] = { COLORS_DEFINITION };
 #undef COLOR_DEF
 

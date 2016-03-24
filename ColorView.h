@@ -19,7 +19,6 @@ public:
   void write(const C_Color&);
 
 private:
-  static uint8_t colorCorrect(uint8_t c);
 };
 
 #endif // _COLOR_VIEW_H_ 

@@ -28,11 +28,15 @@ void ColorView::update(){
   unsigned long lastColorSignalTime = 0;
   if (HAS_RESULT(colorResults[index])) {
     // Use a macro to generate the colorResult enum-indexed nameList constant array
-#define COLOR_DEF( identifier, name, color )  name
+#define COLOR_DEF( identifier, name, color, color_view )  name
     const String nameList [] = { COLORS_DEFINITION };
 #undef COLOR_DEF
+    // Use a macro to generate the colorResult enum-indexed colorViewList constant array
+#define COLOR_DEF( identifier, name, color, color_view )  color_view
+    const C_Color colorViewList [] = { COLORS_DEFINITION };
+#undef COLOR_DEF
     Serial.println(nameList[colorResults[index]]);
-    this->write(colorList[colorResults[index]]);
+    this->write(colorViewList[colorResults[index]]);
     index++;
     lastColorSignalTime = millis();
   }
@@ -47,19 +51,10 @@ void ColorView::update(){
 void ColorView::write(const C_Color& c){
   /* Writes the analog color values. 
   */
-  C_Color maxmized_color = c;
-  maxmized_color.maximize();
-  analogWrite(PIN_COLOR_RED, colorCorrect(maxmized_color.r));
-  analogWrite(PIN_COLOR_GREEN, colorCorrect(maxmized_color.g));
-  analogWrite(PIN_COLOR_BLUE, colorCorrect(maxmized_color.b));
+  Serial.print("Writing out signal: ");
+  C_Color(c).print();
+  analogWrite(PIN_COLOR_RED, (c.r));
+  analogWrite(PIN_COLOR_GREEN, (c.g));
+  analogWrite(PIN_COLOR_BLUE, (c.b));
 }
 
-uint8_t ColorView::colorCorrect(uint8_t i){
-  /*  RGB -> gamma color correction
-  */
-  float x = i;
-  x /= 255;
-  x = pow(x, 2.5);
-  x *= 255;
-  return 256 - x;
-}

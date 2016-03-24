@@ -10,16 +10,16 @@
 // These are the skittle's colors
 #define COLORS_DEFINITION \
 	/* Put your valid colors first*/\
-	COLOR_DEF( RESULT_RED,		"Red Skittle",		C_Color(97, 73, 62, 117) ),		/* Red Skittle		*/\
-	COLOR_DEF( RESULT_GREEN,	"Green Skittle",	C_Color(58, 106, 54, 148) ),	/* Green Skittle	*/\
-	COLOR_DEF( RESULT_YELLOW,	"Yellow Skittle",	C_Color(90, 90, 34, 210) ),		/* Yellow Skittle	*/\
-	COLOR_DEF( RESULT_PURPLE,	"Purple Skittle",	C_Color(65, 84, 81, 122) ),		/* Purple Skittle	*/\
-	COLOR_DEF( RESULT_ORANGE,	"Orange Skittle",	C_Color(122, 64, 40, 154) ),	/* Orange Skittle	*/\
+	COLOR_DEF( RESULT_RED,		"Red Skittle",		C_Color(97, 73, 62, 117),	C_Color(255, 0, 0) ),\
+	COLOR_DEF( RESULT_GREEN,	"Green Skittle",	C_Color(58, 106, 54, 148),	C_Color(0, 255, 0) ),\
+	COLOR_DEF( RESULT_YELLOW,	"Yellow Skittle",	C_Color(90, 90, 34, 210),	C_Color(128, 255, 0) ),\
+	COLOR_DEF( RESULT_PURPLE,	"Purple Skittle",	C_Color(65, 84, 81, 122),	C_Color(128, 192, 32) ),\
+	COLOR_DEF( RESULT_ORANGE,	"Orange Skittle",	C_Color(122, 64, 40, 154),	C_Color(255, 255, 0) ),\
 	/* Don't forget to exclude these invalid colors in the HAS_COLOR macro function */\
-	COLOR_DEF( RESULT_EMPTY,	"Empty hole",		C_Color(66, 89, 71, 170) )		/* Empty hole		*/
+	COLOR_DEF( RESULT_EMPTY,	"Empty hole",		C_Color(66, 89, 71, 170),	C_Color(0, 0, 0) )
 
 // Use macro to generate the colorResult enum
-#define COLOR_DEF( identifier, name, color )  identifier
+#define COLOR_DEF( identifier, name, color, color_view )  identifier
 typedef enum : uint8_t 
 { 
 	COLORS_DEFINITION,
