@@ -9,12 +9,7 @@
 
 #include <Arduino.h>
 #include "Adafruit_TCS34725.h"
-#include "C_Color.h"
 #include "Context.h"
-#include "TopServo.h"           // Top Servo
-#include "BottomServo.h"        // Bottom Servo
-#include "ColorView.h"          // Color View
-#include "ColorSensor.h"        // Color Sensor
 
 class ColorSensor : public Adafruit_TCS34725, private Context
 {
@@ -24,7 +19,7 @@ public:
 private:
 	void calibrating(C_Color);
 	void analyzeColor();
-  C_Color best_color = C_Color(0, 0, 0);
+	C_Color best_color = C_Color(0, 0, 0);
 };
 
 #endif // _COLOR_SENSOR_H_ 

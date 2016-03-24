@@ -22,8 +22,8 @@ ColorView::ColorView(){
 }
 
 void ColorView::update(){
-	/* This function should be called on the main loop. 
-	*/
+  /* This function should be called on the main loop. 
+  */
   static int index = 0;
   unsigned long lastColorSignalTime = 0;
   if (HAS_RESULT(colorResults[index])) {
@@ -31,23 +31,23 @@ void ColorView::update(){
     switch (colorResults[index]) {
       case 0:
         Serial.println("RED");
-    	this->write(255, 0, 0);
+        this->write(255, 0, 0);
         break;
       case 1:
         Serial.println("GREEN");
-    	this->write(0, 255, 0);
+        this->write(0, 255, 0);
         break;
       case 2:
         Serial.println("YELLOW");
-    	this->write(255, 255, 0);
+        this->write(255, 255, 0);
         break;
       case 3:
         Serial.println("PURPLE");
-    	this->write(128, 32, 128);
+        this->write(128, 32, 128);
         break;
       case 4:
         Serial.println("ORANGE");
-    	this->write(255, 128, 32);
+        this->write(255, 128, 32);
         break;
     }
     index++;
@@ -61,11 +61,9 @@ void ColorView::update(){
 }
 
 void ColorView::write(byte r, byte g, byte b){
-	/* Writes the analog color values. 
-	*/
-    analogWrite(PIN_COLOR_RED, r);
-    analogWrite(PIN_COLOR_GREEN, g);
-    analogWrite(PIN_COLOR_BLUE, b);
+  /* Writes the analog color values. 
+  */
+  analogWrite(PIN_COLOR_RED, r);
+  analogWrite(PIN_COLOR_GREEN, g);
+  analogWrite(PIN_COLOR_BLUE, b);
 }
-
-

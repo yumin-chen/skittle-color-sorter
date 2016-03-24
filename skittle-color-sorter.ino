@@ -5,34 +5,16 @@
   assembled.
 */
 
-
-// * LCD
-//    RS pin to digital pin 12
-#define PIN_LCD_RS 12
-//    Enable pin to digital pin 11
-#define PIN_LCD_ENABLE 11
-//    LCD D4 pin to digital pin 5
-#define PIN_LCD_D4 5
-//    LCD D5 pin to digital pin 4
-#define PIN_LCD_D5 4
-//    LCD D6 pin to digital pin 3
-#define PIN_LCD_D6 3
-//    LCD D7 pin to digital pin 2
-#define PIN_LCD_D7 2
-//    LCD R/W pin to ground
-
 // Include libraries
-#include <LiquidCrystal.h>      // LCD display
 #include "Context.h"            // Context (global variables)
+#include "LCD.h"                // LCD display
 #include "TopServo.h"           // Top Servo
 #include "BottomServo.h"        // Bottom Servo
 #include "ColorView.h"          // Color View
 #include "ColorSensor.h"        // Color Sensor
 
-LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4,
-                  PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
-
 // Initialize global variables
+LCD Context::lcd; 
 TopServo Context::servoTop; 
 BottomServo Context::servoBtm; 
 ColorView Context::colorView;
@@ -48,20 +30,17 @@ void setup() {
   // Set up the serial for debugging purposes
   Serial.begin(9600);
 
-  // Set up the LCD's number of columns and rows:
-  lcd.begin(16, 2);
-
   // Set up the servos
   Context::servoTop.setup();
   Context::servoBtm.setup();
 
   if (!Context::colorSensor.begin()) {
     // If the color sensor failed to initialize, print out an error
-    lcd.print("ERR: Color Sensor Connection");
+    Context::lcd.print("ERR: Color Sensor Connection");
     while (1);
   }
 
-  lcd.print("Color Sorter");
+  Context::lcd.print("Color Sorter");
 
   
     // Set every element in Context::colorResults to RESULT_UNKNOWN
@@ -71,9 +50,8 @@ void setup() {
 }
 
 void loop() {
-  lcd.clear();
-  lcd.print("Count: ");
-  lcd.print(Context::skittleCount, DEC);
+  // Update the LCD
+  Context::lcd.update();
 
   // Update the top servo
   Context::servoTop.update();

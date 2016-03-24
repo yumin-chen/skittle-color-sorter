@@ -12,6 +12,7 @@
 
 
 #include "ColorSensor.h"
+#include "TopServo.h"
 
 // Uncomment the following lines to enter calibration mode
 // #define F_CALIBRATING true // Is calibration in progress

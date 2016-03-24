@@ -21,6 +21,7 @@
 #define HAS_RESULT(color_index) (color_index >= 0 && color_index < SKITTLE_COLORS)
 
 // Declare some of the components
+class LCD;
 class TopServo;
 class BottomServo;
 class ColorView;
@@ -28,6 +29,7 @@ class ColorSensor;
 
 class Context{
 public:
+	static LCD lcd; 
 	static TopServo servoTop; 
 	static BottomServo servoBtm; 
 	static ColorView colorView;
