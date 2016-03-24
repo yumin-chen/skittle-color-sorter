@@ -27,43 +27,27 @@ void ColorView::update(){
   static int index = 0;
   unsigned long lastColorSignalTime = 0;
   if (HAS_RESULT(colorResults[index])) {
-    lastColorSignalTime = millis();
-    switch (colorResults[index]) {
-      case RESULT_RED:
-        Serial.println("RED");
-        this->write(255, 0, 0);
-        break;
-      case RESULT_GREEN:
-        Serial.println("GREEN");
-        this->write(0, 255, 0);
-        break;
-      case RESULT_YELLOW:
-        Serial.println("YELLOW");
-        this->write(255, 255, 0);
-        break;
-      case RESULT_PURPLE:
-        Serial.println("PURPLE");
-        this->write(128, 32, 128);
-        break;
-      case RESULT_ORANGE:
-        Serial.println("ORANGE");
-        this->write(255, 128, 32);
-        break;
-    }
+    // Use a macro to generate the colorResult enum-indexed nameList constant array
+#define COLOR_DEF( identifier, name, color )  name
+    const String nameList [] = { COLORS_DEFINITION };
+#undef COLOR_DEF
+    Serial.println(nameList[colorResults[index]]);
+    this->write(colorList[colorResults[index]]);
     index++;
+    lastColorSignalTime = millis();
   }
 
   // Check if the color view signal has lasted enough time
   if (millis() - lastColorSignalTime > C_COLOR_SIGNAL_TIME) {
     // Set it back to black
-    this->write(0, 0, 0);
+    this->write(C_Color(0, 0, 0));
   }
 }
 
-void ColorView::write(byte r, byte g, byte b){
+void ColorView::write(const C_Color& c){
   /* Writes the analog color values. 
   */
-  analogWrite(PIN_COLOR_RED, r);
-  analogWrite(PIN_COLOR_GREEN, g);
-  analogWrite(PIN_COLOR_BLUE, b);
+  analogWrite(PIN_COLOR_RED, c.r);
+  analogWrite(PIN_COLOR_GREEN, c.g);
+  analogWrite(PIN_COLOR_BLUE, c.b);
 }

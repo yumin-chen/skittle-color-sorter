@@ -16,7 +16,7 @@ class ColorView : private Context
 public:
 	ColorView();
 	void update();
-	void write(byte, byte, byte);
+  void write(const C_Color&);
 
 private:
 };
