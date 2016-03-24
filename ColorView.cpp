@@ -31,33 +31,23 @@ void ColorView::update(){
     switch (colorResults[index]) {
       case 0:
         Serial.println("RED");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 0);
-        analogWrite(PIN_COLOR_BLUE, 0);
+    	this->write(255, 0, 0);
         break;
       case 1:
         Serial.println("GREEN");
-        analogWrite(PIN_COLOR_RED, 0);
-        analogWrite(PIN_COLOR_GREEN, 255);
-        analogWrite(PIN_COLOR_BLUE, 0);
+    	this->write(0, 255, 0);
         break;
       case 2:
         Serial.println("YELLOW");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 255);
-        analogWrite(PIN_COLOR_BLUE, 0);
+    	this->write(255, 255, 0);
         break;
       case 3:
         Serial.println("PURPLE");
-        analogWrite(PIN_COLOR_RED, 128);
-        analogWrite(PIN_COLOR_GREEN, 32);
-        analogWrite(PIN_COLOR_BLUE, 128);
+    	this->write(128, 32, 128);
         break;
       case 4:
         Serial.println("ORANGE");
-        analogWrite(PIN_COLOR_RED, 255);
-        analogWrite(PIN_COLOR_GREEN, 128);
-        analogWrite(PIN_COLOR_BLUE, 32);
+    	this->write(255, 128, 32);
         break;
     }
     index++;
@@ -66,10 +56,16 @@ void ColorView::update(){
   // Check if the color view signal has lasted enough time
   if (millis() - lastColorSignalTime > C_COLOR_SIGNAL_TIME) {
     // Set it back to black
-    analogWrite(PIN_COLOR_RED, 0);
-    analogWrite(PIN_COLOR_GREEN, 0);
-    analogWrite(PIN_COLOR_BLUE, 0);
+    this->write(0, 0, 0);
   }
+}
+
+void ColorView::write(byte r, byte g, byte b){
+	/* Writes the analog color values. 
+	*/
+    analogWrite(PIN_COLOR_RED, r);
+    analogWrite(PIN_COLOR_GREEN, g);
+    analogWrite(PIN_COLOR_BLUE, b);
 }
 
 
