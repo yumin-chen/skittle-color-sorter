@@ -29,23 +29,23 @@ void ColorView::update(){
   if (HAS_RESULT(colorResults[index])) {
     lastColorSignalTime = millis();
     switch (colorResults[index]) {
-      case 0:
+      case RESULT_RED:
         Serial.println("RED");
         this->write(255, 0, 0);
         break;
-      case 1:
+      case RESULT_GREEN:
         Serial.println("GREEN");
         this->write(0, 255, 0);
         break;
-      case 2:
+      case RESULT_YELLOW:
         Serial.println("YELLOW");
         this->write(255, 255, 0);
         break;
-      case 3:
+      case RESULT_PURPLE:
         Serial.println("PURPLE");
         this->write(128, 32, 128);
         break;
-      case 4:
+      case RESULT_ORANGE:
         Serial.println("ORANGE");
         this->write(255, 128, 32);
         break;

@@ -10,12 +10,7 @@
 //    SDA pin to analog pin 4
 //    SCL pin to analog pin 5
 
-
-#include "ColorSensor.h"
-#include "TopServo.h"
-
-// Uncomment the following lines to enter calibration mode
-// #define F_CALIBRATING true // Is calibration in progress
+#define F_CALIBRATING false // Is calibration in progress
 #define F_CALI_EMPTY_HOLE false // Is calibrating the empty hole's color
 
 // Constants
@@ -26,6 +21,10 @@
 #define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
 #define C_ALLOWED_COLOR_VARIANCE 64 // Allowed color variance for color detection
 #define C_ALLOWED_CLEAR_VARIANCE 128 // Allowed clear variance for color detection
+
+#include "ColorSensor.h"
+#include "TopServo.h"
+#include "LCD.h"
 
 ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) // Initialize the color sensor object
 {
@@ -133,7 +132,7 @@ void ColorSensor::analyzeColor() {
     // variance is still under the allowed variance range (C_ALLOWED_COLOR_VARIANCE)
 
     int min_diff = C_ALLOWED_COLOR_VARIANCE; // Set the mininum difference to the allowed color variance
-    int temp_result = -1;
+    colorResult temp_result = RESULT_UNKNOWN;
     for (int i = 0; i < sizeof(colorList) / 8; i++) {
       // Compare the reported color with the color defined in the colorList
       C_Color diff = best_color.compare(colorList[i]);
@@ -144,18 +143,18 @@ void ColorSensor::analyzeColor() {
       if (agg < min_diff) {
         // If this is less than the minimun
         min_diff = agg; // Set the minimun difference to this aggregated color difference
-        temp_result = i; // Set the result to this color's index
+        temp_result = static_cast<colorResult>(i);; // Set the result to this color's index
       }
     }
 
     // Check if the clear value is out of allowed range
-    if (temp_result > -1 && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
+    if (HAS_RESULT(temp_result) && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
       // If the clear value is out of range, then set this result back to unknown
-      temp_result = -1;
+      temp_result = RESULT_UNKNOWN;
     }
 
     // If we've got a temp result
-    if (temp_result != -1) {
+    if (HAS_RESULT(temp_result)) {
       colorResults[skittleCount] = temp_result;
     }
 
