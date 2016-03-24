@@ -15,6 +15,7 @@ class ColorSensor : public Adafruit_TCS34725, private Context
 {
 public:
 	ColorSensor();
+  void setup();
 	void update();
 private:
 	void calibrating(C_Color);

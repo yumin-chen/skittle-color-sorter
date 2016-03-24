@@ -31,6 +31,18 @@ ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) // Ini
 {
 }
 
+void ColorSensor::setup(){
+  /* Sets up the color sensor object
+  */
+  if (!this->begin()) {
+    // If the color sensor failed to initialize, print out an error
+    Serial.println("Error: Color sensor not found.");
+    lcd.print("ERR: Color Sensor Connection");
+    // Infinite loop so the program won't continue
+    while (1);
+  }
+}
+
 void ColorSensor::update(){
 	/* This function should be called on the main loop. 
 	*/

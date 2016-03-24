@@ -6,19 +6,20 @@
 */
 
 // Include libraries
-#include "Context.h"            // Context (global variables)
-#include "LCD.h"                // LCD display
-#include "TopServo.h"           // Top Servo
-#include "BottomServo.h"        // Bottom Servo
-#include "ColorView.h"          // Color View
-#include "ColorSensor.h"        // Color Sensor
+#include "Context.h"                      // Context (global variables)
+#include "LCD.h"                          // LCD display
+#include "TopServo.h"                     // Top Servo
+#include "BottomServo.h"                  // Bottom Servo
+#include "ColorView.h"                    // Color View
+#include "ColorSensor.h"                  // Color Sensor
 
 // Initialize global variables
-LCD Context::lcd; 
-TopServo Context::servoTop; 
-BottomServo Context::servoBtm; 
-ColorView Context::colorView;
-ColorSensor Context::colorSensor; 
+LCD           Context::lcd;               // The liquid-crystal display
+TopServo      Context::servoTop;          // The top continuous rotation servo
+BottomServo   Context::servoBtm;          // The bottom standard servo
+ColorView     Context::colorView;         // The color LED
+ColorSensor   Context::colorSensor;       // The Adafruit color sensor
+
 const C_Color Context::colorList [SKITTLE_COLORS] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
 int Context::skittleCount = 0;
 unsigned long Context::lastSkittleTime = 0;
@@ -26,27 +27,23 @@ boolean Context::isColorBeingMeasured = false;
 byte Context::colorResults [256];
 
 void setup() {
-  
   // Set up the serial for debugging purposes
-  Serial.begin(9600);
-
+  Serial.begin(9600); 
+  
   // Set up the servos
-  Context::servoTop.setup();
-  Context::servoBtm.setup();
+  Context::servoTop.setup(); 
+  Context::servoBtm.setup(); 
 
-  if (!Context::colorSensor.begin()) {
-    // If the color sensor failed to initialize, print out an error
-    Context::lcd.print("ERR: Color Sensor Connection");
-    while (1);
-  }
+  // Set up the Adafruit color sensor
+  Context::colorSensor.setup(); 
 
+  // Print some text on the LCD screen as a welcome message
   Context::lcd.print("Color Sorter");
 
-  
-    // Set every element in Context::colorResults to RESULT_UNKNOWN
-    for (int i = 0; i < sizeof(Context::colorResults); i++) {
-      Context::colorResults[i] = RESULT_UNKNOWN;
-    }
+  // Set every element in Context::colorResults to RESULT_UNKNOWN
+  for (int i = 0; i < sizeof(Context::colorResults); i++) {
+    Context::colorResults[i] = RESULT_UNKNOWN;
+  }
 }
 
 void loop() {
