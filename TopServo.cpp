@@ -31,7 +31,7 @@ void TopServo::setup(){
 	this->attach(PIN_TOP_SERVO);
 }
 
-void TopServo::update(global* env){
+void TopServo::update(){
 	/* This function should be called on the main loop. 
 	*/
 	boolean dirction = false; // Set direction to forwards
@@ -51,7 +51,7 @@ void TopServo::update(global* env){
 #if F_TOP_SERVO_TIMEOUT_ENABLED
 	static unsigned long lastStuckTime = 0;
 	// If the top servo gets stuck
-	if (!bJammed && millis() - env->lastSkittleTime > C_TOP_SERVO_TIMEOUT && millis() - lastStuckTime > 1000) {
+	if (!bJammed && millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT && millis() - lastStuckTime > 1000) {
 		Serial.println("Top servo is stuck; Direction reversed.");
 		// Reserve the top servo's direction
 		bJammed = true;

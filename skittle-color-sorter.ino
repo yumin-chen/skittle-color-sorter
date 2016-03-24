@@ -5,9 +5,6 @@
   assembled.
 */
 
-// * Bottom Servo (Arm)
-//    Digital pin 10
-#define PIN_BTM_SERVO 10
 // * Color Sensor
 //    SDA pin to analog pin 4
 //    SCL pin to analog pin 5
@@ -53,29 +50,20 @@
 #include "Adafruit_TCS34725.h"  // Color Sensor
 #include "C_Color.h"            // Color operations
 #include "TopServo.h"           // Top Servo
-#include "global.h"             // Global variables
-
-// Calibrated Skittle's Colors
-// These are the skittle's colors
-#define C_COLOR_EMPTY C_Color(66, 89, 71, 170)
-#define C_SKITTLE_RED C_Color(97, 73, 62, 117)
-#define C_SKITTLE_GREEN C_Color(58, 106, 54, 148)
-#define C_SKITTLE_YELLOW C_Color(90, 90, 34, 210)
-#define C_SKITTLE_PURPLE C_Color(65, 84, 81, 122)
-#define C_SKITTLE_ORANGE C_Color(122, 64, 40, 154)
-
-const C_Color colorList [] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
+#include "BottomServo.h"        // Bottom Servo
+#include "Context.h"             // Global variables
 
 LiquidCrystal lcd(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4,
                   PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7); // Initialize the display with the numbers of the interface pins
 TopServo servoTop; // Declare the object for the top continuous rotation servo
-Servo servoBtm; // Declare the object for the bottom standard servo
+BottomServo servoBtm; // Declare the object for the bottom standard servo
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X); // Initialize the color sensor object
 
-global *env; // Declare a pointer for global variables
-
-#define RESULT_UNKNOWN 255
-#define HAS_RESULT(color_index) (color_index >= 0 && color_index < sizeof(colorList))
+const C_Color Context::colorList [SKITTLE_COLORS] = {C_SKITTLE_RED, C_SKITTLE_GREEN, C_SKITTLE_YELLOW, C_SKITTLE_PURPLE, C_SKITTLE_ORANGE};
+int Context::skittleCount = 0;
+unsigned long Context::lastSkittleTime = 0;
+boolean Context::isColorBeingMeasured = false;
+byte Context::colorResults [256];
 
 void setup() {
   
@@ -85,9 +73,9 @@ void setup() {
   // Set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
 
-  // Attach the servos on corresponding pins to the servo objects
+  // Set up the servos
   servoTop.setup();
-  servoBtm.attach(PIN_BTM_SERVO);
+  servoBtm.setup();
 
   if (!tcs.begin()) {
     // If the color sensor failed to initialize, print out an error
@@ -97,29 +85,12 @@ void setup() {
 
   lcd.print("Color Sorter");
 
-  // Set every element in env->colorResults to RESULT_NO_DATA_YET
-  for (int i = 0; i < sizeof(env->colorResults); i++) {
-    env->colorResults[i] = RESULT_UNKNOWN;
-  }
-
-}
-
-void updateBtmServo() {
-  // Calculate the angle of the bottom servo arm
-#define MAX_BTM_ANGLE 150 // Maximum bottom servo angle
-#define MIN_BTM_ANGLE 30 // Minimum bottom servo angle
-#define NUM_OF_CUPS 5 // The number of cups at the bottom
-#define EACH_CUP_ANGLE_INTERVAL ((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)
-  int result;
-  if (env->skittleCount > 1 && HAS_RESULT(env->colorResults[env->skittleCount - 1])) {
-    result = env->colorResults[env->skittleCount - 1];
-  } else if (env->skittleCount > 2) {
-    result = env->colorResults[env->skittleCount - 2];
-  } else {
-    result = 2;
-  }
-  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * result;
-  servoBtm.write(btmAngle);
+  
+    // Set every element in Context::colorResults to RESULT_UNKNOWN
+    for (int i = 0; i < sizeof(Context::colorResults); i++) {
+      Context::colorResults[i] = RESULT_UNKNOWN;
+    }
+    Serial.println(sizeof(Context::colorList), DEC);
 }
 
 void __calibrating(C_Color new_color) {
@@ -160,15 +131,15 @@ void analyzeColor(C_Color best_color) {
     // If we are calibrating colors
     __calibrating(best_color);
 #else
-    // Compare the reported color with the pre-defined colors in the colorList
+    // Compare the reported color with the pre-defined colors in the Context::colorList
     // and set the result to the color with the least color variance, if the
     // variance is still under the allowed variance range (C_ALLOWED_COLOR_VARIANCE)
 
     int min_diff = C_ALLOWED_COLOR_VARIANCE; // Set the mininum difference to the allowed color variance
     int temp_result = -1;
-    for (int i = 0; i < sizeof(colorList) / 8; i++) {
-      // Compare the reported color with the color defined in the colorList
-      C_Color diff = best_color.compare(colorList[i]);
+    for (int i = 0; i < sizeof(Context::colorList) / 8; i++) {
+      // Compare the reported color with the color defined in the Context::colorList
+      C_Color diff = best_color.compare(Context::colorList[i]);
 
       // Add the color difference's primary colors (R + G + B) together
       int agg = diff.aggregate();
@@ -181,17 +152,17 @@ void analyzeColor(C_Color best_color) {
     }
 
     // Check if the clear value is out of allowed range
-    if (temp_result > -1 && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
+    if (temp_result > -1 && abs(int(best_color.c) - int(Context::colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
       // If the clear value is out of range, then set this result back to unknown
       temp_result = -1;
     }
 
     // If we've got a temp result
     if (temp_result != -1) {
-      env->colorResults[env->skittleCount] = temp_result;
+      Context::colorResults[Context::skittleCount] = temp_result;
     }
 
-    if (!HAS_RESULT(env->colorResults[env->skittleCount])) {
+    if (!HAS_RESULT(Context::colorResults[Context::skittleCount])) {
       // If color cannot be detected, try again
       servoTop.remeasureColor();
     }else{
@@ -203,9 +174,9 @@ void analyzeColor(C_Color best_color) {
 #endif
   }
   // Serial.println("Finish measuring.");
-  env->isColorBeingMeasured = false;
-  if (!servoTop.isRemeasuring() && HAS_RESULT(env->colorResults[env->skittleCount])) {
-    env->skittleCount++;
+  Context::isColorBeingMeasured = false;
+  if (!servoTop.isRemeasuring() && HAS_RESULT(Context::colorResults[Context::skittleCount])) {
+    Context::skittleCount++;
   }
 }
 
@@ -219,15 +190,15 @@ void updateColorSensor() {
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   // Check if the hole arrives at the color sensor
-  if (colors.c < C_HOLE_CLEAR && !env->isColorBeingMeasured && millis() - env->lastSkittleTime > 1000) {
-    //Serial.println(millis() - env->lastSkittleTime);
-    env->lastSkittleTime = millis();
+  if (colors.c < C_HOLE_CLEAR && !Context::isColorBeingMeasured && millis() - Context::lastSkittleTime > 1000) {
+    //Serial.println(millis() - Context::lastSkittleTime);
+    Context::lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
-    env->isColorBeingMeasured = true;
+    Context::isColorBeingMeasured = true;
     min_clear = C_HOLE_CLEAR;
   }
   // Check if a Skittle's color is being measured right now
-  if (env->isColorBeingMeasured) {
+  if (Context::isColorBeingMeasured) {
     // Try and reach the ideal clear value
     if (colors.c < min_clear && colors.c > C_IDEAL_CLEAR) {
       // The best color sample is picked when the clear is minimum while still larger than C_IDEAL_CLEAR
@@ -250,9 +221,9 @@ void updateColorSensor() {
 void updateColorView() {
   static int index = 0;
   unsigned long lastColorSignalTime = 0;
-  if (HAS_RESULT(env->colorResults[index])) {
+  if (HAS_RESULT(Context::colorResults[index])) {
     lastColorSignalTime = millis();
-    switch (env->colorResults[index]) {
+    switch (Context::colorResults[index]) {
       case 0:
         Serial.println("RED");
         analogWrite(PIN_COLOR_RED, 255);
@@ -299,13 +270,13 @@ void updateColorView() {
 void loop() {
   lcd.clear();
   lcd.print("Count: ");
-  lcd.print(env->skittleCount, DEC);
+  lcd.print(Context::skittleCount, DEC);
 
   // Update the top servo
-  servoTop.update(env);
+  servoTop.update();
 
   // Update the bottom servo (arm)
-  updateBtmServo();
+  servoBtm.update();
 
   // Update the color sensor
   updateColorSensor();
