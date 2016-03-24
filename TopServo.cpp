@@ -12,7 +12,7 @@
 
 #define F_TOP_SERVO_TIMEOUT_ENABLED true // Enable the timeout for the top servo
 #define C_TOP_SERVO_TIMEOUT 6000 // Timeout to determine if the top servo is stuck
-#define C_RETRY_UNKNOWN_COLOR 2 // If the color cannot be detected, retry this many times 
+#define C_RETRY_UNKNOWN_COLOR 0 // If the color cannot be detected, how many times should retry. If 0, no retry.
 
 #include "TopServo.h"
 
@@ -51,7 +51,7 @@ void TopServo::update(unsigned long lastSkittleTime){
 #if F_TOP_SERVO_TIMEOUT_ENABLED
 	static unsigned long lastStuckTime = 0;
 	// If the top servo gets stuck
-	if (millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT && millis() - lastStuckTime > 1000) {
+	if (!bJammed && millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT && millis() - lastStuckTime > 1000) {
 		Serial.println("Top servo is stuck; Direction reversed.");
 		// Reserve the top servo's direction
 		bJammed = true;
@@ -72,7 +72,9 @@ void TopServo::remeasureColor(){
 	if(iRetry < C_RETRY_UNKNOWN_COLOR){
 		iRetry++;
 		bRemeasuring = true;
-		Serial.println("Color cannot be determined. Go back and re-measure it.");
+		Serial.println("Color cannot be determined. Start going back and re-measuring it.");
+	}else{
+		Serial.println("Color cannot be determined.");
 	}
 
 	if (bRemeasuring) {
@@ -82,7 +84,7 @@ void TopServo::remeasureColor(){
 		if (iRetry >= C_RETRY_UNKNOWN_COLOR) {
 			// If tried many times still can't get the color
 			// Just f*ck it cuz we ain't gonna get color however we try
-			Serial.println("re-measurement still couldn't get the color.");
+			Serial.println("Tried re-measuring but still couldn't get the color.");
 			stopRemeasuring();
 		}
 	}

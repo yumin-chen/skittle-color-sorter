@@ -42,7 +42,8 @@
 
 #define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
 #define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
-#define C_ALLOWED_COLOR_VARIANCE 48 // Allowed color variance for color detection
+#define C_ALLOWED_COLOR_VARIANCE 64 // Allowed color variance for color detection
+#define C_ALLOWED_CLEAR_VARIANCE 128 // Allowed clear variance for color detection
 
 #define C_COLOR_SIGNAL_TIME 3000 // Each Skittle gets 1s color view signal
 
@@ -180,7 +181,7 @@ void analyzeColor(C_Color best_color) {
     }
 
     // Check if the clear value is out of allowed range
-    if (temp_result > -1 && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_COLOR_VARIANCE) {
+    if (temp_result > -1 && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
       // If the clear value is out of range, then set this result back to unknown
       temp_result = -1;
     }
@@ -203,7 +204,6 @@ void analyzeColor(C_Color best_color) {
   }
   // Serial.println("Finish measuring.");
   isColorBeingMeasured = false;
-  lastSkittleTime = millis();
   if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
     skittleCount++;
   }
@@ -219,7 +219,7 @@ void updateColorSensor() {
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   // Check if the hole arrives at the color sensor
-  if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured) {
+  if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured && millis() - lastSkittleTime > 1000) {
     //Serial.println(millis() - lastSkittleTime);
     lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
