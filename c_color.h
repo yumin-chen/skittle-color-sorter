@@ -13,6 +13,7 @@
 #define  _C_COLOR_H_
 
 #include <Arduino.h>
+#include "Context.h"
 
 #define COLOR_UNIT uint8_t
 
@@ -36,6 +37,16 @@ class C_Color
          @return the color difference. */
     C_Color compare(const C_Color&)const;
 
+    /** Compares the color with an array of colors. This function is to find
+        the color result that is the closest to the source color.
+        @param colors An array of colors that the source color compares with.
+        @param allowed_variance Allowed variance to ensure the integrity of 
+        the result. If the result's difference is still bigger than the 
+        allowed value then RESULT_UNKNOWN will be returned.
+        @return The color result that is the closest to the source color.
+        Returns RESULT_UNKNOWN if no color in the colorList is matched. */
+    colorResult compareWithColorList(const C_Color color_list [], int allowed_variance) const;
+
     /**  Maximizes color based on the clear value. */
     void maximize();
 
@@ -50,7 +61,6 @@ class C_Color
     COLOR_UNIT  b;  /**< The blue channel value   */
     COLOR_UNIT  c;  /**< The clear channel value  */
 
-  private:
 };
 
 #endif // _C_COLOR_H_ 

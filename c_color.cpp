@@ -33,6 +33,30 @@ C_Color C_Color::compare(const C_Color& compared_color) const
   return C_Color(color_diff_r, color_diff_g, color_diff_b);
 }
 
+colorResult C_Color::compareWithColorList(const C_Color color_list [], int allowed_variance) const
+{
+    // Set the mininum difference to the allowed color variance
+  int min_diff = allowed_variance;
+
+  // Set the temperary result to RESULT_UNKNOWN
+  colorResult tempResult = RESULT_UNKNOWN;
+
+  for (int i = 0; i < COLOR_LIST_SIZE; i++) {
+    // Compare the source color with the color defined in the colorList
+    C_Color diff = this->compare(color_list[i]);
+    // Add the color difference's primary colors (R + G + B) together
+    int agg = diff.aggregate();
+    // Check if the aggregated color difference value is less than the minimum color difference
+    if (agg < min_diff) {
+      // If this is less than the minimun
+      min_diff = agg; // Set the minimun difference to this aggregated color difference
+      tempResult = static_cast<colorResult>(i);; // Set the result to this color's index
+    }
+  }
+
+  return tempResult;
+}
+
 int C_Color::aggregate() const
 {
   return r + g + b;

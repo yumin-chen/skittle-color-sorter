@@ -38,15 +38,7 @@ BottomServo   Context::servoBtm;          // The bottom standard servo
 ColorView     Context::colorView;         // The color LED
 ColorSensor   Context::colorSensor;       // The Adafruit color sensor
 
-// Use a macro to generate a constant array colorList 
-// whose indexes correspond to the colorResult enum
-#define COLOR_DEF( identifier, name, color, color_view )  color
-const C_Color Context::colorList [] = { COLORS_DEFINITION };
-#undef COLOR_DEF
-
 int           Context::skittleCount         = 0;      // The number of skittles sorted
-unsigned long Context::lastSkittleTime      = 0;      // Time when the last skittle was being sorted
-boolean       Context::isColorBeingMeasured = false;  // Is the color sensor measuring a Skittle right now
 colorResult   Context::colorResults [128];            // An array to store all the measured colors
 
 void setup() {

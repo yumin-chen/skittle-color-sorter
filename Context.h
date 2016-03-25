@@ -13,8 +13,6 @@
 #ifndef  _CONTEXT_H_
 #define  _CONTEXT_H_
 
-#include "C_Color.h"
-
 /** Calibrated Skittle's Colors. All the colors are defined here. This
     macro will later be used to populate some arrays by changing the
     COLOR_DEF to retrive only needed data. */
@@ -66,11 +64,8 @@ class Context {
     static BottomServo servoBtm; 		  	    /**< The bottom standard servo                          */
     static ColorView colorView;			       	/**< The color LED                                      */
     static ColorSensor colorSensor; 	    	/**< The Adafruit color sensor                          */
-
-    static const C_Color colorList [];      /**< An array of pre-defined colors                     */
+    
     static int skittleCount; 				        /**< The number of skittles sorted                      */
-    static unsigned long lastSkittleTime; 	/**< Time when the last skittle was being sorted        */
-    static boolean isColorBeingMeasured; 	  /**< Is the color sensor measuring a Skittle right now  */
     static colorResult colorResults [128]; 	/**< An array to store all the measured colors          */
   private:
 };

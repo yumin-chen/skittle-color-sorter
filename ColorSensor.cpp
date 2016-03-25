@@ -11,7 +11,6 @@
       + SCL pin to analog pin 5
 */
 /**************************************************************************/
-
 // Change the following line to enter calibration mode
 #define F_CALIBRATING             false         /**< Is calibration in progress */
 #define F_CALI_EMPTY_HOLE         false         /**< Is calibrating the empty hole's color */
@@ -29,14 +28,18 @@
 #include "TopServo.h"
 #include "LCD.h"
 
-ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) {}
+ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X)
+{
+  lastSkittleTime = 0;
+  isMeasuring = false;
+}
 
 void ColorSensor::setup() {
   if (!this->begin()) {
     // If the color sensor failed to initialize, print out an error
     Serial.println("Error: Color sensor not found.");
     lcd.print("ERR: Color Sensor Connection");
-    
+
     // Infinite loop so the program won't continue
     while (1);
   }
@@ -56,17 +59,17 @@ void ColorSensor::update()
   //colors.print();
 
   // Check if the hole arrives at the color sensor
-  if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured && millis() - lastSkittleTime > 1000) {
+  if (colors.c < C_HOLE_CLEAR && !isMeasuring && millis() - lastSkittleTime > 1000) {
     //Serial.println(millis() - lastSkittleTime);
     lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
-    isColorBeingMeasured = true;
+    isMeasuring = true;
     minClear = C_HOLE_CLEAR;
     bestColor = colors;
   }
 
   // Check if a Skittle's color is being measured right now
-  if (isColorBeingMeasured) {
+  if (isMeasuring) {
     // Try and reach the ideal clear value
     if (colors.c < minClear && colors.c > C_IDEAL_CLEAR) {
       // The best color sample is picked when the clear is minimum while still larger than C_IDEAL_CLEAR
@@ -85,10 +88,10 @@ void ColorSensor::update()
       if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
         skittleCount++;
       }
-      
+
       // Serial.println("Finish measuring.");
-      isColorBeingMeasured = false;
-      
+      isMeasuring = false;
+
     }
   }
 
@@ -118,11 +121,19 @@ void ColorSensor::_calibrating(const C_Color& new_color) {
   }
 }
 
-void ColorSensor::_analyzeColor(const C_Color& bestColor) 
-{ 
+void ColorSensor::_analyzeColor(const C_Color& bestColor)
+{
+  bestColor.print();
+
+  // Use a macro to generate a constant array colorList
+  // whose indexes correspond to the colorResult enum
+#define COLOR_DEF( identifier, name, color, color_view )  color
+  const C_Color colorList [] = { COLORS_DEFINITION };
+#undef COLOR_DEF
   // Compare the best color with the colorList and get the closest result
-  colorResult tempResult = compareWithColorList(bestColor);
-  
+  colorResult tempResult = bestColor.compareWithColorList(colorList, C_ALLOWED_COLOR_VARIANCE);
+
+
   if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY) {
     // If this is an empty hole.
     Serial.println("Empty hole");
@@ -132,8 +143,6 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
   } else {
     Serial.println("A Skittle has been detected!");
     //Serial.println("Maximized colors:");
-    //bestColor.print();
-
 #if F_CALIBRATING
     // If we are calibrating colors
     _calibrating(bestColor);
@@ -163,26 +172,7 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
   }
 }
 
-colorResult ColorSensor::compareWithColorList(const C_Color& color) 
-{
-  // Set the mininum difference to the allowed color variance
-  int min_diff = C_ALLOWED_COLOR_VARIANCE;
-  
-  // Set the temperary result to RESULT_UNKNOWN
-  colorResult tempResult = RESULT_UNKNOWN;
-  
-  for (int i = 0; i < COLOR_LIST_SIZE; i++) {
-    // Compare the source color with the color defined in the colorList
-    C_Color diff = color.compare(colorList[i]);
-    // Add the color difference's primary colors (R + G + B) together
-    int agg = diff.aggregate();
-    // Check if the aggregated color difference value is less than the minimum color difference
-    if (agg < min_diff) {
-      // If this is less than the minimun
-      min_diff = agg; // Set the minimun difference to this aggregated color difference
-      tempResult = static_cast<colorResult>(i);; // Set the result to this color's index
-    }
-  }
-  
-  return tempResult;
+unsigned long ColorSensor::getLastSkittleTime() {
+  return lastSkittleTime;
 }
+

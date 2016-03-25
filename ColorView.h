@@ -16,6 +16,7 @@
 #include <Arduino.h>
 #include "Adafruit_TCS34725.h"
 #include "Context.h"
+#include "C_Color.h"
 
 /** Class ColorView defines how the Skittle's color results are showed on
     the LED. */

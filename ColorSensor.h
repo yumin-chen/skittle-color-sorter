@@ -16,6 +16,7 @@
 #include <Arduino.h>
 #include "Adafruit_TCS34725.h"
 #include "Context.h"
+#include "C_Color.h"
 
 /** A subclass of Adafruit_TCS34725 Color Sensor. This class contains all
     the algorithms regarding to color detection, analyzation. */
@@ -34,14 +35,10 @@ class ColorSensor : public Adafruit_TCS34725, private Context
         on the main loop. */
     void update();
 
-    /** Compares the color with the pre-defined colors in the colorList.
-        This function is to find the color result that is the closest to
-        the source color.
-        @param color The source color that is used to compare with colors
-        in the colorList.
-        @return The color result that is the closest to the source color.
-        Returns RESULT_UNKNOWN if no color in the colorList is matched. */
-    colorResult compareWithColorList(const C_Color& color);
+    /** Get the time when the last time the color sensor was measuring a Skittle.
+      @return The last time when the Skittle arrives at the color sensor the
+      number of milliseconds since the Arduino board began. */
+    unsigned long getLastSkittleTime();
 
   protected:
 
@@ -53,6 +50,9 @@ class ColorSensor : public Adafruit_TCS34725, private Context
         by the color sensor. This function will be called each time the
         color sensor is through a measuring cycle. */
     void _analyzeColor(const C_Color&);
+
+    unsigned long   lastSkittleTime;    /**< Time when the last skittle arrived         */
+    boolean         isMeasuring;        /**< Is the a Skittle being measured right now  */
 
 };
 

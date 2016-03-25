@@ -24,8 +24,9 @@
 #define C_RETRY_UNKNOWN_COLOR       1
 
 #include "TopServo.h"
+#include "ColorSensor.h"
 
-TopServo::TopServo() 
+TopServo::TopServo()
 {
 #if F_TOP_SERVO_TIMEOUT_ENABLED
   bJammed = false;
@@ -35,12 +36,12 @@ TopServo::TopServo()
   iRetry = 0;
 }
 
-void TopServo::setup() 
+void TopServo::setup()
 {
   this->attach(PIN_TOP_SERVO);
 }
 
-void TopServo::update() 
+void TopServo::update()
 {
   boolean dirction = false; // Set direction to forwards
 
@@ -59,7 +60,8 @@ void TopServo::update()
 #if F_TOP_SERVO_TIMEOUT_ENABLED
   static unsigned long lastStuckTime = 0;
   // If the top servo gets stuck
-  if (!bJammed && millis() - lastSkittleTime > C_TOP_SERVO_TIMEOUT && millis() - lastStuckTime > 1000) {
+  if (!bJammed && millis() - colorSensor.getLastSkittleTime() > C_TOP_SERVO_TIMEOUT
+      && millis() - lastStuckTime > 1000) {
     Serial.println("Top servo is stuck; Direction reversed.");
     // Reserve the top servo's direction
     bJammed = true;
@@ -74,7 +76,7 @@ void TopServo::update()
 #endif
 }
 
-void TopServo::remeasureColor() 
+void TopServo::remeasureColor()
 {
   if (iRetry < C_RETRY_UNKNOWN_COLOR) {
     iRetry++;
