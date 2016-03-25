@@ -1,12 +1,30 @@
-/*
-  Skittle Color Sorter
+/**************************************************************************/
+/**
+    Skittle Color Sorter
 
-  This sketch programs the Skittle Color Sorter that we
-  assembled.
+    An Arduino UNO board sketch that programs a Skittle color sorting
+    machine that can sort Skittles by their color.
+
+    @file     skittle-color-sorter.ino
+    @mainpage Skittle Color Sorter
+    @author   Charlie Chen (CharmySoft)  <Charlie@CharmySoft.com>
+
+    @section  Introduction
+    This Skittle Color Sorter consists of a Adafruit TCS34725 Color Sensor to
+    measure color values, a Continuous Rotation Servo at the top to keep the
+    Skittles going down, a Standard Servo at the bottom to move the arm to
+    bring the Skittles to a desired place, and a LCD Display to show
+    information like the number of Skittles.
+
+    @section  More
+    - [CharmySoft]    http://CharmySoft.com/
+    - [Project Page]  http://CharmySoft.com/app/skittle-sorter.htm
+    - [Github Repo]   http://github.com/CharmySoft/skittle-color-sorter
 */
+/**************************************************************************/
 
 // Include libraries
-#include "Context.h"                      // Context (global variables)
+#include "Context.h"                      // Context (global variables) 
 #include "LCD.h"                          // LCD display
 #include "TopServo.h"                     // Top Servo
 #include "BottomServo.h"                  // Bottom Servo
@@ -20,34 +38,38 @@ BottomServo   Context::servoBtm;          // The bottom standard servo
 ColorView     Context::colorView;         // The color LED
 ColorSensor   Context::colorSensor;       // The Adafruit color sensor
 
-// Use a macro to generate the colorResult enum-indexed colorList constant array
+// Use a macro to generate a constant array colorList 
+// whose indexes correspond to the colorResult enum
 #define COLOR_DEF( identifier, name, color, color_view )  color
 const C_Color Context::colorList [] = { COLORS_DEFINITION };
 #undef COLOR_DEF
 
-int Context::skittleCount = 0;
-unsigned long Context::lastSkittleTime = 0;
-boolean Context::isColorBeingMeasured = false;
-colorResult Context::colorResults [128];
+int           Context::skittleCount         = 0;      // The number of skittles sorted
+unsigned long Context::lastSkittleTime      = 0;      // Time when the last skittle was being sorted
+boolean       Context::isColorBeingMeasured = false;  // Is the color sensor measuring a Skittle right now
+colorResult   Context::colorResults [128];            // An array to store all the measured colors
 
 void setup() {
   // Set up the serial for debugging purposes
-  Serial.begin(9600); 
-  
+  Serial.begin(9600);
+
+  // Set up the LCD screen
+  Context::lcd.setup();
+
   // Set up the servos
-  Context::servoTop.setup(); 
-  Context::servoBtm.setup(); 
+  Context::servoTop.setup();
+  Context::servoBtm.setup();
 
   // Set up the Adafruit color sensor
-  Context::colorSensor.setup(); 
+  Context::colorSensor.setup();
 
   // Print some text on the LCD screen as a welcome message
   Context::lcd.print("Color Sorter");
 
   // Set every element in Context::colorResults to RESULT_UNKNOWN
-  for (int i = 0; i < sizeof(Context::colorResults); i++) {
+  for (int i = 0; i < sizeof(Context::colorResults); i++)
     Context::colorResults[i] = RESULT_UNKNOWN;
-  }
+
 }
 
 void loop() {

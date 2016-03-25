@@ -1,105 +1,113 @@
-/*
-  Color Sensor
+/**************************************************************************/
+/**
+    Color Sensor
 
-  This class defines the color sensor
+    @file     ColorSensor.cpp
+    @author   Charlie Chen (CharmySoft)  <Charlie@CharmySoft.com>
 
+    @section  Circuit
+    - Color Sensor
+      + SDA pin to analog pin 4
+      + SCL pin to analog pin 5
 */
+/**************************************************************************/
 
-// The circuit:
-// * Color Sensor
-//    SDA pin to analog pin 4
-//    SCL pin to analog pin 5
-
-#define F_CALIBRATING false // Is calibration in progress
-#define F_CALI_EMPTY_HOLE false // Is calibrating the empty hole's color
+// Change the following line to enter calibration mode
+#define F_CALIBRATING             false         /**< Is calibration in progress */
+#define F_CALI_EMPTY_HOLE         false         /**< Is calibrating the empty hole's color */
 
 // Constants
-#define C_ATIME TCS34725_INTEGRATIONTIME_154MS //  Color sensor integration time 154ms
-#define C_CYCLES (256 - C_ATIME) // Color sensor cycles according to the integration time
+#define C_HOLE_CLEAR              300           /**< The clear value used to determine the hole's arrival */
+#define C_IDEAL_CLEAR             96            /**< The ideal clear value for color detection */
+#define C_ALLOWED_COLOR_VARIANCE  64            /**< Allowed color variance for color detection */
+#define C_ALLOWED_CLEAR_VARIANCE  128           /**< Allowed clear variance for color detection */
 
-#define C_HOLE_CLEAR 300 // The clear value used to determine the hole's arrival
-#define C_IDEAL_CLEAR 96 // The ideal clear value for color detection
-#define C_ALLOWED_COLOR_VARIANCE 64 // Allowed color variance for color detection
-#define C_ALLOWED_CLEAR_VARIANCE 128 // Allowed clear variance for color detection
+#define C_ATIME TCS34725_INTEGRATIONTIME_154MS  /**< Color sensor integration time 154ms */
+#define C_CYCLES (256 - C_ATIME)                /**< Color sensor cycles according to the integration time */
 
 #include "ColorSensor.h"
 #include "TopServo.h"
 #include "LCD.h"
 
-ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) // Initialize the color sensor object
-{
-}
+ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X) {}
 
-void ColorSensor::setup(){
-  /* Sets up the color sensor object
-  */
+void ColorSensor::setup() {
   if (!this->begin()) {
     // If the color sensor failed to initialize, print out an error
     Serial.println("Error: Color sensor not found.");
     lcd.print("ERR: Color Sensor Connection");
+    
     // Infinite loop so the program won't continue
     while (1);
   }
 }
 
-void ColorSensor::update(){
-	/* This function should be called on the main loop. 
-	*/
+void ColorSensor::update()
+{
+  static C_Color bestColor(0, 0, 0);  // The best colors during a measuring cycle
+  static uint16_t minClear;           // The minimum clear value during a measuring cycle
+  uint16_t r, g, b, c;                // Red, green, blue and clear channel values
 
-  // The best colors during a measuring cycle
-  static uint16_t min_clear;
-  // Get color measurement values
-  uint16_t r, g, b, c;
+  // Reads the raw color values
   getRawData(&r, &g, &b, &c);
+
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
   //colors.print();
+
   // Check if the hole arrives at the color sensor
   if (colors.c < C_HOLE_CLEAR && !isColorBeingMeasured && millis() - lastSkittleTime > 1000) {
     //Serial.println(millis() - lastSkittleTime);
     lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
     isColorBeingMeasured = true;
-    min_clear = C_HOLE_CLEAR;
-    best_color = colors;
+    minClear = C_HOLE_CLEAR;
+    bestColor = colors;
   }
+
   // Check if a Skittle's color is being measured right now
   if (isColorBeingMeasured) {
     // Try and reach the ideal clear value
-    if (colors.c < min_clear && colors.c > C_IDEAL_CLEAR) {
+    if (colors.c < minClear && colors.c > C_IDEAL_CLEAR) {
       // The best color sample is picked when the clear is minimum while still larger than C_IDEAL_CLEAR
-      min_clear = colors.c;
-      best_color = colors;
+      minClear = colors.c;
+      bestColor = colors;
     }
     // If the skittle moves away and there's nothing left for the color sensor there
-    if (colors.c > C_HOLE_CLEAR || (colors.c - min_clear) > C_ALLOWED_COLOR_VARIANCE) {
-      best_color.maximize(); // Maximize color
-      best_color.print();
+    if (colors.c > C_HOLE_CLEAR || (colors.c - minClear) > C_ALLOWED_COLOR_VARIANCE) {
+      bestColor.maximize(); // Maximize color
+      bestColor.print();
 
       // Analyze the color
-      analyzeColor(); 
-      // Serial.println("Finish measuring.");
-      isColorBeingMeasured = false;
+      _analyzeColor(bestColor);
+
+      // Add 1 to the skittleCount if the color is not being re-measured and we've got the result
       if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
         skittleCount++;
       }
+      
+      // Serial.println("Finish measuring.");
+      isColorBeingMeasured = false;
+      
     }
   }
 
   // printColors(r, g, b, c);
 }
 
-void ColorSensor::calibrating(C_Color new_color) {
-  /* This function is used to test and get the average color
-      of a certain Skittle
-  */
-  static C_Color avg_c = C_Color(new_color.r, new_color.g, new_color.b, new_color.c);
-  static int count = 0;
+void ColorSensor::_calibrating(const C_Color& new_color) {
+  static C_Color avg_c(new_color);  // The average color (result)
+  static int count = 0;             // The amount of valid data samples
+
+  // Get the color variance between the new color and the avarage color
   int diff = avg_c.compare(new_color).aggregate();
   Serial.print("Diff: "); Serial.println(diff);
+
+  // Check if the color variance is out of a valid range
   if (diff > C_ALLOWED_COLOR_VARIANCE) {
     Serial.println("Difference too big. This sample data is discarded.");
   } else {
+    // If the new valid is valid, set the average color to include the new data
     avg_c.r = (avg_c.r * count + new_color.r) / (count + 1);
     avg_c.g = (avg_c.g * count + new_color.g) / (count + 1);
     avg_c.b = (avg_c.b * count + new_color.b) / (count + 1);
@@ -110,10 +118,12 @@ void ColorSensor::calibrating(C_Color new_color) {
   }
 }
 
-void ColorSensor::analyzeColor() {
+void ColorSensor::_analyzeColor(const C_Color& bestColor) 
+{ 
   // Compare the best color with the colorList and get the closest result
-  colorResult temp_result = compareWithColorList(best_color);
-  if(!F_CALI_EMPTY_HOLE && temp_result == RESULT_EMPTY){
+  colorResult tempResult = compareWithColorList(bestColor);
+  
+  if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY) {
     // If this is an empty hole.
     Serial.println("Empty hole");
     if (servoTop.isRemeasuring()) {
@@ -122,29 +132,29 @@ void ColorSensor::analyzeColor() {
   } else {
     Serial.println("A Skittle has been detected!");
     //Serial.println("Maximized colors:");
-    //best_color.print();
+    //bestColor.print();
 
 #if F_CALIBRATING
     // If we are calibrating colors
-    calibrating(best_color);
+    _calibrating(bestColor);
 #else
 
     // Check if the clear value is out of allowed range
-    if (HAS_RESULT(temp_result) && abs(int(best_color.c) - int(colorList[temp_result].c)) > C_ALLOWED_CLEAR_VARIANCE) {
+    if (HAS_RESULT(tempResult) && abs(int(bestColor.c) - int(colorList[tempResult].c)) > C_ALLOWED_CLEAR_VARIANCE) {
       // If the clear value is out of range, then set this result back to unknown
-      temp_result = RESULT_UNKNOWN;
+      tempResult = RESULT_UNKNOWN;
     }
 
     // If we've got a temp result
-    if (HAS_RESULT(temp_result)) {
-      colorResults[skittleCount] = temp_result;
+    if (HAS_RESULT(tempResult)) {
+      colorResults[skittleCount] = tempResult;
     }
 
     if (!HAS_RESULT(colorResults[skittleCount])) {
       // If color cannot be detected, try again
       servoTop.remeasureColor();
-    }else{
-      if(servoTop.isRemeasuring()){
+    } else {
+      if (servoTop.isRemeasuring()) {
         Serial.println("We've got the color on re-measurement.");
         servoTop.stopRemeasuring();
       }
@@ -153,16 +163,14 @@ void ColorSensor::analyzeColor() {
   }
 }
 
-colorResult ColorSensor::compareWithColorList(C_Color color) {
-  /* Compares the color with the pre-defined colors in the colorList
-  and returns the result that is the closest to the source color. 
-  Returns RESULT_UNKNOWN if no color in the colorList is matched.
-  */
-
+colorResult ColorSensor::compareWithColorList(const C_Color& color) 
+{
   // Set the mininum difference to the allowed color variance
-  int min_diff = C_ALLOWED_COLOR_VARIANCE; 
+  int min_diff = C_ALLOWED_COLOR_VARIANCE;
+  
   // Set the temperary result to RESULT_UNKNOWN
-  colorResult temp_result = RESULT_UNKNOWN;
+  colorResult tempResult = RESULT_UNKNOWN;
+  
   for (int i = 0; i < COLOR_LIST_SIZE; i++) {
     // Compare the source color with the color defined in the colorList
     C_Color diff = color.compare(colorList[i]);
@@ -172,8 +180,9 @@ colorResult ColorSensor::compareWithColorList(C_Color color) {
     if (agg < min_diff) {
       // If this is less than the minimun
       min_diff = agg; // Set the minimun difference to this aggregated color difference
-      temp_result = static_cast<colorResult>(i);; // Set the result to this color's index
+      tempResult = static_cast<colorResult>(i);; // Set the result to this color's index
     }
   }
-  return temp_result;
+  
+  return tempResult;
 }
