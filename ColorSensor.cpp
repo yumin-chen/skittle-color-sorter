@@ -38,7 +38,7 @@ void ColorSensor::setup() {
   if (!this->begin()) {
     // If the color sensor failed to initialize, print out an error
     Serial.println("Error: Color sensor not found.");
-    lcd.print("ERR: Color Sensor Connection");
+    lcd.setTopText("ERR: Color Sensor Connection");
 
     // Infinite loop so the program won't continue
     while (1);
@@ -84,9 +84,11 @@ void ColorSensor::update()
       // Analyze the color
       _analyzeColor(bestColor);
 
-      // Add 1 to the skittleCount if the color is not being re-measured and we've got the result
       if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
+        // Add 1 to the skittleCount if the color is not being re-measured and we've got the result
         skittleCount++;
+        // Set the new Skittle count to the LCD screen
+        lcd.setTopText(String("Count:") + skittleCount);
       }
 
       // Serial.println("Finish measuring.");

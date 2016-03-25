@@ -34,22 +34,39 @@ void LCD::setup()
 
 void LCD::update()
 {
-  if (skittleCount > 0) {
-    // Clear Screen
-    this->clear();
+  // If content is still valid, there's no need to refresh
+  if (bValid) return;
+  
+  // Clear Screen
+  this->clear();
 
-    // Print out the first line
-    this->setCursor(0, 0);
-    this->print("Count: ");
-    this->print(skittleCount, DEC);
+  // Print out the first line
+  this->setCursor(0, 0);
+  this->print(sTopText.c_str());
 
-    // Print out the label text to the second line
-    this->setCursor(0, 1);
-    this->print(sLabelText.c_str());
-  }
+  // Print out the the second line
+  this->setCursor(0, 1);
+  this->print(sBtmText.c_str());
+
 }
 
-void LCD::setLabelText(String text) 
+void LCD::setTopText(String text)
 {
-  sLabelText = text;
+  // Set the top text
+  sTopText = text;
+  // Invalidate the content to make it refresh
+  bValid = false;
+}
+
+void LCD::setBottomText(String text)
+{
+  // Set the bottom text
+  sBtmText = text;
+  // Invalidate the content to make it refresh
+  bValid = false;
+}
+
+void LCD::print(char const* text)
+{
+  LiquidCrystal::print(text);
 }

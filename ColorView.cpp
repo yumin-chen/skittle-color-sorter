@@ -38,7 +38,7 @@ void ColorView::update() {
 
     // Print out the color result's name
     Serial.println(nameList[colorResults[index]]);
-    lcd.setLabelText(nameList[colorResults[index]]);
+    lcd.setBottomText(nameList[colorResults[index]]);
 
     // Write the color to LED
     this->write(colorViewList[colorResults[index]]);

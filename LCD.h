@@ -32,12 +32,21 @@ class LCD : public LiquidCrystal, private Context
         be called in the main loop. */
     void update();
 
-    /** Set the label text. The label will be shown on the second line of the
-        LCD screen. */
-    void setLabelText(String text);
+    /** Set the text to show on the first line.  */
+    void setTopText(String text);
 
-  private:
-    String sLabelText; /**< The label text to be shown on the second line. */
+    /** Set the text to show on the second line.  */
+    void setBottomText(String text);
+
+  protected:
+    /**< Print text to the LCD. This is to protect the `print` method so it 
+        cannot be publically accessed. You should use setTopText and 
+        setBottomText instead.*/
+    void      print(char const*);
+
+    String    sTopText;   /**< The text to be shown on the first line.  */
+    String    sBtmText;   /**< The text to be shown on the second line. */
+    boolean   bValid;     /**< Is the screen content still valid. */
 };
 
 #endif // _LCD_H_ 

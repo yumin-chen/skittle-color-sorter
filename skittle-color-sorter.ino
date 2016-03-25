@@ -56,7 +56,7 @@ void setup() {
   Context::colorSensor.setup();
 
   // Print some text on the LCD screen as a welcome message
-  Context::lcd.print("Color Sorter");
+  Context::lcd.setTopText("Color Sorter");
 
   // Set every element in Context::colorResults to RESULT_UNKNOWN
   for (int i = 0; i < sizeof(Context::colorResults); i++)
