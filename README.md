@@ -8,7 +8,7 @@ Introduction
 [Skittle Color Sorter][2] is an Arduino UNO board sketch that programs a color sorting machine that can sort Skittles by their color.  
 This is originally for our 3<sup>rd</sup> year course Project in Computer Engineering (BE). 
 
-![Skittle Color Sorter](/images/color-sorter.svg?raw=true "Skittle Color Sorter")  
+<div style="text-align:center"><img src="http://www.charmysoft.com/img/prod/pic_skittle.svg" align="center" height="400" /></div>  
 
 
 Instructions

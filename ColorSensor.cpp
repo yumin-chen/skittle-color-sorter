@@ -68,7 +68,6 @@ void ColorSensor::update()
     bestColor = colors;
   }
 
-  // Check if a Skittle's color is being measured right now
   if (isMeasuring) {
     // Try and reach the ideal clear value
     if (colors.c < minClear && colors.c > C_IDEAL_CLEAR) {

@@ -36,7 +36,7 @@ void LCD::update()
 {
   // If content is still valid, there's no need to refresh
   if (bValid) return;
-  
+
   // Clear Screen
   this->clear();
 

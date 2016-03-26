@@ -39,9 +39,9 @@ class LCD : public LiquidCrystal, private Context
     void setBottomText(String text);
 
   protected:
-    /**< Print text to the LCD. This is to protect the `print` method so it 
-        cannot be publically accessed. You should use setTopText and 
-        setBottomText instead.*/
+    /** Print text to the LCD. This is to protect the `print` method so it
+        cannot be publically accessed. You should use `setTopText` and
+        `setBottomText` instead. */
     void      print(char const*);
 
     String    sTopText;   /**< The text to be shown on the first line.  */
