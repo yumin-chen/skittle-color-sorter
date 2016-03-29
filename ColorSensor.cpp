@@ -104,7 +104,7 @@ void ColorSensor::_calibrating(const C_Color& new_color) {
   static int count = 0;             // The amount of valid data samples
 
   // Get the color variance between the new color and the avarage color
-  int diff = avg_c.compare(new_color).aggregate();
+  int diff = avg_c.compare(new_color);
   Serial.print("Diff: "); Serial.println(diff);
 
   // Check if the color variance is out of a valid range
@@ -131,7 +131,7 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
 #undef COLOR_DEF
   // Compare the best color with the colorList and get the closest result
   colorResult tempResult = bestColor.compareWithColorList(colorList, C_ALLOWED_COLOR_VARIANCE);
-
+  
   if(tempResult != RESULT_EMPTY)
     Serial.println("A Skittle has been detected!");
   //Serial.println("Maximized colors:");

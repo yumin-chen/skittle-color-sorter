@@ -25,12 +25,12 @@ C_Color C_Color::createFromRawColors(int cycles, uint16_t red, uint16_t green,
   return C_Color(red / cycles, green / cycles, blue / cycles, clear / cycles);
 }
 
-C_Color C_Color::compare(const C_Color& compared_color) const
+int C_Color::compare(const C_Color& compared_color) const
 {
-  COLOR_UNIT color_diff_r = abs(int(r) - int(compared_color.r));
-  COLOR_UNIT color_diff_g = abs(int(g) - int(compared_color.g));
-  COLOR_UNIT color_diff_b = abs(int(b) - int(compared_color.b));
-  return C_Color(color_diff_r, color_diff_g, color_diff_b);
+  int d_r = r - compared_color.r;
+  int d_g = g - compared_color.g;
+  int d_b = b - compared_color.b;
+  return sqrt(d_r*d_r + d_g*d_g + d_b*d_b);
 }
 
 colorResult C_Color::compareWithColorList(const C_Color color_list [], int allowed_variance) const
@@ -43,23 +43,16 @@ colorResult C_Color::compareWithColorList(const C_Color color_list [], int allow
 
   for (int i = 0; i < COLOR_LIST_SIZE; i++) {
     // Compare the source color with the color defined in the colorList
-    C_Color diff = this->compare(color_list[i]);
-    // Add the color difference's primary colors (R + G + B) together
-    int agg = diff.aggregate();
+    int diff = this->compare(color_list[i]);
     // Check if the aggregated color difference value is less than the minimum color difference
-    if (agg < min_diff) {
+    if (diff < min_diff) {
       // If this is less than the minimun
-      min_diff = agg; // Set the minimun difference to this aggregated color difference
+      min_diff = diff; // Set the minimun difference to this aggregated color difference
       tempResult = static_cast<colorResult>(i);; // Set the result to this color's index
     }
   }
 
   return tempResult;
-}
-
-int C_Color::aggregate() const
-{
-  return r + g + b;
 }
 
 void C_Color::maximize()

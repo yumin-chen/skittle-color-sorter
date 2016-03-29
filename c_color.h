@@ -34,8 +34,8 @@ class C_Color
                                        uint16_t red, uint16_t green, uint16_t blue, uint16_t clear = 0);
 
     /**  Compares the color with another color.
-         @return the color difference. */
-    C_Color compare(const C_Color&)const;
+         @return the standard variance of the color difference. */
+    int compare(const C_Color&)const;
 
     /** Compares the color with an array of colors. This function is to find
         the color result that is the closest to the source color.
@@ -49,9 +49,6 @@ class C_Color
 
     /**  Maximizes color based on the clear value. */
     void maximize();
-
-    /** Get the sum of RGB channels. @return the sum of RGB channels.*/
-    int aggregate() const;
 
     /** Prints the color information onto the Serial. */
     void print() const;
