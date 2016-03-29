@@ -133,8 +133,8 @@ colorResult ColorSensor::_analyzeColor(const C_Color& bestColor)
 #undef COLOR_DEF
   // Compare the best color with the colorList and get the closest result
   colorResult tempResult = bestColor.compareWithColorList(colorList, C_ALLOWED_COLOR_VARIANCE);
-  
-  if(tempResult != RESULT_EMPTY)
+
+  if (tempResult != RESULT_EMPTY)
     Serial.println("A Skittle has been detected!");
   //Serial.println("Maximized colors:");
 
@@ -145,7 +145,7 @@ colorResult ColorSensor::_analyzeColor(const C_Color& bestColor)
   if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY)
     // Ignore empty hole's data unless F_CALI_EMPTY_HOLE is set
     return tempResult;
-    
+
   _calibrating(bestColor);
   return tempResult;
 #endif
@@ -158,9 +158,9 @@ colorResult ColorSensor::_analyzeColor(const C_Color& bestColor)
   }
 
   // Set the result
-  colorView.setResult(tempResult);
+  colorView.setColorByResult(tempResult);
   lcd.setBottomTextByResult(tempResult);
-  if(HAS_RESULT(tempResult))
+  if (HAS_RESULT(tempResult))
     servoBtm.setResult(tempResult);
 
   if (tempResult == RESULT_UNKNOWN) {

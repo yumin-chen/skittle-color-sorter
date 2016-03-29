@@ -19,7 +19,7 @@
 #include "ColorView.h"
 #include "LCD.h"
 
-ColorView::ColorView()
+ColorView::ColorView() : mColor(0, 0, 0)
 {
   bDirty = false;
 }
@@ -28,13 +28,8 @@ void ColorView::update()
 {
   if (!bDirty) return;
 
-  // Generate the colorResult enum-indexed constant array colorViewList
-#define COLOR_DEF( identifier, name, color, color_view )  color_view
-  const C_Color colorViewList [] = { COLORS_DEFINITION };
-#undef COLOR_DEF
-
   // Write the color to LED
-  this->write(colorViewList[mResult]);
+  this->write(mColor);
 }
 
 void ColorView::write(const C_Color& c)
@@ -44,8 +39,18 @@ void ColorView::write(const C_Color& c)
   analogWrite(PIN_COLOR_BLUE, (c.b));
 }
 
-void ColorView::setResult(colorResult result)
+void ColorView::setColor(const C_Color& color)
 {
-  mResult = result;
+  mColor = color;
+  bDirty = true;
+}
+
+void ColorView::setColorByResult(const colorResult& result)
+{
+  // Generate the colorResult enum-indexed constant array colorViewList
+#define COLOR_DEF( identifier, name, color, color_view )  color_view
+  const C_Color colorViewList [] = { COLORS_DEFINITION };
+#undef COLOR_DEF
+  setColor(colorViewList[result]);
 }
 

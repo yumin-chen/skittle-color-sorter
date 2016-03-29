@@ -31,17 +31,20 @@ class ColorView : private Context
         arduino's main loop. */
     void update();
 
+    /** Set the color view to show a desired color.
+        @param color The color to show on the LED.*/
+    void setColor(const C_Color& color);
+
+    /** Set the color view to show a disired result.
+        @param result The result that is to be shown on the LED.*/
+    void setColorByResult(const colorResult& result);
+
+  protected:
     /** Writes a desired color to the LED. This sets the LED's color by
         writing analog color values to the LED.
         @param c The desired color to be written. */
     void write(const C_Color& c);
-
-    /** Set the color view to show a disired result.
-        @param result The result that is to be shown on the LED.*/
-    void setResult(colorResult result);
-
-  private:
-    colorResult mResult;  /**< The result to show. */
+    C_Color mColor;       /**< The result to show. */
     boolean   bDirty;     /**< Does color view need to refresh. */
 
 };
