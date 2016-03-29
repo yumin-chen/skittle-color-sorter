@@ -25,6 +25,7 @@
 
 #include "TopServo.h"
 #include "ColorSensor.h"
+#include "LCD.h"
 
 TopServo::TopServo()
 {
@@ -65,6 +66,7 @@ void TopServo::update()
       && millis() - lastStuckTime > 1000) {
     Serial.println(millis() - colorSensor.getLastSkittleTime());
     Serial.println("Top servo is stuck; Direction reversed.");
+    lcd.setTopText("Stuck Reverse");
     // Reserve the top servo's direction
     bJammed = true;
 
@@ -81,6 +83,7 @@ void TopServo::update()
 
 void TopServo::remeasureColor()
 {
+  lcd.setBottomText("Color unknown");
   if (iRetry < C_RETRY_UNKNOWN_COLOR) {
     iRetry++;
     bRemeasuring = true;

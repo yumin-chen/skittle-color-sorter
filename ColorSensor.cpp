@@ -61,6 +61,7 @@ void ColorSensor::update()
   if (colors.c < C_HOLE_CLEAR && !isMeasuring && millis() - lastSkittleTime > 1000) {
     Serial.println(millis() - lastSkittleTime);
     lastSkittleTime = millis();
+    lcd.setBottomText("Start measuring");
     // Serial.println("Start measuring this Skittle's color.");
     isMeasuring = true;
     minClear = C_HOLE_CLEAR;
