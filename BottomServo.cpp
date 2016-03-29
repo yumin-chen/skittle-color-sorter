@@ -14,6 +14,12 @@
 
 #include "BottomServo.h"
 
+BottomServo::BottomServo()
+{
+  // Set the original arm position to the center. 
+  mResult = static_cast<colorResult>(2); // 2 is the middle one. 0 1 [2] 3 4 
+}
+
 void BottomServo::setup() 
 {
   this->attach(PIN_BTM_SERVO);
@@ -26,19 +32,11 @@ void BottomServo::update()
 #define MIN_BTM_ANGLE   30    // Minimum bottom servo angle
 #define NUM_OF_CUPS     5     // The number of cups at the bottom
 #define EACH_CUP_ANGLE_INTERVAL ((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)
-  int index = skittleCount;
-  int result = 2; // Set default result to 2 so the bottom arm is centered
-  while (index >= 0) {
-    // Check if the current Skittle has a color result
-    if (HAS_RESULT(colorResults[index])) {
-      result = colorResults[index];
-      break;
-    }
-    // Go to the previous Skittle when not
-    index --;
-  }
-  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * result;
+  int btmAngle = MIN_BTM_ANGLE + EACH_CUP_ANGLE_INTERVAL * mResult;
   this->write(btmAngle);
 }
 
+void BottomServo::setResult(colorResult result){
+  mResult = result;
+}
 

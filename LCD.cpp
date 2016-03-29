@@ -25,7 +25,10 @@
 
 #include "LCD.h"
 
-LCD::LCD() : LiquidCrystal(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7) {}
+LCD::LCD() : LiquidCrystal(PIN_LCD_RS, PIN_LCD_ENABLE, PIN_LCD_D4, PIN_LCD_D5, PIN_LCD_D6, PIN_LCD_D7)
+{
+  bDirty = false;
+}
 
 void LCD::setup()
 {
@@ -34,8 +37,8 @@ void LCD::setup()
 
 void LCD::update()
 {
-  // If content is still valid, there's no need to refresh
-  if (bValid) return;
+  // If content is still not dirty, there's no need to refresh
+  if (!bDirty) return;
 
   // Clear Screen
   this->clear();
@@ -55,7 +58,7 @@ void LCD::setTopText(String text)
   // Set the top text
   sTopText = text;
   // Invalidate the content to make it refresh
-  bValid = false;
+  bDirty = true;
 }
 
 void LCD::setBottomText(String text)
@@ -63,7 +66,18 @@ void LCD::setBottomText(String text)
   // Set the bottom text
   sBtmText = text;
   // Invalidate the content to make it refresh
-  bValid = false;
+  bDirty = true;
+}
+
+void LCD::setBottomTextByResult(colorResult result) {
+  // Generate the colorResult enum-indexed constant array nameList
+#define COLOR_DEF( identifier, name, color, color_view )  name
+  const String nameList [] = { COLORS_DEFINITION };
+#undef COLOR_DEF
+
+  // Print out the color result's name
+  Serial.println(nameList[result]);
+  setBottomText(nameList[result]);
 }
 
 void LCD::print(char const* text)

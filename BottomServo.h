@@ -22,6 +22,9 @@
 class BottomServo : public Servo, private Context
 {
   public:
+
+    /** Constructor. Initialize the members. */
+    BottomServo();
   
     /** Attaches the corresponding pins to the bottom servo object. */
     void setup();
@@ -30,7 +33,13 @@ class BottomServo : public Servo, private Context
      *  to the servo. This function should be called in the main loop. */
     void update();
 
+    /** Sets the result cup that this arm should go to. 
+        @param result The result that represents a color.*/
+    void setResult(colorResult result);
+
+
   private:
+    colorResult mResult;  /**< The result. */
 };
 
 #endif // _BOTTOM_SERVO_H_ 

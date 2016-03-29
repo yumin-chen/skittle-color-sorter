@@ -38,6 +38,10 @@ class LCD : public LiquidCrystal, private Context
     /** Set the text to show on the second line.  */
     void setBottomText(String text);
 
+    /** Set the bottom text by a color result.
+        @param result The result of a color. */
+    void setBottomTextByResult(colorResult result);
+
   protected:
     /** Print text to the LCD. This is to protect the `print` method so it
         cannot be publically accessed. You should use `setTopText` and
@@ -46,7 +50,7 @@ class LCD : public LiquidCrystal, private Context
 
     String    sTopText;   /**< The text to be shown on the first line.  */
     String    sBtmText;   /**< The text to be shown on the second line. */
-    boolean   bValid;     /**< Is the screen content still valid. */
+    boolean   bDirty;     /**< Does screen content need to refresh. */
 };
 
 #endif // _LCD_H_ 

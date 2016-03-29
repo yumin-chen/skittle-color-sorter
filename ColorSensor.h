@@ -49,7 +49,7 @@ class ColorSensor : public Adafruit_TCS34725, private Context
     /** Performs certain actions after the best color has been picked up
         by the color sensor. This function will be called each time the
         color sensor is through a measuring cycle. */
-    void _analyzeColor(const C_Color&);
+    colorResult _analyzeColor(const C_Color&);
 
     unsigned long   lastSkittleTime;    /**< Time when the last skittle arrived         */
     boolean         isMeasuring;        /**< Is the a Skittle being measured right now  */

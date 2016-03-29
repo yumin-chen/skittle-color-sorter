@@ -39,7 +39,6 @@ ColorView     Context::colorView;         // The color LED
 ColorSensor   Context::colorSensor;       // The Adafruit color sensor
 
 int           Context::skittleCount         = 0;      // The number of skittles sorted
-colorResult   Context::colorResults [128];            // An array to store all the measured colors
 
 void setup() {
   // Set up the serial for debugging purposes
@@ -57,10 +56,6 @@ void setup() {
 
   // Print some text on the LCD screen as a welcome message
   Context::lcd.setTopText("Color Sorter");
-
-  // Set every element in Context::colorResults to RESULT_UNKNOWN
-  for (int i = 0; i < sizeof(Context::colorResults); i++)
-    Context::colorResults[i] = RESULT_UNKNOWN;
 
 }
 

@@ -12,7 +12,7 @@
 */
 /**************************************************************************/
 // Change the following line to enter calibration mode
-#define F_CALIBRATING             true         /**< Is calibration in progress */
+#define F_CALIBRATING             false         /**< Is calibration in progress */
 #define F_CALI_EMPTY_HOLE         false         /**< Is calibrating the empty hole's color */
 
 // Constants
@@ -26,6 +26,8 @@
 
 #include "ColorSensor.h"
 #include "TopServo.h"
+#include "BottomServo.h"
+#include "ColorView.h"
 #include "LCD.h"
 
 ColorSensor::ColorSensor() : Adafruit_TCS34725(C_ATIME, TCS34725_GAIN_1X)
@@ -81,9 +83,9 @@ void ColorSensor::update()
       bestColor.print();
 
       // Analyze the color
-      _analyzeColor(bestColor);
+      colorResult result = _analyzeColor(bestColor);
 
-      if (!servoTop.isRemeasuring() && HAS_RESULT(colorResults[skittleCount])) {
+      if (!servoTop.isRemeasuring() && HAS_RESULT(result)) {
         // Add 1 to the skittleCount if the color is not being re-measured and we've got the result
         skittleCount++;
         // Set the new Skittle count to the LCD screen
@@ -122,7 +124,7 @@ void ColorSensor::_calibrating(const C_Color& new_color) {
   }
 }
 
-void ColorSensor::_analyzeColor(const C_Color& bestColor)
+colorResult ColorSensor::_analyzeColor(const C_Color& bestColor)
 {
   // Use a macro to generate a constant array colorList
   // whose indexes correspond to the colorResult enum
@@ -142,10 +144,10 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
 
   if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY)
     // Ignore empty hole's data unless F_CALI_EMPTY_HOLE is set
-    return;
+    return tempResult;
     
   _calibrating(bestColor);
-  return;
+  return tempResult;
 #endif
 
 
@@ -156,9 +158,12 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
   }
 
   // Set the result
-  colorResults[skittleCount] = tempResult;
+  colorView.setResult(tempResult);
+  lcd.setBottomTextByResult(tempResult);
+  if(HAS_RESULT(tempResult))
+    servoBtm.setResult(tempResult);
 
-  if (colorResults[skittleCount] == RESULT_UNKNOWN) {
+  if (tempResult == RESULT_UNKNOWN) {
     // If color cannot be detected, try again
     servoTop.remeasureColor();
   } else {
@@ -167,6 +172,7 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
       servoTop.stopRemeasuring();
     }
   }
+  return tempResult;
 }
 
 unsigned long ColorSensor::getLastSkittleTime() {

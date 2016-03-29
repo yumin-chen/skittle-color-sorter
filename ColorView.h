@@ -24,6 +24,9 @@ class ColorView : private Context
 {
   public:
 
+    /** Constructor. Initialize members. */
+    ColorView();
+
     /** Updates the color view logic. This function should be called on the
         arduino's main loop. */
     void update();
@@ -33,7 +36,14 @@ class ColorView : private Context
         @param c The desired color to be written. */
     void write(const C_Color& c);
 
+    /** Set the color view to show a disired result.
+        @param result The result that is to be shown on the LED.*/
+    void setResult(colorResult result);
+
   private:
+    colorResult mResult;  /**< The result to show. */
+    boolean   bDirty;     /**< Does color view need to refresh. */
+
 };
 
 #endif // _COLOR_VIEW_H_ 

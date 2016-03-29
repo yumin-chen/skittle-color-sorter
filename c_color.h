@@ -34,7 +34,7 @@ class C_Color
                                        uint16_t red, uint16_t green, uint16_t blue, uint16_t clear = 0);
 
     /**  Compares the color with another color.
-         @return the standard variance of the color difference. */
+         @return the euclidean distance (standard variance) of the colors. */
     int compare(const C_Color&)const;
 
     /** Compares the color with an array of colors. This function is to find

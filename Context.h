@@ -20,7 +20,7 @@
   /*       | Identifier   | Color Name      | Calibrated Color          | Color View        */\
   COLOR_DEF( RESULT_RED,		"Red Skittle",		C_Color(97, 73, 62, 117),	  C_Color(255, 0, 0) ),\
   COLOR_DEF( RESULT_GREEN,	"Green Skittle",	C_Color(58, 106, 54, 148),	C_Color(0, 255, 0) ),\
-  COLOR_DEF( RESULT_YELLOW,	"Yellow Skittle",	C_Color(90, 90, 34, 210),	  C_Color(128, 255, 0) ),\
+  COLOR_DEF( RESULT_YELLOW,	"Yellow Skittle",	C_Color(90, 92, 39, 242),	  C_Color(128, 255, 0) ),\
   COLOR_DEF( RESULT_PURPLE,	"Purple Skittle",	C_Color(65, 84, 81, 122),	  C_Color(128, 192, 32) ),\
   COLOR_DEF( RESULT_ORANGE,	"Orange Skittle",	C_Color(122, 64, 40, 154),	C_Color(255, 255, 0) ),\
   /* Don't forget to exclude these invalid colors in the HAS_COLOR macro function */\
@@ -66,7 +66,6 @@ class Context {
     static ColorSensor colorSensor; 	    	/**< The Adafruit color sensor                          */
     
     static int skittleCount; 				        /**< The number of skittles sorted                      */
-    static colorResult colorResults [128]; 	/**< An array to store all the measured colors          */
   private:
 };
 
