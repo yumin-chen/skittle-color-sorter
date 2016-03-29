@@ -133,44 +133,33 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
   // Compare the best color with the colorList and get the closest result
   colorResult tempResult = bestColor.compareWithColorList(colorList, C_ALLOWED_COLOR_VARIANCE);
 
-
-  if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY) {
-    // If this is an empty hole.
-    Serial.println("Empty hole");
-    if (servoTop.isRemeasuring()) {
-      servoTop.stopRemeasuring();
-    }
-  } else {
-    Serial.println("A Skittle has been detected!");
-    //Serial.println("Maximized colors:");
+  Serial.println("A Skittle has been detected!");
+  //Serial.println("Maximized colors:");
 #if F_CALIBRATING
-    // If we are calibrating colors
-    _calibrating(bestColor);
+  // If we are calibrating colors
+  _calibrating(bestColor);
 #else
 
 
-    // Check if the clear value is out of allowed range
-    if (HAS_RESULT(tempResult) && abs(int(bestColor.c) - int(colorList[tempResult].c)) > C_ALLOWED_CLEAR_VARIANCE) {
-      // If the clear value is out of range, then set this result back to unknown
-      tempResult = RESULT_UNKNOWN;
-    }
-
-    // If we've got a temp result
-    if (HAS_RESULT(tempResult)) {
-      colorResults[skittleCount] = tempResult;
-    }
-
-    if (!HAS_RESULT(colorResults[skittleCount])) {
-      // If color cannot be detected, try again
-      servoTop.remeasureColor();
-    } else {
-      if (servoTop.isRemeasuring()) {
-        Serial.println("We've got the color on re-measurement.");
-        servoTop.stopRemeasuring();
-      }
-    }
-#endif
+  // Check if the clear value is out of allowed range
+  if (HAS_RESULT(tempResult) && abs(int(bestColor.c) - int(colorList[tempResult].c)) > C_ALLOWED_CLEAR_VARIANCE) {
+    // If the clear value is out of range, then set this result back to unknown
+    tempResult = RESULT_UNKNOWN;
   }
+
+  // Set the result
+  colorResults[skittleCount] = tempResult;
+
+  if (colorResults[skittleCount] == RESULT_UNKNOWN) {
+    // If color cannot be detected, try again
+    servoTop.remeasureColor();
+  } else {
+    if (servoTop.isRemeasuring()) {
+      Serial.println("We've got the color on re-measurement.");
+      servoTop.stopRemeasuring();
+    }
+  }
+#endif
 }
 
 unsigned long ColorSensor::getLastSkittleTime() {

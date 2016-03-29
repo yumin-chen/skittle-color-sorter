@@ -24,7 +24,7 @@
 void ColorView::update() {
   static int index = 0;
   unsigned long lastColorSignalTime = 0;
-  if (HAS_RESULT(colorResults[index]))
+  if (colorResults[index] != RESULT_UNKNOWN)
   {
     // Generate the colorResult enum-indexed constant array nameList
 #define COLOR_DEF( identifier, name, color, color_view )  name
@@ -43,8 +43,10 @@ void ColorView::update() {
     // Write the color to LED
     this->write(colorViewList[colorResults[index]]);
 
-    index++;
-    lastColorSignalTime = millis();
+    if (HAS_RESULT(colorResults[index])) {
+      index++;
+      lastColorSignalTime = millis();
+    }
   }
 
   // Check if the color view signal has lasted enough time
