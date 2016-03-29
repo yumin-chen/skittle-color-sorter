@@ -12,7 +12,7 @@
 */
 /**************************************************************************/
 // Change the following line to enter calibration mode
-#define F_CALIBRATING             false         /**< Is calibration in progress */
+#define F_CALIBRATING             true         /**< Is calibration in progress */
 #define F_CALI_EMPTY_HOLE         false         /**< Is calibrating the empty hole's color */
 
 // Constants
@@ -124,8 +124,6 @@ void ColorSensor::_calibrating(const C_Color& new_color) {
 
 void ColorSensor::_analyzeColor(const C_Color& bestColor)
 {
-  bestColor.print();
-
   // Use a macro to generate a constant array colorList
   // whose indexes correspond to the colorResult enum
 #define COLOR_DEF( identifier, name, color, color_view )  color
@@ -134,12 +132,21 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
   // Compare the best color with the colorList and get the closest result
   colorResult tempResult = bestColor.compareWithColorList(colorList, C_ALLOWED_COLOR_VARIANCE);
 
-  Serial.println("A Skittle has been detected!");
+  if(tempResult != RESULT_EMPTY)
+    Serial.println("A Skittle has been detected!");
   //Serial.println("Maximized colors:");
+
+
 #if F_CALIBRATING
   // If we are calibrating colors
+
+  if (!F_CALI_EMPTY_HOLE && tempResult == RESULT_EMPTY)
+    // Ignore empty hole's data unless F_CALI_EMPTY_HOLE is set
+    return;
+    
   _calibrating(bestColor);
-#else
+  return;
+#endif
 
 
   // Check if the clear value is out of allowed range
@@ -160,7 +167,6 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
       servoTop.stopRemeasuring();
     }
   }
-#endif
 }
 
 unsigned long ColorSensor::getLastSkittleTime() {

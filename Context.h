@@ -24,7 +24,7 @@
   COLOR_DEF( RESULT_PURPLE,	"Purple Skittle",	C_Color(65, 84, 81, 122),	  C_Color(128, 192, 32) ),\
   COLOR_DEF( RESULT_ORANGE,	"Orange Skittle",	C_Color(122, 64, 40, 154),	C_Color(255, 255, 0) ),\
   /* Don't forget to exclude these invalid colors in the HAS_COLOR macro function */\
-  COLOR_DEF( RESULT_EMPTY,	"Empty hole",	    C_Color(66, 89, 71, 170),	  C_Color(0, 0, 0) )
+  COLOR_DEF( RESULT_EMPTY,	"Empty hole",	    C_Color(64, 89, 71, 172),	  C_Color(0, 0, 0) )
 
 /** This macro is retrive only the Identifier from the colors definition to
     generate the enum colorResult. */
