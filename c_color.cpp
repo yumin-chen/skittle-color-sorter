@@ -11,7 +11,7 @@
 
 #include "C_Color.h"
 
-C_Color::C_Color(COLOR_UNIT red, COLOR_UNIT green, COLOR_UNIT blue, COLOR_UNIT clear)
+C_Color::C_Color(COLOR_UNIT red, COLOR_UNIT green, COLOR_UNIT blue, uint16_t clear)
 {
   r = red;
   g = green;

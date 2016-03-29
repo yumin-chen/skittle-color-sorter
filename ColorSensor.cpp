@@ -56,11 +56,10 @@ void ColorSensor::update()
 
   // Create a C_Color object from raw colors
   C_Color colors = C_Color::createFromRawColors(C_CYCLES, r, g, b, c);
-  //colors.print();
 
   // Check if the hole arrives at the color sensor
   if (colors.c < C_HOLE_CLEAR && !isMeasuring && millis() - lastSkittleTime > 1000) {
-    //Serial.println(millis() - lastSkittleTime);
+    Serial.println(millis() - lastSkittleTime);
     lastSkittleTime = millis();
     // Serial.println("Start measuring this Skittle's color.");
     isMeasuring = true;
@@ -76,7 +75,7 @@ void ColorSensor::update()
       bestColor = colors;
     }
     // If the skittle moves away and there's nothing left for the color sensor there
-    if (colors.c > C_HOLE_CLEAR || (colors.c - minClear) > C_ALLOWED_COLOR_VARIANCE) {
+    if (colors.c > C_HOLE_CLEAR) {
       bestColor.maximize(); // Maximize color
       bestColor.print();
 
@@ -148,6 +147,7 @@ void ColorSensor::_analyzeColor(const C_Color& bestColor)
     // If we are calibrating colors
     _calibrating(bestColor);
 #else
+
 
     // Check if the clear value is out of allowed range
     if (HAS_RESULT(tempResult) && abs(int(bestColor.c) - int(colorList[tempResult].c)) > C_ALLOWED_CLEAR_VARIANCE) {

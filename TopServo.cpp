@@ -62,6 +62,7 @@ void TopServo::update()
   // If the top servo gets stuck
   if (!bJammed && millis() - colorSensor.getLastSkittleTime() > C_TOP_SERVO_TIMEOUT
       && millis() - lastStuckTime > 1000) {
+    Serial.println(millis() - colorSensor.getLastSkittleTime());
     Serial.println("Top servo is stuck; Direction reversed.");
     // Reserve the top servo's direction
     bJammed = true;

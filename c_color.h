@@ -23,7 +23,7 @@ class C_Color
   public:
 
     /** Initialize a color by red, green, blue, clear (optional) channel values. */
-    C_Color(COLOR_UNIT red, COLOR_UNIT green, COLOR_UNIT blue, COLOR_UNIT clear = 0);
+    C_Color(COLOR_UNIT red, COLOR_UNIT green, COLOR_UNIT blue, uint16_t clear = 0);
 
     /** Create a color from raw colors reported by the color sensor. This will
         convert the color to the standard unified 8-bits wide RGB channel for
@@ -59,7 +59,7 @@ class C_Color
     COLOR_UNIT  r;  /**< The red channel value    */
     COLOR_UNIT  g;  /**< The green channel value  */
     COLOR_UNIT  b;  /**< The blue channel value   */
-    COLOR_UNIT  c;  /**< The clear channel value  */
+    uint16_t  c;  /**< The clear channel value  */
 
 };
 

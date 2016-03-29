@@ -18,8 +18,8 @@
 
     @section  More
     - [CharmySoft]    http://CharmySoft.com/
-    - [Project Page]  http://CharmySoft.com/app/skittle-sorter.htm
-    - [Github Repo]   http://github.com/CharmySoft/skittle-color-sorter
+    - [Project Page]  http://CharmySoft.com/app/skittle-sorter
+    - [Github Repo]   http://CharmySoft.com/app/skittle-sorter/github
 */
 /**************************************************************************/
 
