@@ -18,7 +18,7 @@
     COLOR_DEF to retrive only needed data. */
 #define COLORS_DEFINITION \
   /*       | Identifier   | Color Name      | Calibrated Color          | Color View        */\
-  COLOR_DEF( RESULT_RED,		"Red Skittle",		C_Color(97, 73, 62, 117),	  C_Color(255, 0, 0) ),\
+  COLOR_DEF( RESULT_RED,		"Red Skittle",		C_Color(96, 73, 64, 117),	  C_Color(255, 0, 0) ),\
   COLOR_DEF( RESULT_GREEN,	"Green Skittle",	C_Color(58, 106, 54, 148),	C_Color(0, 255, 0) ),\
   COLOR_DEF( RESULT_YELLOW,	"Yellow Skittle",	C_Color(90, 92, 39, 242),	  C_Color(128, 255, 0) ),\
   COLOR_DEF( RESULT_PURPLE,	"Purple Skittle",	C_Color(65, 84, 81, 122),	  C_Color(128, 192, 32) ),\
