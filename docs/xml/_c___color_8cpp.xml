@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_c___color_8cpp" kind="file" language="C++">
+    <compoundname>C_Color.cpp</compoundname>
+    <includes refid="_c___color_8h" local="yes">C_Color.h</includes>
+    <incdepgraph>
+      <node id="14">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp</label>
+        <link refid="C_Color.cpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="15">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+<para>Color Class. </para>    </briefdescription>
+    <detaileddescription>
+<para>A basic color class for some color operations.</para><para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_c___color_8h" kindref="compound">C_Color.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><ref refid="class_c___color_1a965121514b84b072fb33152677deb10b" kindref="member">C_Color::C_Color</ref>(COLOR_UNIT<sp/>red,<sp/>COLOR_UNIT<sp/>green,<sp/>COLOR_UNIT<sp/>blue,<sp/>uint16_t<sp/>clear)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref><sp/>=<sp/>red;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref><sp/>=<sp/>green;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref><sp/>=<sp/>blue;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref><sp/>=<sp/>clear;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/><ref refid="class_c___color_1a51e5730cb4df02ad4962fffb36936bda" kindref="member">C_Color::createFromRawColors</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cycles,<sp/>uint16_t<sp/>red,<sp/>uint16_t<sp/>green,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/>blue,<sp/>uint16_t<sp/>clear)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___color_1a965121514b84b072fb33152677deb10b" kindref="member">C_Color</ref>(red<sp/>/<sp/>cycles,<sp/>green<sp/>/<sp/>cycles,<sp/>blue<sp/>/<sp/>cycles,<sp/>clear<sp/>/<sp/>cycles);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_c___color_1adbc4029581c353ca16b94b15f79e93f8" kindref="member">C_Color::compare</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>compared_color)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="29"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>rmean<sp/>=<sp/>(<sp/>(long)<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref><sp/>+<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)compared_color.<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref><sp/>)<sp/>/<sp/>2;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>d_r<sp/>=<sp/>(long)<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref><sp/>-<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)compared_color.<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>d_g<sp/>=<sp/>(long)<ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref><sp/>-<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)compared_color.<ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>d_b<sp/>=<sp/>(long)<ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref><sp/>-<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)compared_color.<ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sqrt((((512<sp/>+<sp/>rmean)<sp/>*<sp/>d_r<sp/>*<sp/>d_r)<sp/>&gt;&gt;<sp/>8)<sp/>+</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4<sp/>*<sp/>d_g<sp/>*<sp/>d_g<sp/>+<sp/>(((767<sp/>-<sp/>rmean)<sp/>*<sp/>d_b<sp/>*<sp/>d_b)<sp/>&gt;&gt;<sp/>8));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/><ref refid="class_c___color_1a708868fcc2445a5965b15333b9961947" kindref="member">C_Color::compareWithColorList</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>color_list<sp/>[],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>allowed_variance)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="39"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>mininum<sp/>difference<sp/>to<sp/>the<sp/>allowed<sp/>color<sp/>variance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>min_diff<sp/>=<sp/>allowed_variance;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>temperary<sp/>result<sp/>to<sp/>RESULT_UNKNOWN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>tempResult<sp/>=<sp/>RESULT_UNKNOWN;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_context_8h_1aea5d70c76919bd8464598b50fb567a63" kindref="member">COLOR_LIST_SIZE</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compare<sp/>the<sp/>source<sp/>color<sp/>with<sp/>the<sp/>color<sp/>defined<sp/>in<sp/>the<sp/>colorList</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff<sp/>=<sp/>this-&gt;<ref refid="class_c___color_1adbc4029581c353ca16b94b15f79e93f8" kindref="member">compare</ref>(color_list[i]);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>aggregated<sp/>color<sp/>difference<sp/>value<sp/>is<sp/>less<sp/>than<sp/>the<sp/>minimum<sp/>color<sp/>difference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&lt;<sp/>min_diff)<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>this<sp/>is<sp/>less<sp/>than<sp/>the<sp/>minimun</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>min_diff<sp/>=<sp/>diff;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>minimun<sp/>difference<sp/>to<sp/>this<sp/>aggregated<sp/>color<sp/>difference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tempResult<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i);;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>result<sp/>to<sp/>this<sp/>color&apos;s<sp/>index</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tempResult;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___color_1a969739c8a4a7837b05aeeb847d13469c" kindref="member">C_Color::maximize</ref>()</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scale<sp/>=<sp/>256.0<sp/>/<sp/><ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref><sp/>*=<sp/>scale;<sp/><ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref><sp/>*=<sp/>scale;<sp/><ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref><sp/>*=<sp/>scale;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___color_1a9223b9e01f1409f422fe76b18ebd12cc" kindref="member">C_Color::print</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;R:<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.print(<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref>,<sp/>DEC);<sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;G:<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.print(<ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref>,<sp/>DEC);<sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;B:<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.print(<ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref>,<sp/>DEC);<sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;C:<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.print(<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>,<sp/>DEC);<sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp"/>
+  </compounddef>
+</doxygen>

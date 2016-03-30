@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_bottom_servo" kind="class" language="C++" prot="public">
+    <compoundname>BottomServo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Servo</basecompoundref>
+    <basecompoundref refid="class_context" prot="private" virt="non-virtual">Context</basecompoundref>
+    <includes refid="_bottom_servo_8h" local="no">BottomServo.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_bottom_servo_1a18e22c6d53ab90040ccc141e33750f7a" prot="private" static="no" mutable="no">
+        <type><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></type>
+        <definition>colorResult BottomServo::mResult</definition>
+        <argsstring></argsstring>
+        <name>mResult</name>
+        <briefdescription>
+<para>The result. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="42" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bottom_servo_1ae4669e5fccee81584cf701081b57c464" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BottomServo::BottomServo</definition>
+        <argsstring>()</argsstring>
+        <name>BottomServo</name>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>Initialize the members. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="27" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" bodystart="17" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bottom_servo_1aa1f3d4b225ca895bff8f159e19dca1ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BottomServo::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+<para>Attaches the corresponding pins to the bottom servo object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="30" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bottom_servo_1a15df88aa839582d4907a2cf439d86375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BottomServo::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Updates the bottom servo. </para>        </briefdescription>
+        <detaileddescription>
+<para>This writes the updated bottom arm angle to the servo. This function should be called in the main loop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="34" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bottom_servo_1a949b01e0545094f28929cef3146ae473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BottomServo::setResult</definition>
+        <argsstring>(colorResult result)</argsstring>
+        <name>setResult</name>
+        <param>
+          <type><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Sets the result cup that this arm should go to. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result that represents a color. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="38" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The standard servo at the bottom. </para>    </briefdescription>
+    <detaileddescription>
+<para>It acts as an arm to put the Skittles into designated cups. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Context</label>
+        <link refid="class_context"/>
+      </node>
+      <node id="1">
+        <label>Servo</label>
+      </node>
+      <node id="0">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C_Color</label>
+        <link refid="class_c___color"/>
+      </node>
+      <node id="10">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="5">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>servoBtm</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>servoTop</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>colorSensor</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>lcd</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>colorView</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>mColor</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Servo</label>
+      </node>
+      <node id="8">
+        <label>Adafruit_TCS34725</label>
+      </node>
+      <node id="6">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" line="23" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h" bodystart="22" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_bottom_servo_1ae4669e5fccee81584cf701081b57c464" prot="public" virt="non-virtual"><scope>BottomServo</scope><name>BottomServo</name></member>
+      <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>colorSensor</name></member>
+      <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>colorView</name></member>
+      <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>lcd</name></member>
+      <member refid="class_bottom_servo_1a18e22c6d53ab90040ccc141e33750f7a" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>mResult</name></member>
+      <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>servoBtm</name></member>
+      <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>servoTop</name></member>
+      <member refid="class_bottom_servo_1a949b01e0545094f28929cef3146ae473" prot="public" virt="non-virtual"><scope>BottomServo</scope><name>setResult</name></member>
+      <member refid="class_bottom_servo_1aa1f3d4b225ca895bff8f159e19dca1ce" prot="public" virt="non-virtual"><scope>BottomServo</scope><name>setup</name></member>
+      <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="private" virt="non-virtual"><scope>BottomServo</scope><name>skittleCount</name></member>
+      <member refid="class_bottom_servo_1a15df88aa839582d4907a2cf439d86375" prot="public" virt="non-virtual"><scope>BottomServo</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

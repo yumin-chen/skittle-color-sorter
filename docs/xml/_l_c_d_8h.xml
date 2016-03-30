@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_l_c_d_8h" kind="file" language="C++">
+    <compoundname>LCD.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">LiquidCrystal.h</includes>
+    <includes refid="_context_8h" local="yes">Context.h</includes>
+    <includedby refid="_color_sensor_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</includedby>
+    <includedby refid="_color_view_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</includedby>
+    <includedby refid="_l_c_d_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp</includedby>
+    <includedby refid="skittle-color-sorter_8ino" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</includedby>
+    <includedby refid="_top_servo_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</includedby>
+    <incdepgraph>
+      <node id="93">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="94">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="92">
+        <label>Arduino.h</label>
+      </node>
+      <node id="91">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h</label>
+        <link refid="LCD.h"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="96">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</label>
+        <link refid="_color_sensor_8cpp"/>
+      </node>
+      <node id="100">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</label>
+        <link refid="_top_servo_8cpp"/>
+      </node>
+      <node id="97">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</label>
+        <link refid="_color_view_8cpp"/>
+      </node>
+      <node id="99">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</label>
+        <link refid="skittle-color-sorter_8ino"/>
+      </node>
+      <node id="98">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp</label>
+        <link refid="_l_c_d_8cpp"/>
+      </node>
+      <node id="95">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h</label>
+        <link refid="LCD.h"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_l_c_d" prot="public">LCD</innerclass>
+    <briefdescription>
+<para>Liquid-Crystal Display (<ref refid="class_l_c_d" kindref="compound">LCD</ref>) </para>    </briefdescription>
+    <detaileddescription>
+<para>The Liquid-Crystal Display (<ref refid="class_l_c_d" kindref="compound">LCD</ref>) that can display textual information.</para><para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/><sp/>_LCD_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>_LCD_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;LiquidCrystal.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_context_8h" kindref="compound">Context.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_l_c_d" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d" kindref="compound">LCD</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>LiquidCrystal,<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_context" kindref="compound">Context</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_1a00bb2db1390721abc7b24ac4b8c276c8" kindref="member">LCD</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" kindref="member">setTopText</ref>(String<sp/>text);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" kindref="member">setBottomText</ref>(String<sp/>text);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1aa44f72dd3dc2c8fccb0dbc0c5959efa2" kindref="member">setBottomTextByResult</ref>(<ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>result);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l_c_d_1a7f4cebe16a39c366b8cd3897df0bfeaf" kindref="member">print</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_l_c_d_1ada849abef7323bc745750db4af5bb426" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><ref refid="class_l_c_d_1ada849abef7323bc745750db4af5bb426" kindref="member">sTopText</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="52" refid="class_l_c_d_1aa2b50ef18be54fa3d76d94356575d086" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>String<sp/><sp/><sp/><sp/><ref refid="class_l_c_d_1aa2b50ef18be54fa3d76d94356575d086" kindref="member">sBtmText</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53" refid="class_l_c_d_1a4b5dfa1754a620dc3ccd578930326d8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="class_l_c_d_1a4b5dfa1754a620dc3ccd578930326d8c" kindref="member">bDirty</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_LCD_H_<sp/></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h"/>
+  </compounddef>
+</doxygen>

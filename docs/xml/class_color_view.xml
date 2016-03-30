@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_color_view" kind="class" language="C++" prot="public">
+    <compoundname>ColorView</compoundname>
+    <basecompoundref refid="class_context" prot="private" virt="non-virtual">Context</basecompoundref>
+    <includes refid="_color_view_8h" local="no">ColorView.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_color_view_1a31b429c490bfcca908ccaf408c65ef3f" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_c___color" kindref="compound">C_Color</ref></type>
+        <definition>C_Color ColorView::mColor</definition>
+        <argsstring></argsstring>
+        <name>mColor</name>
+        <briefdescription>
+<para>The result to show. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="47" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_color_view_1a81585eace0c38a9f6b7badad276acb97" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean ColorView::bDirty</definition>
+        <argsstring></argsstring>
+        <name>bDirty</name>
+        <briefdescription>
+<para>Does color view need to refresh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="48" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_color_view_1aff3c78d7db6a6687f3d31b8b119099c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ColorView::ColorView</definition>
+        <argsstring>()</argsstring>
+        <name>ColorView</name>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>Initialize members. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="28" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_color_view_1aa4085d3a1ad82899db773d1c36014629" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ColorView::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Updates the color view logic. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function should be called on the arduino&apos;s main loop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="32" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="27" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_color_view_1ac319a02c1b71f1347f743f1af6f3c174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ColorView::setColor</definition>
+        <argsstring>(const C_Color &amp;color)</argsstring>
+        <name>setColor</name>
+        <param>
+          <type>const <ref refid="class_c___color" kindref="compound">C_Color</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Set the color view to show a desired color. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The color to show on the LED. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="36" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_color_view_1a45e856fb584235419cfa0117a3bc4371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ColorView::setColorByResult</definition>
+        <argsstring>(const colorResult &amp;result)</argsstring>
+        <name>setColorByResult</name>
+        <param>
+          <type>const <ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref> &amp;</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Set the color view to show a disired result. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result that is to be shown on the LED. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="40" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="48" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_color_view_1a5d726d4124fe870644f27e96aff8fee4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ColorView::write</definition>
+        <argsstring>(const C_Color &amp;c)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const <ref refid="class_c___color" kindref="compound">C_Color</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Writes a desired color to the LED. </para>        </briefdescription>
+        <detaileddescription>
+<para>This sets the LED&apos;s color by writing analog color values to the LED. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired color to be written. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="46" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="35" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class <ref refid="class_color_view" kindref="compound">ColorView</ref> defines how the Skittle&apos;s color results are showed on the LED. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="29">
+        <label>Context</label>
+        <link refid="class_context"/>
+      </node>
+      <node id="28">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="29" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="37">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="38" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>C_Color</label>
+        <link refid="class_c___color"/>
+      </node>
+      <node id="38">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="31">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>servoBtm</edgelabel>
+        </childnode>
+        <childnode refid="34" relation="usage">
+          <edgelabel>servoTop</edgelabel>
+        </childnode>
+        <childnode refid="35" relation="usage">
+          <edgelabel>colorSensor</edgelabel>
+        </childnode>
+        <childnode refid="37" relation="usage">
+          <edgelabel>lcd</edgelabel>
+        </childnode>
+        <childnode refid="30" relation="usage">
+          <edgelabel>colorView</edgelabel>
+        </childnode>
+      </node>
+      <node id="30">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="31" relation="private-inheritance">
+        </childnode>
+        <childnode refid="39" relation="usage">
+          <edgelabel>mColor</edgelabel>
+        </childnode>
+      </node>
+      <node id="35">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="36" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Servo</label>
+      </node>
+      <node id="36">
+        <label>Adafruit_TCS34725</label>
+      </node>
+      <node id="34">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="33" relation="public-inheritance">
+        </childnode>
+        <childnode refid="31" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" line="24" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h" bodystart="23" bodyend="50"/>
+    <listofallmembers>
+      <member refid="class_color_view_1a81585eace0c38a9f6b7badad276acb97" prot="protected" virt="non-virtual"><scope>ColorView</scope><name>bDirty</name></member>
+      <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="private" virt="non-virtual"><scope>ColorView</scope><name>colorSensor</name></member>
+      <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="private" virt="non-virtual"><scope>ColorView</scope><name>colorView</name></member>
+      <member refid="class_color_view_1aff3c78d7db6a6687f3d31b8b119099c7" prot="public" virt="non-virtual"><scope>ColorView</scope><name>ColorView</name></member>
+      <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="private" virt="non-virtual"><scope>ColorView</scope><name>lcd</name></member>
+      <member refid="class_color_view_1a31b429c490bfcca908ccaf408c65ef3f" prot="protected" virt="non-virtual"><scope>ColorView</scope><name>mColor</name></member>
+      <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="private" virt="non-virtual"><scope>ColorView</scope><name>servoBtm</name></member>
+      <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="private" virt="non-virtual"><scope>ColorView</scope><name>servoTop</name></member>
+      <member refid="class_color_view_1ac319a02c1b71f1347f743f1af6f3c174" prot="public" virt="non-virtual"><scope>ColorView</scope><name>setColor</name></member>
+      <member refid="class_color_view_1a45e856fb584235419cfa0117a3bc4371" prot="public" virt="non-virtual"><scope>ColorView</scope><name>setColorByResult</name></member>
+      <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="private" virt="non-virtual"><scope>ColorView</scope><name>skittleCount</name></member>
+      <member refid="class_color_view_1aa4085d3a1ad82899db773d1c36014629" prot="public" virt="non-virtual"><scope>ColorView</scope><name>update</name></member>
+      <member refid="class_color_view_1a5d726d4124fe870644f27e96aff8fee4" prot="protected" virt="non-virtual"><scope>ColorView</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

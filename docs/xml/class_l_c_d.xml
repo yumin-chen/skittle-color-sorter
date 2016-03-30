@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_l_c_d" kind="class" language="C++" prot="public">
+    <compoundname>LCD</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">LiquidCrystal</basecompoundref>
+    <basecompoundref refid="class_context" prot="private" virt="non-virtual">Context</basecompoundref>
+    <includes refid="_l_c_d_8h" local="no">LCD.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_l_c_d_1ada849abef7323bc745750db4af5bb426" prot="protected" static="no" mutable="no">
+        <type>String</type>
+        <definition>String LCD::sTopText</definition>
+        <argsstring></argsstring>
+        <name>sTopText</name>
+        <briefdescription>
+<para>The text to be shown on the first line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="51" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_1aa2b50ef18be54fa3d76d94356575d086" prot="protected" static="no" mutable="no">
+        <type>String</type>
+        <definition>String LCD::sBtmText</definition>
+        <argsstring></argsstring>
+        <name>sBtmText</name>
+        <briefdescription>
+<para>The text to be shown on the second line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="52" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_l_c_d_1a4b5dfa1754a620dc3ccd578930326d8c" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean LCD::bDirty</definition>
+        <argsstring></argsstring>
+        <name>bDirty</name>
+        <briefdescription>
+<para>Does screen content need to refresh. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="53" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_l_c_d_1a00bb2db1390721abc7b24ac4b8c276c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LCD::LCD</definition>
+        <argsstring>()</argsstring>
+        <name>LCD</name>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>Initialize the liquid-crystal display with corresponding pins </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="24" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+<para>Set up the <ref refid="class_l_c_d" kindref="compound">LCD</ref>&apos;s number of columns and rows. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function should be called before anything else. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="28" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Refresh the <ref refid="class_l_c_d" kindref="compound">LCD</ref>&apos;s content. </para>        </briefdescription>
+        <detaileddescription>
+<para>This clears everything already written to the <ref refid="class_l_c_d" kindref="compound">LCD</ref> screen, and write the updated content. This function should be called in the main loop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="33" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="38" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::setTopText</definition>
+        <argsstring>(String text)</argsstring>
+        <name>setTopText</name>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Set the text to show on the first line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="36" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="56" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::setBottomText</definition>
+        <argsstring>(String text)</argsstring>
+        <name>setBottomText</name>
+        <param>
+          <type>String</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Set the text to show on the second line. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="39" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="64" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_l_c_d_1aa44f72dd3dc2c8fccb0dbc0c5959efa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::setBottomTextByResult</definition>
+        <argsstring>(colorResult result)</argsstring>
+        <name>setBottomTextByResult</name>
+        <param>
+          <type><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Set the bottom text by a color result. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The result of a color. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="43" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="72" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_l_c_d_1a7f4cebe16a39c366b8cd3897df0bfeaf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LCD::print</definition>
+        <argsstring>(char const *)</argsstring>
+        <name>print</name>
+        <param>
+          <type>char const *</type>
+          <defname>text</defname>
+        </param>
+        <briefdescription>
+<para>Print text to the <ref refid="class_l_c_d" kindref="compound">LCD</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is to protect the <computeroutput>print</computeroutput> method so it cannot be publically accessed. You should use <computeroutput>setTopText</computeroutput> and <computeroutput>setBottomText</computeroutput> instead. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="49" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A subclass of LiquidCrystal that can display textual information. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="56">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="57" relation="public-inheritance">
+        </childnode>
+        <childnode refid="58" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="58">
+        <label>Context</label>
+        <link refid="class_context"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="59">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="60" relation="public-inheritance">
+        </childnode>
+        <childnode refid="61" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>C_Color</label>
+        <link refid="class_c___color"/>
+      </node>
+      <node id="60">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="61">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>servoBtm</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>servoTop</edgelabel>
+        </childnode>
+        <childnode refid="65" relation="usage">
+          <edgelabel>colorSensor</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>lcd</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>colorView</edgelabel>
+        </childnode>
+      </node>
+      <node id="67">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="61" relation="private-inheritance">
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>mColor</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="66" relation="public-inheritance">
+        </childnode>
+        <childnode refid="61" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>Servo</label>
+      </node>
+      <node id="66">
+        <label>Adafruit_TCS34725</label>
+      </node>
+      <node id="64">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+        <childnode refid="61" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="63" relation="public-inheritance">
+        </childnode>
+        <childnode refid="61" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" line="20" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h" bodystart="19" bodyend="54"/>
+    <listofallmembers>
+      <member refid="class_l_c_d_1a4b5dfa1754a620dc3ccd578930326d8c" prot="protected" virt="non-virtual"><scope>LCD</scope><name>bDirty</name></member>
+      <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="private" virt="non-virtual"><scope>LCD</scope><name>colorSensor</name></member>
+      <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="private" virt="non-virtual"><scope>LCD</scope><name>colorView</name></member>
+      <member refid="class_l_c_d_1a00bb2db1390721abc7b24ac4b8c276c8" prot="public" virt="non-virtual"><scope>LCD</scope><name>LCD</name></member>
+      <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="private" virt="non-virtual"><scope>LCD</scope><name>lcd</name></member>
+      <member refid="class_l_c_d_1a7f4cebe16a39c366b8cd3897df0bfeaf" prot="protected" virt="non-virtual"><scope>LCD</scope><name>print</name></member>
+      <member refid="class_l_c_d_1aa2b50ef18be54fa3d76d94356575d086" prot="protected" virt="non-virtual"><scope>LCD</scope><name>sBtmText</name></member>
+      <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="private" virt="non-virtual"><scope>LCD</scope><name>servoBtm</name></member>
+      <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="private" virt="non-virtual"><scope>LCD</scope><name>servoTop</name></member>
+      <member refid="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" prot="public" virt="non-virtual"><scope>LCD</scope><name>setBottomText</name></member>
+      <member refid="class_l_c_d_1aa44f72dd3dc2c8fccb0dbc0c5959efa2" prot="public" virt="non-virtual"><scope>LCD</scope><name>setBottomTextByResult</name></member>
+      <member refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" prot="public" virt="non-virtual"><scope>LCD</scope><name>setTopText</name></member>
+      <member refid="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" prot="public" virt="non-virtual"><scope>LCD</scope><name>setup</name></member>
+      <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="private" virt="non-virtual"><scope>LCD</scope><name>skittleCount</name></member>
+      <member refid="class_l_c_d_1ada849abef7323bc745750db4af5bb426" prot="protected" virt="non-virtual"><scope>LCD</scope><name>sTopText</name></member>
+      <member refid="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" prot="public" virt="non-virtual"><scope>LCD</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

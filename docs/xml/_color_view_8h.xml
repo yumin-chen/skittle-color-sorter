@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_color_view_8h" kind="file" language="C++">
+    <compoundname>ColorView.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="yes">Adafruit_TCS34725.h</includes>
+    <includes refid="_context_8h" local="yes">Context.h</includes>
+    <includes refid="_c___color_8h" local="yes">C_Color.h</includes>
+    <includedby refid="_color_sensor_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</includedby>
+    <includedby refid="_color_view_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</includedby>
+    <includedby refid="skittle-color-sorter_8ino" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</includedby>
+    <incdepgraph>
+      <node id="63">
+        <label>Adafruit_TCS34725.h</label>
+      </node>
+      <node id="64">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="61">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h</label>
+        <link refid="ColorView.h"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+      </node>
+      <node id="65">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="67">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</label>
+        <link refid="_color_sensor_8cpp"/>
+      </node>
+      <node id="68">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</label>
+        <link refid="_color_view_8cpp"/>
+      </node>
+      <node id="66">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h</label>
+        <link refid="ColorView.h"/>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</label>
+        <link refid="skittle-color-sorter_8ino"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_color_view" prot="public">ColorView</innerclass>
+    <briefdescription>
+<para>Color View (LED) </para>    </briefdescription>
+    <detaileddescription>
+<para>A RGB (Red, Green, Blue) LED that can be used to show different colors by adjusting the brightness of each of the three LEDs. This class defines how the Skittle&apos;s color results are showed on the LED.</para><para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/><sp/>_COLOR_VIEW_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>_COLOR_VIEW_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Adafruit_TCS34725.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_context_8h" kindref="compound">Context.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_c___color_8h" kindref="compound">C_Color.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_color_view" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_color_view" kindref="compound">ColorView</ref><sp/>:<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_context" kindref="compound">Context</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_color_view_1aff3c78d7db6a6687f3d31b8b119099c7" kindref="member">ColorView</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1aa4085d3a1ad82899db773d1c36014629" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1ac319a02c1b71f1347f743f1af6f3c174" kindref="member">setColor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>color);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1a45e856fb584235419cfa0117a3bc4371" kindref="member">setColorByResult</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref>&amp;<sp/>result);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1a5d726d4124fe870644f27e96aff8fee4" kindref="member">write</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>c);</highlight></codeline>
+<codeline lineno="47" refid="class_color_view_1a31b429c490bfcca908ccaf408c65ef3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/><ref refid="class_color_view_1a31b429c490bfcca908ccaf408c65ef3f" kindref="member">mColor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="class_color_view_1a81585eace0c38a9f6b7badad276acb97" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="class_color_view_1a81585eace0c38a9f6b7badad276acb97" kindref="member">bDirty</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_COLOR_VIEW_H_<sp/></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h"/>
+  </compounddef>
+</doxygen>

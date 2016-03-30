@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_color_view_8cpp" kind="file" language="C++">
+    <compoundname>ColorView.cpp</compoundname>
+    <includes refid="_color_view_8h" local="yes">ColorView.h</includes>
+    <includes refid="_l_c_d_8h" local="yes">LCD.h</includes>
+    <incdepgraph>
+      <node id="52">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</label>
+        <link refid="ColorView.cpp"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>Adafruit_TCS34725.h</label>
+      </node>
+      <node id="59">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="56">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="53">
+        <label>ColorView.h</label>
+        <link refid="_color_view_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>Arduino.h</label>
+      </node>
+      <node id="58">
+        <label>LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_color_view_8cpp_1ad67ee3d3cec4e054fe7f13a9810ea2df" prot="public" static="no">
+        <name>PIN_COLOR_RED</name>
+        <initializer>7</initializer>
+        <briefdescription>
+<para>The pin to write Red channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" line="15" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_view_8cpp_1a957ffc026f6445f6d559acd36e653ade" prot="public" static="no">
+        <name>PIN_COLOR_GREEN</name>
+        <initializer>9</initializer>
+        <briefdescription>
+<para>The pin to write Green channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" line="16" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_view_8cpp_1a6bfc9eb57f75e704d938894db4fe0f8d" prot="public" static="no">
+        <name>PIN_COLOR_BLUE</name>
+        <initializer>6</initializer>
+        <briefdescription>
+<para>The pin to write Blue channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" line="17" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_view_8cpp_1a0f059975bddefae342343b7ad3c5057c" prot="public" static="no">
+        <name>COLOR_DEF</name>
+        <param><defname>identifier</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>color</defname></param>
+        <param><defname>color_view</defname></param>
+        <initializer>color_view</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp" line="51" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Color View (LED) </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="_top_servo_8cpp_1Circuit">
+<title>Circuit</title>
+<para><itemizedlist>
+<listitem><para>Color View<itemizedlist>
+<listitem><para>Red pin to pin 7</para></listitem><listitem><para>Green pin to pin 9</para></listitem><listitem><para>Blue pin to pin 6 </para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_COLOR_RED<sp/><sp/><sp/><sp/><sp/><sp/><sp/>7<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor">#define<sp/>PIN_COLOR_GREEN<sp/><sp/><sp/><sp/><sp/>9<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor">#define<sp/>PIN_COLOR_BLUE<sp/><sp/><sp/><sp/><sp/><sp/>6<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor">#include<sp/>&quot;ColorView.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l_c_d_8h" kindref="compound">LCD.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><ref refid="class_color_view_1aff3c78d7db6a6687f3d31b8b119099c7" kindref="member">ColorView::ColorView</ref>()<sp/>:<sp/>mColor(0,<sp/>0,<sp/>0)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>bDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1aa4085d3a1ad82899db773d1c36014629" kindref="member">ColorView::update</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bDirty)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>the<sp/>color<sp/>to<sp/>LED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>this-&gt;write(mColor);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1a5d726d4124fe870644f27e96aff8fee4" kindref="member">ColorView::write</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>c)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>analogWrite(<ref refid="_color_view_8cpp_1ad67ee3d3cec4e054fe7f13a9810ea2df" kindref="member">PIN_COLOR_RED</ref>,<sp/>(c.<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref>));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>analogWrite(<ref refid="_color_view_8cpp_1a957ffc026f6445f6d559acd36e653ade" kindref="member">PIN_COLOR_GREEN</ref>,<sp/>(c.<ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref>));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>analogWrite(<ref refid="_color_view_8cpp_1a6bfc9eb57f75e704d938894db4fe0f8d" kindref="member">PIN_COLOR_BLUE</ref>,<sp/>(c.<ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref>));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1ac319a02c1b71f1347f743f1af6f3c174" kindref="member">ColorView::setColor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>color)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>mColor<sp/>=<sp/>color;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>bDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_view_1a45e856fb584235419cfa0117a3bc4371" kindref="member">ColorView::setColorByResult</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref>&amp;<sp/>result)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>the<sp/>colorResult<sp/>enum-indexed<sp/>constant<sp/>array<sp/>colorViewList</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_DEF(<sp/>identifier,<sp/>name,<sp/>color,<sp/>color_view<sp/>)<sp/><sp/>color_view</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>colorViewList<sp/>[]<sp/>=<sp/>{<sp/><ref refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" kindref="member">COLORS_DEFINITION</ref><sp/>};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>COLOR_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>setColor(colorViewList[result]);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp"/>
+  </compounddef>
+</doxygen>

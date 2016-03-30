@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Skittle Color Sorter</title>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="index_1Introduction">
+<title>Introduction</title>
+<para>This Skittle Color Sorter consists of a Adafruit TCS34725 Color Sensor to measure color values, a Continuous Rotation Servo at the top to keep the Skittles going down, a Standard Servo at the bottom to move the arm to bring the Skittles to a desired place, and a <ref refid="class_l_c_d" kindref="compound">LCD</ref> Display to show information like the number of Skittles.</para></sect1>
+<sect1 id="index_1More">
+<title>More</title>
+<para><itemizedlist>
+<listitem><para>[CharmySoft] <ulink url="http://CharmySoft.com/">http://CharmySoft.com/</ulink></para></listitem><listitem><para>[Project Page] <ulink url="http://CharmySoft.com/app/skittle-sorter">http://CharmySoft.com/app/skittle-sorter</ulink></para></listitem><listitem><para>[Github Repo] <ulink url="http://CharmySoft.com/app/skittle-sorter/github">http://CharmySoft.com/app/skittle-sorter/github</ulink> </para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

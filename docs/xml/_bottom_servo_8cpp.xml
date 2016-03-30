@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_bottom_servo_8cpp" kind="file" language="C++">
+    <compoundname>BottomServo.cpp</compoundname>
+    <includes refid="_bottom_servo_8h" local="yes">BottomServo.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="1">
+        <label>BottomServo.h</label>
+        <link refid="_bottom_servo_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="0">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp</label>
+        <link refid="BottomServo.cpp"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Servo.h</label>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_bottom_servo_8cpp_1a5acd4d3dac0313ec280c955bd963f292" prot="public" static="no">
+        <name>PIN_BTM_SERVO</name>
+        <initializer>10</initializer>
+        <briefdescription>
+<para>The pin attaching to the bottom servo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" line="13" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_bottom_servo_8cpp_1aacb1909b06a30133ee6fd4ddc18e3976" prot="public" static="no">
+        <name>MAX_BTM_ANGLE</name>
+        <initializer>150</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="define" id="_bottom_servo_8cpp_1a7cde9193cebf5b5b6e4739148ac7ee21" prot="public" static="no">
+        <name>MIN_BTM_ANGLE</name>
+        <initializer>30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="define" id="_bottom_servo_8cpp_1ad1e52191ddd1dd145d11ee2dbf4e7605" prot="public" static="no">
+        <name>NUM_OF_CUPS</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="define" id="_bottom_servo_8cpp_1a3f12abaaa4f2b0b2825910660f2b0f02" prot="public" static="no">
+        <name>EACH_CUP_ANGLE_INTERVAL</name>
+        <initializer>((MAX_BTM_ANGLE - MIN_BTM_ANGLE) / NUM_OF_CUPS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp" line="34" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Bottom Servo. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="_top_servo_8cpp_1Circuit">
+<title>Circuit</title>
+<para><itemizedlist>
+<listitem><para>Bottom Servo<itemizedlist>
+<listitem><para>Digital pin 10 </para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_BTM_SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/>10<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor">#include<sp/>&quot;BottomServo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><ref refid="class_bottom_servo_1ae4669e5fccee81584cf701081b57c464" kindref="member">BottomServo::BottomServo</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>original<sp/>arm<sp/>position<sp/>to<sp/>the<sp/>center.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>mResult<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(2);<sp/></highlight><highlight class="comment">//<sp/>2<sp/>is<sp/>the<sp/>middle<sp/>one.<sp/>0<sp/>1<sp/>[2]<sp/>3<sp/>4<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bottom_servo_1aa1f3d4b225ca895bff8f159e19dca1ce" kindref="member">BottomServo::setup</ref>()<sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/>this-&gt;attach(<ref refid="_bottom_servo_8cpp_1a5acd4d3dac0313ec280c955bd963f292" kindref="member">PIN_BTM_SERVO</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bottom_servo_1a15df88aa839582d4907a2cf439d86375" kindref="member">BottomServo::update</ref>()<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>angle<sp/>of<sp/>the<sp/>bottom<sp/>servo<sp/>arm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_BTM_ANGLE<sp/><sp/><sp/>150<sp/><sp/><sp/>//<sp/>Maximum<sp/>bottom<sp/>servo<sp/>angle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MIN_BTM_ANGLE<sp/><sp/><sp/>30<sp/><sp/><sp/><sp/>//<sp/>Minimum<sp/>bottom<sp/>servo<sp/>angle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OF_CUPS<sp/><sp/><sp/><sp/><sp/>5<sp/><sp/><sp/><sp/><sp/>//<sp/>The<sp/>number<sp/>of<sp/>cups<sp/>at<sp/>the<sp/>bottom</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>EACH_CUP_ANGLE_INTERVAL<sp/>((MAX_BTM_ANGLE<sp/>-<sp/>MIN_BTM_ANGLE)<sp/>/<sp/>NUM_OF_CUPS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>btmAngle<sp/>=<sp/>MIN_BTM_ANGLE<sp/>+<sp/>EACH_CUP_ANGLE_INTERVAL<sp/>*<sp/>mResult;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>this-&gt;write(btmAngle);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bottom_servo_1a949b01e0545094f28929cef3146ae473" kindref="member">BottomServo::setResult</ref>(<ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>result){</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>mResult<sp/>=<sp/>result;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp"/>
+  </compounddef>
+</doxygen>

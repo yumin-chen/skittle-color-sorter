@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="skittle-color-sorter_8ino" kind="file" language="C++">
+    <compoundname>skittle-color-sorter.ino</compoundname>
+    <includes refid="_context_8h" local="yes">Context.h</includes>
+    <includes refid="_l_c_d_8h" local="yes">LCD.h</includes>
+    <includes refid="_top_servo_8h" local="yes">TopServo.h</includes>
+    <includes refid="_bottom_servo_8h" local="yes">BottomServo.h</includes>
+    <includes refid="_color_view_8h" local="yes">ColorView.h</includes>
+    <includes refid="_color_sensor_8h" local="yes">ColorSensor.h</includes>
+    <incdepgraph>
+      <node id="116">
+        <label>ColorSensor.h</label>
+        <link refid="_color_sensor_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>Adafruit_TCS34725.h</label>
+      </node>
+      <node id="109">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="106">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="112">
+        <label>BottomServo.h</label>
+        <link refid="_bottom_servo_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>ColorView.h</label>
+        <link refid="_color_view_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</label>
+        <link refid="skittle-color-sorter.ino"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>TopServo.h</label>
+        <link refid="_top_servo_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="111">
+        <label>Servo.h</label>
+      </node>
+      <node id="108">
+        <label>Arduino.h</label>
+      </node>
+      <node id="107">
+        <label>LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="skittle-color-sorter_8ino_1a4fc01d736fe50cf5b977f755b675f11d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino" line="43" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino" bodystart="43" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="skittle-color-sorter_8ino_1afe461d27b9c48d5921c00d521181f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino" line="62" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino" bodystart="62" bodyend="79"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Skittle Color Sorter. </para>    </briefdescription>
+    <detaileddescription>
+<para>An Arduino UNO board sketch that programs a Skittle color sorting machine that can sort Skittles by their color. </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Include<sp/>libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_context_8h" kindref="compound">Context.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Context<sp/>(global<sp/>variables)<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l_c_d_8h" kindref="compound">LCD.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>LCD<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_top_servo_8h" kindref="compound">TopServo.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Top<sp/>Servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bottom_servo_8h" kindref="compound">BottomServo.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Bottom<sp/>Servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_color_view_8h" kindref="compound">ColorView.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Color<sp/>View</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_color_sensor_8h" kindref="compound">ColorSensor.h</ref>&quot;</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Color<sp/>Sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Initialize<sp/>global<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="class_l_c_d" kindref="compound">LCD</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" kindref="member">Context::lcd</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>liquid-crystal<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="class_top_servo" kindref="compound">TopServo</ref><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" kindref="member">Context::servoTop</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>top<sp/>continuous<sp/>rotation<sp/>servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="class_bottom_servo" kindref="compound">BottomServo</ref><sp/><sp/><sp/><ref refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" kindref="member">Context::servoBtm</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>bottom<sp/>standard<sp/>servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><ref refid="class_color_view" kindref="compound">ColorView</ref><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1a8d0a3690614c7827e427b45eec104a65" kindref="member">Context::colorView</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>color<sp/>LED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><ref refid="class_color_sensor" kindref="compound">ColorSensor</ref><sp/><sp/><sp/><ref refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" kindref="member">Context::colorSensor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>Adafruit<sp/>color<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" kindref="member">Context::skittleCount</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>number<sp/>of<sp/>skittles<sp/>sorted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setup()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>the<sp/>serial<sp/>for<sp/>debugging<sp/>purposes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>Serial.begin(9600);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>the<sp/>LCD<sp/>screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>Context::lcd.<ref refid="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>the<sp/>servos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>Context::servoTop.<ref refid="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>Context::servoBtm.<ref refid="class_bottom_servo_1aa1f3d4b225ca895bff8f159e19dca1ce" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>up<sp/>the<sp/>Adafruit<sp/>color<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>Context::colorSensor.<ref refid="class_color_sensor_1aeb45acd3299850cd4e115cadf467152a" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>some<sp/>text<sp/>on<sp/>the<sp/>LCD<sp/>screen<sp/>as<sp/>a<sp/>welcome<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>Context::lcd.<ref refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" kindref="member">setTopText</ref>(</highlight><highlight class="stringliteral">&quot;Color<sp/>Sorter&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>loop()<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>LCD</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>Context::lcd.<ref refid="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>top<sp/>servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>Context::servoTop.<ref refid="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>bottom<sp/>servo<sp/>(arm)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>Context::servoBtm.<ref refid="class_bottom_servo_1a15df88aa839582d4907a2cf439d86375" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>color<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>Context::colorSensor.<ref refid="class_color_sensor_1a4e725300210ee706533fd78b7deb6320" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>the<sp/>color<sp/>view<sp/>LED<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>Context::colorView.<ref refid="class_color_view_1aa4085d3a1ad82899db773d1c36014629" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>delay(100);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino"/>
+  </compounddef>
+</doxygen>

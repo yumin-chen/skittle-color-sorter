@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_c___color" kind="class" language="C++" prot="public">
+    <compoundname>C_Color</compoundname>
+    <includes refid="_c___color_8h" local="no">C_Color.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" prot="public" static="no" mutable="no">
+        <type>COLOR_UNIT</type>
+        <definition>COLOR_UNIT C_Color::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+<para>The red channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="56" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" prot="public" static="no" mutable="no">
+        <type>COLOR_UNIT</type>
+        <definition>COLOR_UNIT C_Color::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+<para>The green channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="57" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" prot="public" static="no" mutable="no">
+        <type>COLOR_UNIT</type>
+        <definition>COLOR_UNIT C_Color::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+<para>The blue channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="58" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c___color_1afd26aba93e84833a11bea2197a21f45d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t C_Color::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+<para>The clear channel value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="59" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c___color_1a965121514b84b072fb33152677deb10b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>C_Color::C_Color</definition>
+        <argsstring>(COLOR_UNIT red, COLOR_UNIT green, COLOR_UNIT blue, uint16_t clear=0)</argsstring>
+        <name>C_Color</name>
+        <param>
+          <type>COLOR_UNIT</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>COLOR_UNIT</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>COLOR_UNIT</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>clear</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Initialize a color by red, green, blue, clear (optional) channel values. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="26" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___color_1adbc4029581c353ca16b94b15f79e93f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int C_Color::compare</definition>
+        <argsstring>(const C_Color &amp;) const </argsstring>
+        <name>compare</name>
+        <param>
+          <type>const <ref refid="class_c___color" kindref="compound">C_Color</ref> &amp;</type>
+          <defname>compared_color</defname>
+        </param>
+        <briefdescription>
+<para>Compares the color with another color. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the euclidean distance (standard variance) of the colors. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="38" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___color_1a708868fcc2445a5965b15333b9961947" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref></type>
+        <definition>colorResult C_Color::compareWithColorList</definition>
+        <argsstring>(const C_Color color_list[], int allowed_variance) const </argsstring>
+        <name>compareWithColorList</name>
+        <param>
+          <type>const <ref refid="class_c___color" kindref="compound">C_Color</ref></type>
+          <declname>color_list</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>allowed_variance</declname>
+        </param>
+        <briefdescription>
+<para>Compares the color with an array of colors. </para>        </briefdescription>
+        <detaileddescription>
+<para>This function is to find the color result that is the closest to the source color. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>colors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of colors that the source color compares with. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>allowed_variance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Allowed variance to ensure the integrity of the result. If the result&apos;s difference is still bigger than the allowed value then RESULT_UNKNOWN will be returned. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The color result that is the closest to the source color. Returns RESULT_UNKNOWN if no color in the colorList is matched. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="48" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="38" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___color_1a969739c8a4a7837b05aeeb847d13469c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void C_Color::maximize</definition>
+        <argsstring>()</argsstring>
+        <name>maximize</name>
+        <briefdescription>
+<para>Maximizes color based on the clear value. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="51" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="60" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___color_1a9223b9e01f1409f422fe76b18ebd12cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void C_Color::print</definition>
+        <argsstring>() const </argsstring>
+        <name>print</name>
+        <briefdescription>
+<para>Prints the color information onto the Serial. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="54" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="66" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_c___color_1a51e5730cb4df02ad4962fffb36936bda" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_c___color" kindref="compound">C_Color</ref></type>
+        <definition>C_Color C_Color::createFromRawColors</definition>
+        <argsstring>(int cycles, uint16_t red, uint16_t green, uint16_t blue, uint16_t clear=0)</argsstring>
+        <name>createFromRawColors</name>
+        <param>
+          <type>int</type>
+          <declname>cycles</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>clear</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Create a color from raw colors reported by the color sensor. </para>        </briefdescription>
+        <detaileddescription>
+<para>This will convert the color to the standard unified 8-bits wide RGB channel for convinience of further analyzation. <simplesect kind="return"><para>a <ref refid="class_c___color" kindref="compound">C_Color</ref> object created from raw colors, whose RGB channel values converted to 8-bits wide. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="33" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp" bodystart="22" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A basic color class for some color operations. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" line="22" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h" bodystart="21" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" prot="public" virt="non-virtual"><scope>C_Color</scope><name>b</name></member>
+      <member refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" prot="public" virt="non-virtual"><scope>C_Color</scope><name>c</name></member>
+      <member refid="class_c___color_1a965121514b84b072fb33152677deb10b" prot="public" virt="non-virtual"><scope>C_Color</scope><name>C_Color</name></member>
+      <member refid="class_c___color_1adbc4029581c353ca16b94b15f79e93f8" prot="public" virt="non-virtual"><scope>C_Color</scope><name>compare</name></member>
+      <member refid="class_c___color_1a708868fcc2445a5965b15333b9961947" prot="public" virt="non-virtual"><scope>C_Color</scope><name>compareWithColorList</name></member>
+      <member refid="class_c___color_1a51e5730cb4df02ad4962fffb36936bda" prot="public" virt="non-virtual"><scope>C_Color</scope><name>createFromRawColors</name></member>
+      <member refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" prot="public" virt="non-virtual"><scope>C_Color</scope><name>g</name></member>
+      <member refid="class_c___color_1a969739c8a4a7837b05aeeb847d13469c" prot="public" virt="non-virtual"><scope>C_Color</scope><name>maximize</name></member>
+      <member refid="class_c___color_1a9223b9e01f1409f422fe76b18ebd12cc" prot="public" virt="non-virtual"><scope>C_Color</scope><name>print</name></member>
+      <member refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" prot="public" virt="non-virtual"><scope>C_Color</scope><name>r</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

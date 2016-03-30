@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_top_servo_8h" kind="file" language="C++">
+    <compoundname>TopServo.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">Servo.h</includes>
+    <includes refid="_context_8h" local="yes">Context.h</includes>
+    <includedby refid="_color_sensor_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</includedby>
+    <includedby refid="skittle-color-sorter_8ino" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</includedby>
+    <includedby refid="_top_servo_8cpp" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</includedby>
+    <incdepgraph>
+      <node id="132">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="129">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h</label>
+        <link refid="TopServo.h"/>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>Servo.h</label>
+      </node>
+      <node id="130">
+        <label>Arduino.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="134">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</label>
+        <link refid="_color_sensor_8cpp"/>
+      </node>
+      <node id="136">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</label>
+        <link refid="_top_servo_8cpp"/>
+      </node>
+      <node id="135">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</label>
+        <link refid="skittle-color-sorter_8ino"/>
+      </node>
+      <node id="133">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h</label>
+        <link refid="TopServo.h"/>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_top_servo" prot="public">TopServo</innerclass>
+    <briefdescription>
+<para>Top Servo. </para>    </briefdescription>
+    <detaileddescription>
+<para>Controls the continuous rotation servo at the top that spins and moves Skittles to let the color sensor read the color.</para><para><simplesect kind="author"><para>Charlie Chen <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/><sp/>_TOP_SERVO_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>_TOP_SERVO_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Servo.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_context_8h" kindref="compound">Context.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_top_servo" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_top_servo" kindref="compound">TopServo</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Servo,<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_context" kindref="compound">Context</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1a0ab4a430f5730b090ff5d69c94e2bac8" kindref="member">TopServo</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" kindref="member">setup</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a18fcbfb171a7dc253c822b46331670fc" kindref="member">remeasureColor</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" kindref="member">stopRemeasuring</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1adbf6a91f67654e752803d96017408d4e" kindref="member">isRemeasuring</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47" refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48" refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref>;<sp/></highlight></codeline>
+<codeline lineno="49" refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><sp/><sp/><ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50" refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_TOP_SERVO_H_<sp/></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h"/>
+  </compounddef>
+</doxygen>

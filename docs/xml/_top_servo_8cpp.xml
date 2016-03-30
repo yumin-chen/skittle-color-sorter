@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_top_servo_8cpp" kind="file" language="C++">
+    <compoundname>TopServo.cpp</compoundname>
+    <includes refid="_top_servo_8h" local="yes">TopServo.h</includes>
+    <includes refid="_color_sensor_8h" local="yes">ColorSensor.h</includes>
+    <includes refid="_l_c_d_8h" local="yes">LCD.h</includes>
+    <incdepgraph>
+      <node id="118">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</label>
+        <link refid="TopServo.cpp"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>ColorSensor.h</label>
+        <link refid="_color_sensor_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>Adafruit_TCS34725.h</label>
+      </node>
+      <node id="127">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="122">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="119">
+        <label>TopServo.h</label>
+        <link refid="_top_servo_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>Servo.h</label>
+      </node>
+      <node id="120">
+        <label>Arduino.h</label>
+      </node>
+      <node id="126">
+        <label>LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_top_servo_8cpp_1a3e6eb9f2f913c3cebd429ecc9f39d56b" prot="public" static="no">
+        <name>PIN_TOP_SERVO</name>
+        <initializer>13</initializer>
+        <briefdescription>
+<para>The pin attaching to the top servo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" line="13" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_top_servo_8cpp_1aec396d78cc6501ccd3a90f9bf33e8615" prot="public" static="no">
+        <name>F_TOP_SERVO_TIMEOUT_ENABLED</name>
+        <initializer>true</initializer>
+        <briefdescription>
+<para>Enable the timeout for the top servo. </para>        </briefdescription>
+        <detaileddescription>
+<para>If enabled, the top servo will move backwards when the color sensor&apos;s measuring cycle is longer than the defined TIMEOUT value. This is used to solve jamming issues as the Skittles get stuck in the top servo. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" line="19" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_top_servo_8cpp_1a735bd3d736f0d3b00e10a41a758906fa" prot="public" static="no">
+        <name>C_TOP_SERVO_TIMEOUT</name>
+        <initializer>6000</initializer>
+        <briefdescription>
+<para>Timeout value in milliseconds. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" line="20" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_top_servo_8cpp_1a4d7cd54ea5c3c3485453ee8178b84379" prot="public" static="no">
+        <name>C_RETRY_UNKNOWN_COLOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>How many times to retry if the color cannot be determined by the color sensor. </para>        </briefdescription>
+        <detaileddescription>
+<para>If set to 0, then this will be disabled. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" line="24" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Top Servo. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="_top_servo_8cpp_1Circuit">
+<title>Circuit</title>
+<para><itemizedlist>
+<listitem><para>Top Servo<itemizedlist>
+<listitem><para>Digital pin 13 </para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_TOP_SERVO<sp/><sp/><sp/><sp/><sp/><sp/><sp/>13<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor">#define<sp/>F_TOP_SERVO_TIMEOUT_ENABLED<sp/>true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>C_TOP_SERVO_TIMEOUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6000<sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor">#define<sp/>C_RETRY_UNKNOWN_COLOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_top_servo_8h" kindref="compound">TopServo.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_color_sensor_8h" kindref="compound">ColorSensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l_c_d_8h" kindref="compound">LCD.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><ref refid="class_top_servo_1a0ab4a430f5730b090ff5d69c94e2bac8" kindref="member">TopServo::TopServo</ref>()</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>F_TOP_SERVO_TIMEOUT_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" kindref="member">TopServo::setup</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>this-&gt;attach(<ref refid="_top_servo_8cpp_1a3e6eb9f2f913c3cebd429ecc9f39d56b" kindref="member">PIN_TOP_SERVO</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" kindref="member">TopServo::update</ref>()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>dirction<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Set<sp/>direction<sp/>to<sp/>forwards</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>color<sp/>is<sp/>being<sp/>re-measured</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref>)<sp/>dirction<sp/>=<sp/><ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>F_TOP_SERVO_TIMEOUT_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>jammed,<sp/>reverse<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref>)<sp/>dirction<sp/>=<sp/>!dirction;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>speed<sp/>of<sp/>the<sp/>top<sp/>servo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>with<sp/>0<sp/>being<sp/>full-speed<sp/>in<sp/>one<sp/>direction,<sp/>180<sp/>being<sp/>full<sp/>speed<sp/>in<sp/>the<sp/>other,<sp/>and<sp/>a<sp/>value<sp/>near<sp/>90<sp/>being<sp/>no<sp/>movement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>this-&gt;write(dirction<sp/>?<sp/>180<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>F_TOP_SERVO_TIMEOUT_ENABLED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastStuckTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/>isTimeout<sp/>=<sp/>millis()<sp/>-<sp/>max(<ref refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" kindref="member">colorSensor</ref>.<ref refid="class_color_sensor_1ad82460707e31ec7147971aa646fc83cf" kindref="member">getLastSkittleTime</ref>(),<sp/>lastStuckTime)<sp/>&gt;<sp/><ref refid="_top_servo_8cpp_1a735bd3d736f0d3b00e10a41a758906fa" kindref="member">C_TOP_SERVO_TIMEOUT</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>top<sp/>servo<sp/>gets<sp/>stuck</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref><sp/>&amp;&amp;<sp/>isTimeout</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/>millis()<sp/>-<sp/>lastStuckTime<sp/>&gt;<sp/>1000)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(millis()<sp/>-<sp/><ref refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" kindref="member">colorSensor</ref>.<ref refid="class_color_sensor_1ad82460707e31ec7147971aa646fc83cf" kindref="member">getLastSkittleTime</ref>());</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Top<sp/>servo<sp/>is<sp/>stuck;<sp/>Direction<sp/>reversed.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" kindref="member">lcd</ref>.<ref refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" kindref="member">setTopText</ref>(</highlight><highlight class="stringliteral">&quot;Stuck<sp/>Reverse&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reserve<sp/>the<sp/>top<sp/>servo&apos;s<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>lastStuckTime<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref><sp/>&amp;&amp;<sp/>millis()<sp/>-<sp/>lastStuckTime<sp/>&gt;<sp/>1000)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>direction<sp/>back<sp/>to<sp/>normal<sp/>after<sp/>1s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kindref="member">bJammed</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>lastStuckTime<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a18fcbfb171a7dc253c822b46331670fc" kindref="member">TopServo::remeasureColor</ref>()</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" kindref="member">lcd</ref>.<ref refid="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" kindref="member">setBottomText</ref>(</highlight><highlight class="stringliteral">&quot;Color<sp/>unknown&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref><sp/>&lt;<sp/><ref refid="_top_servo_8cpp_1a4d7cd54ea5c3c3485453ee8178b84379" kindref="member">C_RETRY_UNKNOWN_COLOR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref>++;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Color<sp/>cannot<sp/>be<sp/>determined.<sp/>Start<sp/>going<sp/>back<sp/>and<sp/>re-measuring<sp/>it.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Color<sp/>cannot<sp/>be<sp/>determined.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref><sp/>=<sp/>!<ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref>;<sp/></highlight><highlight class="comment">//<sp/>Reverse<sp/>the<sp/>remeasuring<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;The<sp/>top<sp/>servo<sp/>is<sp/>now<sp/>going<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(<ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;backwards&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;forwards&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref><sp/>&gt;=<sp/><ref refid="_top_servo_8cpp_1a4d7cd54ea5c3c3485453ee8178b84379" kindref="member">C_RETRY_UNKNOWN_COLOR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>tried<sp/>too<sp/>many<sp/>times<sp/>and<sp/>still<sp/>can&apos;t<sp/>get<sp/>the<sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Just<sp/>f*ck<sp/>it<sp/>cuz<sp/>we<sp/>ain&apos;t<sp/>gonna<sp/>get<sp/>color<sp/>however<sp/>we<sp/>try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Tried<sp/>re-measuring<sp/>but<sp/>still<sp/>couldn&apos;t<sp/>get<sp/>the<sp/>color.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" kindref="member">stopRemeasuring</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" kindref="member">TopServo::stopRemeasuring</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kindref="member">bRemDir</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kindref="member">iRetry</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">boolean</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1adbf6a91f67654e752803d96017408d4e" kindref="member">TopServo::isRemeasuring</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kindref="member">bRemeasuring</ref>;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp"/>
+  </compounddef>
+</doxygen>

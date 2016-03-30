@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_top_servo" kind="class" language="C++" prot="public">
+    <compoundname>TopServo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Servo</basecompoundref>
+    <basecompoundref refid="class_context" prot="private" virt="non-virtual">Context</basecompoundref>
+    <includes refid="_top_servo_8h" local="no">TopServo.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean TopServo::bJammed</definition>
+        <argsstring></argsstring>
+        <name>bJammed</name>
+        <briefdescription>
+<para>Is the Skittle stuck on the top servo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="47" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean TopServo::bRemeasuring</definition>
+        <argsstring></argsstring>
+        <name>bRemeasuring</name>
+        <briefdescription>
+<para>Is the Skittle&apos;s color being re-measured. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="48" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_top_servo_1ac7a3c874952530c3bef202831a489960" prot="protected" static="no" mutable="no">
+        <type>boolean</type>
+        <definition>boolean TopServo::bRemDir</definition>
+        <argsstring></argsstring>
+        <name>bRemDir</name>
+        <briefdescription>
+<para>Is the direction reversed when re-measuring the color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="49" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TopServo::iRetry</definition>
+        <argsstring></argsstring>
+        <name>iRetry</name>
+        <briefdescription>
+<para>How many times have tried to detect the color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="50" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_top_servo_1a0ab4a430f5730b090ff5d69c94e2bac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TopServo::TopServo</definition>
+        <argsstring>()</argsstring>
+        <name>TopServo</name>
+        <briefdescription>
+<para>Constructor. </para>        </briefdescription>
+        <detaileddescription>
+<para>Initialize all the members variables. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="26" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="30" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TopServo::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+<para>Attaches the corresponding pins to the top servo object. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="29" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TopServo::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+<para>Updates the top servo. </para>        </briefdescription>
+        <detaileddescription>
+<para>This writes the updated speed to the servo. This function should be called in the main loop. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="33" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="45" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_top_servo_1a18fcbfb171a7dc253c822b46331670fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TopServo::remeasureColor</definition>
+        <argsstring>()</argsstring>
+        <name>remeasureColor</name>
+        <briefdescription>
+<para>Starts re-measuring the Skittle&apos;s color. </para>        </briefdescription>
+        <detaileddescription>
+<para>This will not work if the retried times is no less than C_RETRY_UNKNOWN_COLOR. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="37" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="84" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TopServo::stopRemeasuring</definition>
+        <argsstring>()</argsstring>
+        <name>stopRemeasuring</name>
+        <briefdescription>
+<para>Stops re-measuring the Skittle&apos;s color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="40" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="108" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_top_servo_1adbf6a91f67654e752803d96017408d4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>boolean</type>
+        <definition>boolean TopServo::isRemeasuring</definition>
+        <argsstring>()</argsstring>
+        <name>isRemeasuring</name>
+        <briefdescription>
+<para>Is the Skittle being re-measured its color. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the Skittle is being re-measured. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="44" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp" bodystart="114" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The continuous rotation servo at the top. </para>    </briefdescription>
+    <detaileddescription>
+<para>It spins around and moves Skittles to let the color sensor read the color. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="71">
+        <label>Context</label>
+        <link refid="class_context"/>
+      </node>
+      <node id="70">
+        <label>Servo</label>
+      </node>
+      <node id="69">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="70" relation="public-inheritance">
+        </childnode>
+        <childnode refid="71" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="78">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="79" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>C_Color</label>
+        <link refid="class_c___color"/>
+      </node>
+      <node id="79">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="74">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="75" relation="usage">
+          <edgelabel>servoBtm</edgelabel>
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>servoTop</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>colorSensor</edgelabel>
+        </childnode>
+        <childnode refid="78" relation="usage">
+          <edgelabel>lcd</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>colorView</edgelabel>
+        </childnode>
+      </node>
+      <node id="80">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="74" relation="private-inheritance">
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>mColor</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="77" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>Servo</label>
+      </node>
+      <node id="77">
+        <label>Adafruit_TCS34725</label>
+      </node>
+      <node id="72">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="73" relation="public-inheritance">
+        </childnode>
+        <childnode refid="74" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" line="22" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h" bodystart="21" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" prot="protected" virt="non-virtual"><scope>TopServo</scope><name>bJammed</name></member>
+      <member refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" prot="protected" virt="non-virtual"><scope>TopServo</scope><name>bRemDir</name></member>
+      <member refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" prot="protected" virt="non-virtual"><scope>TopServo</scope><name>bRemeasuring</name></member>
+      <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="private" virt="non-virtual"><scope>TopServo</scope><name>colorSensor</name></member>
+      <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="private" virt="non-virtual"><scope>TopServo</scope><name>colorView</name></member>
+      <member refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" prot="protected" virt="non-virtual"><scope>TopServo</scope><name>iRetry</name></member>
+      <member refid="class_top_servo_1adbf6a91f67654e752803d96017408d4e" prot="public" virt="non-virtual"><scope>TopServo</scope><name>isRemeasuring</name></member>
+      <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="private" virt="non-virtual"><scope>TopServo</scope><name>lcd</name></member>
+      <member refid="class_top_servo_1a18fcbfb171a7dc253c822b46331670fc" prot="public" virt="non-virtual"><scope>TopServo</scope><name>remeasureColor</name></member>
+      <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="private" virt="non-virtual"><scope>TopServo</scope><name>servoBtm</name></member>
+      <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="private" virt="non-virtual"><scope>TopServo</scope><name>servoTop</name></member>
+      <member refid="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" prot="public" virt="non-virtual"><scope>TopServo</scope><name>setup</name></member>
+      <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="private" virt="non-virtual"><scope>TopServo</scope><name>skittleCount</name></member>
+      <member refid="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" prot="public" virt="non-virtual"><scope>TopServo</scope><name>stopRemeasuring</name></member>
+      <member refid="class_top_servo_1a0ab4a430f5730b090ff5d69c94e2bac8" prot="public" virt="non-virtual"><scope>TopServo</scope><name>TopServo</name></member>
+      <member refid="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" prot="public" virt="non-virtual"><scope>TopServo</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

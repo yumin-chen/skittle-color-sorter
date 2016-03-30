@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="class_bottom_servo" kind="class"><name>BottomServo</name>
+    <member refid="class_bottom_servo_1a18e22c6d53ab90040ccc141e33750f7a" kind="variable"><name>mResult</name></member>
+    <member refid="class_bottom_servo_1ae4669e5fccee81584cf701081b57c464" kind="function"><name>BottomServo</name></member>
+    <member refid="class_bottom_servo_1aa1f3d4b225ca895bff8f159e19dca1ce" kind="function"><name>setup</name></member>
+    <member refid="class_bottom_servo_1a15df88aa839582d4907a2cf439d86375" kind="function"><name>update</name></member>
+    <member refid="class_bottom_servo_1a949b01e0545094f28929cef3146ae473" kind="function"><name>setResult</name></member>
+  </compound>
+  <compound refid="class_c___color" kind="class"><name>C_Color</name>
+    <member refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kind="variable"><name>r</name></member>
+    <member refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kind="variable"><name>g</name></member>
+    <member refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kind="variable"><name>b</name></member>
+    <member refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kind="variable"><name>c</name></member>
+    <member refid="class_c___color_1a965121514b84b072fb33152677deb10b" kind="function"><name>C_Color</name></member>
+    <member refid="class_c___color_1adbc4029581c353ca16b94b15f79e93f8" kind="function"><name>compare</name></member>
+    <member refid="class_c___color_1a708868fcc2445a5965b15333b9961947" kind="function"><name>compareWithColorList</name></member>
+    <member refid="class_c___color_1a969739c8a4a7837b05aeeb847d13469c" kind="function"><name>maximize</name></member>
+    <member refid="class_c___color_1a9223b9e01f1409f422fe76b18ebd12cc" kind="function"><name>print</name></member>
+    <member refid="class_c___color_1a51e5730cb4df02ad4962fffb36936bda" kind="function"><name>createFromRawColors</name></member>
+  </compound>
+  <compound refid="class_color_sensor" kind="class"><name>ColorSensor</name>
+    <member refid="class_color_sensor_1ae05febc7ba91dc6f6a8b01e3456e441a" kind="variable"><name>lastSkittleTime</name></member>
+    <member refid="class_color_sensor_1add8a2ce5ccdeff2297688c179b0fb3a7" kind="variable"><name>isMeasuring</name></member>
+    <member refid="class_color_sensor_1acfd5d974659329b6a79b4529860bdf86" kind="function"><name>ColorSensor</name></member>
+    <member refid="class_color_sensor_1aeb45acd3299850cd4e115cadf467152a" kind="function"><name>setup</name></member>
+    <member refid="class_color_sensor_1a4e725300210ee706533fd78b7deb6320" kind="function"><name>update</name></member>
+    <member refid="class_color_sensor_1ad82460707e31ec7147971aa646fc83cf" kind="function"><name>getLastSkittleTime</name></member>
+    <member refid="class_color_sensor_1a0937158718473e76cf94ff3bf6276af5" kind="function"><name>_calibrating</name></member>
+    <member refid="class_color_sensor_1a4b9113409cfda0f8c3f207d846bf3942" kind="function"><name>_analyzeColor</name></member>
+  </compound>
+  <compound refid="class_color_view" kind="class"><name>ColorView</name>
+    <member refid="class_color_view_1a31b429c490bfcca908ccaf408c65ef3f" kind="variable"><name>mColor</name></member>
+    <member refid="class_color_view_1a81585eace0c38a9f6b7badad276acb97" kind="variable"><name>bDirty</name></member>
+    <member refid="class_color_view_1aff3c78d7db6a6687f3d31b8b119099c7" kind="function"><name>ColorView</name></member>
+    <member refid="class_color_view_1aa4085d3a1ad82899db773d1c36014629" kind="function"><name>update</name></member>
+    <member refid="class_color_view_1ac319a02c1b71f1347f743f1af6f3c174" kind="function"><name>setColor</name></member>
+    <member refid="class_color_view_1a45e856fb584235419cfa0117a3bc4371" kind="function"><name>setColorByResult</name></member>
+    <member refid="class_color_view_1a5d726d4124fe870644f27e96aff8fee4" kind="function"><name>write</name></member>
+  </compound>
+  <compound refid="class_context" kind="class"><name>Context</name>
+    <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" kind="variable"><name>lcd</name></member>
+    <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" kind="variable"><name>servoTop</name></member>
+    <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" kind="variable"><name>servoBtm</name></member>
+    <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" kind="variable"><name>colorView</name></member>
+    <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" kind="variable"><name>colorSensor</name></member>
+    <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" kind="variable"><name>skittleCount</name></member>
+  </compound>
+  <compound refid="class_l_c_d" kind="class"><name>LCD</name>
+    <member refid="class_l_c_d_1ada849abef7323bc745750db4af5bb426" kind="variable"><name>sTopText</name></member>
+    <member refid="class_l_c_d_1aa2b50ef18be54fa3d76d94356575d086" kind="variable"><name>sBtmText</name></member>
+    <member refid="class_l_c_d_1a4b5dfa1754a620dc3ccd578930326d8c" kind="variable"><name>bDirty</name></member>
+    <member refid="class_l_c_d_1a00bb2db1390721abc7b24ac4b8c276c8" kind="function"><name>LCD</name></member>
+    <member refid="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" kind="function"><name>setup</name></member>
+    <member refid="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" kind="function"><name>update</name></member>
+    <member refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" kind="function"><name>setTopText</name></member>
+    <member refid="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" kind="function"><name>setBottomText</name></member>
+    <member refid="class_l_c_d_1aa44f72dd3dc2c8fccb0dbc0c5959efa2" kind="function"><name>setBottomTextByResult</name></member>
+    <member refid="class_l_c_d_1a7f4cebe16a39c366b8cd3897df0bfeaf" kind="function"><name>print</name></member>
+  </compound>
+  <compound refid="class_top_servo" kind="class"><name>TopServo</name>
+    <member refid="class_top_servo_1ab35d44fdda4d4cb6ef639215fc7eb3d4" kind="variable"><name>bJammed</name></member>
+    <member refid="class_top_servo_1a5932a8133dcb957e6f3ddcdfc0d2b019" kind="variable"><name>bRemeasuring</name></member>
+    <member refid="class_top_servo_1ac7a3c874952530c3bef202831a489960" kind="variable"><name>bRemDir</name></member>
+    <member refid="class_top_servo_1a72f8d7d74d3b0435ebd0067f232e671f" kind="variable"><name>iRetry</name></member>
+    <member refid="class_top_servo_1a0ab4a430f5730b090ff5d69c94e2bac8" kind="function"><name>TopServo</name></member>
+    <member refid="class_top_servo_1a75451b592a24ba64dbe56f2a9d4fa312" kind="function"><name>setup</name></member>
+    <member refid="class_top_servo_1a73d97716be8d731d82bd6f4cff0391f5" kind="function"><name>update</name></member>
+    <member refid="class_top_servo_1a18fcbfb171a7dc253c822b46331670fc" kind="function"><name>remeasureColor</name></member>
+    <member refid="class_top_servo_1a4cc563000f0cda98fe628b6bccb9eb86" kind="function"><name>stopRemeasuring</name></member>
+    <member refid="class_top_servo_1adbf6a91f67654e752803d96017408d4e" kind="function"><name>isRemeasuring</name></member>
+  </compound>
+  <compound refid="_bottom_servo_8cpp" kind="file"><name>BottomServo.cpp</name>
+    <member refid="_bottom_servo_8cpp_1a5acd4d3dac0313ec280c955bd963f292" kind="define"><name>PIN_BTM_SERVO</name></member>
+    <member refid="_bottom_servo_8cpp_1aacb1909b06a30133ee6fd4ddc18e3976" kind="define"><name>MAX_BTM_ANGLE</name></member>
+    <member refid="_bottom_servo_8cpp_1a7cde9193cebf5b5b6e4739148ac7ee21" kind="define"><name>MIN_BTM_ANGLE</name></member>
+    <member refid="_bottom_servo_8cpp_1ad1e52191ddd1dd145d11ee2dbf4e7605" kind="define"><name>NUM_OF_CUPS</name></member>
+    <member refid="_bottom_servo_8cpp_1a3f12abaaa4f2b0b2825910660f2b0f02" kind="define"><name>EACH_CUP_ANGLE_INTERVAL</name></member>
+  </compound>
+  <compound refid="_bottom_servo_8h" kind="file"><name>BottomServo.h</name>
+  </compound>
+  <compound refid="_c___color_8cpp" kind="file"><name>C_Color.cpp</name>
+  </compound>
+  <compound refid="_c___color_8h" kind="file"><name>C_Color.h</name>
+    <member refid="_c___color_8h_1aa8b5ba729f46e39631e946eb840f8af4" kind="define"><name>COLOR_UNIT</name></member>
+  </compound>
+  <compound refid="_color_sensor_8cpp" kind="file"><name>ColorSensor.cpp</name>
+    <member refid="_color_sensor_8cpp_1a73a3b457ae919522fed059f1860538d1" kind="define"><name>F_CALIBRATING</name></member>
+    <member refid="_color_sensor_8cpp_1a3276603e8aa3908218b26af25f5ed9c7" kind="define"><name>F_CALI_EMPTY_HOLE</name></member>
+    <member refid="_color_sensor_8cpp_1ac73c4adf0182fc73d7e273b4f4b66f74" kind="define"><name>C_HOLE_CLEAR</name></member>
+    <member refid="_color_sensor_8cpp_1acdff1dbd008985ad2234824c222c3d50" kind="define"><name>C_IDEAL_CLEAR</name></member>
+    <member refid="_color_sensor_8cpp_1a467e58837d3b9743053b89e7a0e416e6" kind="define"><name>C_ALLOWED_COLOR_VARIANCE</name></member>
+    <member refid="_color_sensor_8cpp_1a1ddea3eabecd55603789751d97d83805" kind="define"><name>C_ALLOWED_CLEAR_VARIANCE</name></member>
+    <member refid="_color_sensor_8cpp_1a36344fe0491487a6ffbdb4b77239d063" kind="define"><name>C_ATIME</name></member>
+    <member refid="_color_sensor_8cpp_1a06cc374d41932da9f368bb65441746fe" kind="define"><name>C_CYCLES</name></member>
+    <member refid="_color_sensor_8cpp_1a0f059975bddefae342343b7ad3c5057c" kind="define"><name>COLOR_DEF</name></member>
+  </compound>
+  <compound refid="_color_sensor_8h" kind="file"><name>ColorSensor.h</name>
+  </compound>
+  <compound refid="_color_view_8cpp" kind="file"><name>ColorView.cpp</name>
+    <member refid="_color_view_8cpp_1ad67ee3d3cec4e054fe7f13a9810ea2df" kind="define"><name>PIN_COLOR_RED</name></member>
+    <member refid="_color_view_8cpp_1a957ffc026f6445f6d559acd36e653ade" kind="define"><name>PIN_COLOR_GREEN</name></member>
+    <member refid="_color_view_8cpp_1a6bfc9eb57f75e704d938894db4fe0f8d" kind="define"><name>PIN_COLOR_BLUE</name></member>
+    <member refid="_color_view_8cpp_1a0f059975bddefae342343b7ad3c5057c" kind="define"><name>COLOR_DEF</name></member>
+  </compound>
+  <compound refid="_color_view_8h" kind="file"><name>ColorView.h</name>
+  </compound>
+  <compound refid="_context_8h" kind="file"><name>Context.h</name>
+    <member refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" kind="define"><name>COLORS_DEFINITION</name></member>
+    <member refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kind="define"><name>COLOR_DEF</name></member>
+    <member refid="_context_8h_1aea5d70c76919bd8464598b50fb567a63" kind="define"><name>COLOR_LIST_SIZE</name></member>
+    <member refid="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" kind="define"><name>HAS_RESULT</name></member>
+    <member refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kind="enum"><name>colorResult</name></member>
+    <member refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6da878e01a62be8bd5a47cb9044a73c279d" kind="enumvalue"><name>COLORS_DEFINITION</name></member>
+    <member refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6da0446992acd44ab970d720fe8341d1491" kind="enumvalue"><name>RESULT_UNKNOWN</name></member>
+  </compound>
+  <compound refid="_l_c_d_8cpp" kind="file"><name>LCD.cpp</name>
+    <member refid="_l_c_d_8cpp_1a43c0959d5054a2213a6d27a555a49901" kind="define"><name>PIN_LCD_RS</name></member>
+    <member refid="_l_c_d_8cpp_1a35151c3bc76cdbb61db8c1aae941db95" kind="define"><name>PIN_LCD_ENABLE</name></member>
+    <member refid="_l_c_d_8cpp_1a3b068b254b46cbf74d72233a12d897b4" kind="define"><name>PIN_LCD_D4</name></member>
+    <member refid="_l_c_d_8cpp_1a138921074f6fbef7204383e9ec887205" kind="define"><name>PIN_LCD_D5</name></member>
+    <member refid="_l_c_d_8cpp_1a83eb95b8a2f7521964b3279ef55c2387" kind="define"><name>PIN_LCD_D6</name></member>
+    <member refid="_l_c_d_8cpp_1a39d3d28f9914cde07af0cf5b2746d094" kind="define"><name>PIN_LCD_D7</name></member>
+    <member refid="_l_c_d_8cpp_1a0f059975bddefae342343b7ad3c5057c" kind="define"><name>COLOR_DEF</name></member>
+  </compound>
+  <compound refid="_l_c_d_8h" kind="file"><name>LCD.h</name>
+  </compound>
+  <compound refid="_l_i_c_e_n_s_e_8md" kind="file"><name>LICENSE.md</name>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="skittle-color-sorter_8ino" kind="file"><name>skittle-color-sorter.ino</name>
+    <member refid="skittle-color-sorter_8ino_1a4fc01d736fe50cf5b977f755b675f11d" kind="function"><name>setup</name></member>
+    <member refid="skittle-color-sorter_8ino_1afe461d27b9c48d5921c00d521181f12f" kind="function"><name>loop</name></member>
+  </compound>
+  <compound refid="_top_servo_8cpp" kind="file"><name>TopServo.cpp</name>
+    <member refid="_top_servo_8cpp_1a3e6eb9f2f913c3cebd429ecc9f39d56b" kind="define"><name>PIN_TOP_SERVO</name></member>
+    <member refid="_top_servo_8cpp_1aec396d78cc6501ccd3a90f9bf33e8615" kind="define"><name>F_TOP_SERVO_TIMEOUT_ENABLED</name></member>
+    <member refid="_top_servo_8cpp_1a735bd3d736f0d3b00e10a41a758906fa" kind="define"><name>C_TOP_SERVO_TIMEOUT</name></member>
+    <member refid="_top_servo_8cpp_1a4d7cd54ea5c3c3485453ee8178b84379" kind="define"><name>C_RETRY_UNKNOWN_COLOR</name></member>
+  </compound>
+  <compound refid="_top_servo_8h" kind="file"><name>TopServo.h</name>
+  </compound>
+  <compound refid="md_C:_Users_charc_Documents_GitHub_skittle-color-sorter_LICENSE" kind="page"><name>md_C:_Users_charc_Documents_GitHub_skittle-color-sorter_LICENSE</name>
+  </compound>
+  <compound refid="md_C:_Users_charc_Documents_GitHub_skittle-color-sorter_README" kind="page"><name>md_C:_Users_charc_Documents_GitHub_skittle-color-sorter_README</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

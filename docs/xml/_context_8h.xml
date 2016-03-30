@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_context_8h" kind="file" language="C++">
+    <compoundname>Context.h</compoundname>
+    <includedby refid="_bottom_servo_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h</includedby>
+    <includedby refid="_c___color_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h</includedby>
+    <includedby refid="_color_sensor_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.h</includedby>
+    <includedby refid="_top_servo_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h</includedby>
+    <includedby refid="_color_view_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h</includedby>
+    <includedby refid="_l_c_d_8h" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h</includedby>
+    <includedby refid="skittle-color-sorter_8ino" local="yes">C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</includedby>
+    <invincdepgraph>
+      <node id="74">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</label>
+        <link refid="_color_sensor_8cpp"/>
+      </node>
+      <node id="79">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.cpp</label>
+        <link refid="_top_servo_8cpp"/>
+      </node>
+      <node id="78">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.h</label>
+        <link refid="_color_sensor_8h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.cpp</label>
+        <link refid="_color_view_8cpp"/>
+      </node>
+      <node id="77">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.cpp</label>
+        <link refid="_c___color_8cpp"/>
+      </node>
+      <node id="71">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h</label>
+        <link refid="Context.h"/>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.h</label>
+        <link refid="_bottom_servo_8h"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorView.h</label>
+        <link refid="_color_view_8h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/skittle-color-sorter.ino</label>
+        <link refid="skittle-color-sorter_8ino"/>
+      </node>
+      <node id="82">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/TopServo.h</label>
+        <link refid="_top_servo_8h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/BottomServo.cpp</label>
+        <link refid="_bottom_servo_8cpp"/>
+      </node>
+      <node id="76">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp</label>
+        <link refid="_l_c_d_8cpp"/>
+      </node>
+      <node id="83">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_context" prot="public">Context</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" prot="public" static="no">
+        <name>COLORS_DEFINITION</name>
+        <initializer>/*       | Identifier   | Color Name      | Calibrated Color          | Color View        */\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_RED,		&quot;Red Skittle&quot;,		C_Color(96, 73, 64, 117),	  <ref refid="class_c___color" kindref="compound">C_Color</ref>(255, 0, 0) ),\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_GREEN,	&quot;Green Skittle&quot;,	C_Color(58, 106, 54, 148),	<ref refid="class_c___color" kindref="compound">C_Color</ref>(0, 255, 0) ),\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_YELLOW,	&quot;Yellow Skittle&quot;,	C_Color(90, 92, 39, 242),	  <ref refid="class_c___color" kindref="compound">C_Color</ref>(128, 255, 0) ),\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_PURPLE,	&quot;Purple Skittle&quot;,	C_Color(65, 84, 81, 122),	  <ref refid="class_c___color" kindref="compound">C_Color</ref>(128, 192, 32) ),\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_ORANGE,	&quot;Orange Skittle&quot;,	C_Color(122, 64, 40, 154),	<ref refid="class_c___color" kindref="compound">C_Color</ref>(255, 255, 0) ),\
+  /* Don&apos;t forget to exclude these invalid colors in the HAS_COLOR macro function */\
+  <ref refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" kindref="member">COLOR_DEF</ref>( RESULT_EMPTY,	&quot;Empty hole&quot;,	    C_Color(64, 89, 71, 172),	  <ref refid="class_c___color" kindref="compound">C_Color</ref>(0, 0, 0) )</initializer>
+        <briefdescription>
+<para>Calibrated Skittle&apos;s Colors. </para>        </briefdescription>
+        <detaileddescription>
+<para>All the colors are defined here. This macro will later be used to populate some arrays by changing the COLOR_DEF to retrive only needed data. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="19" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_context_8h_1a0f059975bddefae342343b7ad3c5057c" prot="public" static="no">
+        <name>COLOR_DEF</name>
+        <param><defname>identifier</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>color</defname></param>
+        <param><defname>color_view</defname></param>
+        <initializer>identifier</initializer>
+        <briefdescription>
+<para>This macro is retrive only the Identifier from the colors definition to generate the enum colorResult. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="31" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_context_8h_1aea5d70c76919bd8464598b50fb567a63" prot="public" static="no">
+        <name>COLOR_LIST_SIZE</name>
+        <initializer>RESULT_UNKNOWN</initializer>
+        <briefdescription>
+<para>The size of the color list. </para>        </briefdescription>
+        <detaileddescription>
+<para>This is also equal to the number of items in the enum colorResult. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="45" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" prot="public" static="no">
+        <name>HAS_RESULT</name>
+        <param><defname>result</defname></param>
+        <initializer>(result != RESULT_UNKNOWN &amp;&amp; result != RESULT_EMPTY)</initializer>
+        <briefdescription>
+<para>A macro function to check if the result is a valid color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="48" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" prot="public" static="no">
+        <name>colorResult</name>
+        <enumvalue id="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6da878e01a62be8bd5a47cb9044a73c279d" prot="public">
+          <name>COLORS_DEFINITION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6da0446992acd44ab970d720fe8341d1491" prot="public">
+          <name>RESULT_UNKNOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>This type represents a color&apos;s result. </para>        </briefdescription>
+        <detaileddescription>
+<para>Note it not only can be a valid Skittle&apos;s color, but it also can be some invalid values. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="36" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="35" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_context" kindref="compound">Context</ref> (Global Variables) </para>    </briefdescription>
+    <detaileddescription>
+<para>This file is to provide access to some of the useful macros and global variables. This static class <ref refid="class_context" kindref="compound">Context</ref> is the base class for all the components used in this project.</para><para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink> </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/><sp/>_CONTEXT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/><sp/>_CONTEXT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" refkind="member"><highlight class="preprocessor">#define<sp/>COLORS_DEFINITION<sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Identifier<sp/><sp/><sp/>|<sp/>Color<sp/>Name<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Calibrated<sp/>Color<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Color<sp/>View<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_RED,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Red<sp/>Skittle&quot;,<sp/><sp/><sp/><sp/><sp/><sp/>C_Color(96,<sp/>73,<sp/>64,<sp/>117),<sp/><sp/><sp/><sp/><sp/>C_Color(255,<sp/>0,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_GREEN,<sp/><sp/>&quot;Green<sp/>Skittle&quot;,<sp/><sp/><sp/><sp/>C_Color(58,<sp/>106,<sp/>54,<sp/>148),<sp/><sp/>C_Color(0,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_YELLOW,<sp/>&quot;Yellow<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(90,<sp/>92,<sp/>39,<sp/>242),<sp/><sp/><sp/><sp/><sp/>C_Color(128,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_PURPLE,<sp/>&quot;Purple<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(65,<sp/>84,<sp/>81,<sp/>122),<sp/><sp/><sp/><sp/><sp/>C_Color(128,<sp/>192,<sp/>32)<sp/>),\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_ORANGE,<sp/>&quot;Orange<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(122,<sp/>64,<sp/>40,<sp/>154),<sp/><sp/>C_Color(255,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Don&apos;t<sp/>forget<sp/>to<sp/>exclude<sp/>these<sp/>invalid<sp/>colors<sp/>in<sp/>the<sp/>HAS_COLOR<sp/>macro<sp/>function<sp/>*/</highlight><highlight class="preprocessor">\</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"><sp/><sp/>COLOR_DEF(<sp/>RESULT_EMPTY,<sp/><sp/>&quot;Empty<sp/>hole&quot;,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>C_Color(64,<sp/>89,<sp/>71,<sp/>172),<sp/><sp/><sp/><sp/><sp/>C_Color(0,<sp/>0,<sp/>0)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="_context_8h_1a0f059975bddefae342343b7ad3c5057c" refkind="member"><highlight class="preprocessor">#define<sp/>COLOR_DEF(<sp/>identifier,<sp/>name,<sp/>color,<sp/>color_view<sp/>)<sp/><sp/>identifier</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>:<sp/>uint8_t</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" kindref="member">COLORS_DEFINITION</ref>,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>RESULT_UNKNOWN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Add<sp/>a<sp/>special<sp/>key<sp/>for<sp/>unknown<sp/>colors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}<sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>COLOR_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="_context_8h_1aea5d70c76919bd8464598b50fb567a63" refkind="member"><highlight class="preprocessor">#define<sp/>COLOR_LIST_SIZE<sp/>RESULT_UNKNOWN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" refkind="member"><highlight class="preprocessor">#define<sp/>HAS_RESULT(result)<sp/>(result<sp/>!=<sp/>RESULT_UNKNOWN<sp/>&amp;&amp;<sp/>result<sp/>!=<sp/>RESULT_EMPTY)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Declare<sp/>some<sp/>of<sp/>the<sp/>components</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l_c_d" kindref="compound">LCD</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_top_servo" kindref="compound">TopServo</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_bottom_servo" kindref="compound">BottomServo</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_color_view" kindref="compound">ColorView</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_color_sensor" kindref="compound">ColorSensor</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="class_context" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_context" kindref="compound">Context</ref><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="62" refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d" kindref="compound">LCD</ref><sp/><ref refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" kindref="member">lcd</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63" refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_top_servo" kindref="compound">TopServo</ref><sp/><ref refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" kindref="member">servoTop</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64" refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_bottom_servo" kindref="compound">BottomServo</ref><sp/><ref refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" kindref="member">servoBtm</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="65" refid="class_context_1a8d0a3690614c7827e427b45eec104a65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_color_view" kindref="compound">ColorView</ref><sp/><ref refid="class_context_1a8d0a3690614c7827e427b45eec104a65" kindref="member">colorView</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66" refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_color_sensor" kindref="compound">ColorSensor</ref><sp/><ref refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" kindref="member">colorSensor</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68" refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" kindref="member">skittleCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_CONTEXT_H_<sp/></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h"/>
+  </compounddef>
+</doxygen>

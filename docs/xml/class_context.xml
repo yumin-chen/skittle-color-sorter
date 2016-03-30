@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="class_context" kind="class" language="C++" prot="public">
+    <compoundname>Context</compoundname>
+    <derivedcompoundref refid="class_bottom_servo" prot="private" virt="non-virtual">BottomServo</derivedcompoundref>
+    <derivedcompoundref refid="class_color_sensor" prot="private" virt="non-virtual">ColorSensor</derivedcompoundref>
+    <derivedcompoundref refid="class_color_view" prot="private" virt="non-virtual">ColorView</derivedcompoundref>
+    <derivedcompoundref refid="class_l_c_d" prot="private" virt="non-virtual">LCD</derivedcompoundref>
+    <derivedcompoundref refid="class_top_servo" prot="private" virt="non-virtual">TopServo</derivedcompoundref>
+    <includes refid="_context_8h" local="no">Context.h</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_l_c_d" kindref="compound">LCD</ref></type>
+        <definition>LCD Context::lcd</definition>
+        <argsstring></argsstring>
+        <name>lcd</name>
+        <briefdescription>
+<para>The liquid-crystal display. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="62" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_top_servo" kindref="compound">TopServo</ref></type>
+        <definition>TopServo Context::servoTop</definition>
+        <argsstring></argsstring>
+        <name>servoTop</name>
+        <briefdescription>
+<para>The top continuous rotation servo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="63" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_bottom_servo" kindref="compound">BottomServo</ref></type>
+        <definition>BottomServo Context::servoBtm</definition>
+        <argsstring></argsstring>
+        <name>servoBtm</name>
+        <briefdescription>
+<para>The bottom standard servo. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="64" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_color_view" kindref="compound">ColorView</ref></type>
+        <definition>ColorView Context::colorView</definition>
+        <argsstring></argsstring>
+        <name>colorView</name>
+        <briefdescription>
+<para>The color LED. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="65" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="public" static="yes" mutable="no">
+        <type><ref refid="class_color_sensor" kindref="compound">ColorSensor</ref></type>
+        <definition>ColorSensor Context::colorSensor</definition>
+        <argsstring></argsstring>
+        <name>colorSensor</name>
+        <briefdescription>
+<para>The Adafruit color sensor. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="66" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int Context::skittleCount</definition>
+        <argsstring></argsstring>
+        <name>skittleCount</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>The number of skittles sorted. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="68" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This static class is the base class for all the components used in this project. </para>    </briefdescription>
+    <detaileddescription>
+<para>It works as a helper class that gives references to all the global variables. </para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="44">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="40" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>Context</label>
+        <link refid="class_context"/>
+      </node>
+      <node id="43">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="40" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="40" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="40" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="40" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="52">
+        <label>LCD</label>
+        <link refid="class_l_c_d"/>
+        <childnode refid="53" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>C_Color</label>
+        <link refid="class_c___color"/>
+      </node>
+      <node id="53">
+        <label>LiquidCrystal</label>
+      </node>
+      <node id="46">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="47" relation="usage">
+          <edgelabel>servoBtm</edgelabel>
+        </childnode>
+        <childnode refid="49" relation="usage">
+          <edgelabel>servoTop</edgelabel>
+        </childnode>
+        <childnode refid="50" relation="usage">
+          <edgelabel>colorSensor</edgelabel>
+        </childnode>
+        <childnode refid="52" relation="usage">
+          <edgelabel>lcd</edgelabel>
+        </childnode>
+        <childnode refid="54" relation="usage">
+          <edgelabel>colorView</edgelabel>
+        </childnode>
+      </node>
+      <node id="54">
+        <label>ColorView</label>
+        <link refid="class_color_view"/>
+        <childnode refid="46" relation="private-inheritance">
+        </childnode>
+        <childnode refid="55" relation="usage">
+          <edgelabel>mColor</edgelabel>
+        </childnode>
+      </node>
+      <node id="50">
+        <label>ColorSensor</label>
+        <link refid="class_color_sensor"/>
+        <childnode refid="51" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>Servo</label>
+      </node>
+      <node id="51">
+        <label>Adafruit_TCS34725</label>
+      </node>
+      <node id="49">
+        <label>TopServo</label>
+        <link refid="class_top_servo"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="private-inheritance">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>BottomServo</label>
+        <link refid="class_bottom_servo"/>
+        <childnode refid="48" relation="public-inheritance">
+        </childnode>
+        <childnode refid="46" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" line="60" column="1" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/Context.h" bodystart="60" bodyend="70"/>
+    <listofallmembers>
+      <member refid="class_context_1aaf243d7e389619a86a50bf0815f26e8e" prot="public" virt="non-virtual"><scope>Context</scope><name>colorSensor</name></member>
+      <member refid="class_context_1a8d0a3690614c7827e427b45eec104a65" prot="public" virt="non-virtual"><scope>Context</scope><name>colorView</name></member>
+      <member refid="class_context_1a64c2dae3b2aef5ae1cf5b042e34ca692" prot="public" virt="non-virtual"><scope>Context</scope><name>lcd</name></member>
+      <member refid="class_context_1a2126f53315018e6ef35ddb74614fba3f" prot="public" virt="non-virtual"><scope>Context</scope><name>servoBtm</name></member>
+      <member refid="class_context_1a7f1cc36638edbbb530004430cecbb75e" prot="public" virt="non-virtual"><scope>Context</scope><name>servoTop</name></member>
+      <member refid="class_context_1abe58873189aeb5ae58afa31ce2d277fb" prot="public" virt="non-virtual"><scope>Context</scope><name>skittleCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

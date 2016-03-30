@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_color_sensor_8cpp" kind="file" language="C++">
+    <compoundname>ColorSensor.cpp</compoundname>
+    <includes refid="_color_sensor_8h" local="yes">ColorSensor.h</includes>
+    <includes refid="_top_servo_8h" local="yes">TopServo.h</includes>
+    <includes refid="_bottom_servo_8h" local="yes">BottomServo.h</includes>
+    <includes refid="_color_view_8h" local="yes">ColorView.h</includes>
+    <includes refid="_l_c_d_8h" local="yes">LCD.h</includes>
+    <incdepgraph>
+      <node id="30">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp</label>
+        <link refid="ColorSensor.cpp"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>ColorSensor.h</label>
+        <link refid="_color_sensor_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Adafruit_TCS34725.h</label>
+      </node>
+      <node id="41">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="34">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="38">
+        <label>BottomServo.h</label>
+        <link refid="_bottom_servo_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>ColorView.h</label>
+        <link refid="_color_view_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>TopServo.h</label>
+        <link refid="_top_servo_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>C_Color.h</label>
+        <link refid="_c___color_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>Servo.h</label>
+      </node>
+      <node id="32">
+        <label>Arduino.h</label>
+      </node>
+      <node id="40">
+        <label>LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_color_sensor_8cpp_1a73a3b457ae919522fed059f1860538d1" prot="public" static="no">
+        <name>F_CALIBRATING</name>
+        <initializer>false</initializer>
+        <briefdescription>
+<para>Is calibration in progress. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="15" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a3276603e8aa3908218b26af25f5ed9c7" prot="public" static="no">
+        <name>F_CALI_EMPTY_HOLE</name>
+        <initializer>false</initializer>
+        <briefdescription>
+<para>Is calibrating the empty hole&apos;s color. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="16" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1ac73c4adf0182fc73d7e273b4f4b66f74" prot="public" static="no">
+        <name>C_HOLE_CLEAR</name>
+        <initializer>300</initializer>
+        <briefdescription>
+<para>The clear value used to determine the hole&apos;s arrival. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="19" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1acdff1dbd008985ad2234824c222c3d50" prot="public" static="no">
+        <name>C_IDEAL_CLEAR</name>
+        <initializer>96</initializer>
+        <briefdescription>
+<para>The ideal clear value for color detection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="20" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a467e58837d3b9743053b89e7a0e416e6" prot="public" static="no">
+        <name>C_ALLOWED_COLOR_VARIANCE</name>
+        <initializer>64</initializer>
+        <briefdescription>
+<para>Allowed color variance for color detection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="21" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a1ddea3eabecd55603789751d97d83805" prot="public" static="no">
+        <name>C_ALLOWED_CLEAR_VARIANCE</name>
+        <initializer>128</initializer>
+        <briefdescription>
+<para>Allowed clear variance for color detection. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="22" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a36344fe0491487a6ffbdb4b77239d063" prot="public" static="no">
+        <name>C_ATIME</name>
+        <initializer>TCS34725_INTEGRATIONTIME_154MS</initializer>
+        <briefdescription>
+<para>Color sensor integration time 154ms. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="24" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a06cc374d41932da9f368bb65441746fe" prot="public" static="no">
+        <name>C_CYCLES</name>
+        <initializer>(256 - <ref refid="_color_sensor_8cpp_1a36344fe0491487a6ffbdb4b77239d063" kindref="member">C_ATIME</ref>)</initializer>
+        <briefdescription>
+<para>Color sensor cycles according to the integration time. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="25" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_color_sensor_8cpp_1a0f059975bddefae342343b7ad3c5057c" prot="public" static="no">
+        <name>COLOR_DEF</name>
+        <param><defname>identifier</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>color</defname></param>
+        <param><defname>color_view</defname></param>
+        <initializer>color</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp" line="131" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Color Sensor. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="_top_servo_8cpp_1Circuit">
+<title>Circuit</title>
+<para><itemizedlist>
+<listitem><para>Color Sensor<itemizedlist>
+<listitem><para>SDA pin to analog pin 4</para></listitem><listitem><para>SCL pin to analog pin 5 </para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Change<sp/>the<sp/>following<sp/>line<sp/>to<sp/>enter<sp/>calibration<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>F_CALIBRATING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor">#define<sp/>F_CALI_EMPTY_HOLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor">//<sp/>Constants</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>C_HOLE_CLEAR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>300<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor">#define<sp/>C_IDEAL_CLEAR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>96<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor">#define<sp/>C_ALLOWED_COLOR_VARIANCE<sp/><sp/>64<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor">#define<sp/>C_ALLOWED_CLEAR_VARIANCE<sp/><sp/>128<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor">#define<sp/>C_ATIME<sp/>TCS34725_INTEGRATIONTIME_154MS<sp/><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor">#define<sp/>C_CYCLES<sp/>(256<sp/>-<sp/>C_ATIME)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor">#include<sp/>&quot;ColorSensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_top_servo_8h" kindref="compound">TopServo.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bottom_servo_8h" kindref="compound">BottomServo.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_color_view_8h" kindref="compound">ColorView.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l_c_d_8h" kindref="compound">LCD.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><ref refid="class_color_sensor_1acfd5d974659329b6a79b4529860bdf86" kindref="member">ColorSensor::ColorSensor</ref>()<sp/>:<sp/>Adafruit_TCS34725(<ref refid="_color_sensor_8cpp_1a36344fe0491487a6ffbdb4b77239d063" kindref="member">C_ATIME</ref>,<sp/>TCS34725_GAIN_1X)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>lastSkittleTime<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>isMeasuring<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_sensor_1aeb45acd3299850cd4e115cadf467152a" kindref="member">ColorSensor::setup</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!this-&gt;begin())<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>color<sp/>sensor<sp/>failed<sp/>to<sp/>initialize,<sp/>print<sp/>out<sp/>an<sp/>error</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Error:<sp/>Color<sp/>sensor<sp/>not<sp/>found.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>lcd.setTopText(</highlight><highlight class="stringliteral">&quot;ERR:<sp/>Sensor<sp/>Cnct&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Infinite<sp/>loop<sp/>so<sp/>the<sp/>program<sp/>won&apos;t<sp/>continue</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_sensor_1a4e725300210ee706533fd78b7deb6320" kindref="member">ColorSensor::update</ref>()</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>bestColor(0,<sp/>0,<sp/>0);<sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>best<sp/>colors<sp/>during<sp/>a<sp/>measuring<sp/>cycle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint16_t<sp/>minClear;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>minimum<sp/>clear<sp/>value<sp/>during<sp/>a<sp/>measuring<sp/>cycle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref>,<sp/><ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref>,<sp/><ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref>,<sp/><ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Red,<sp/>green,<sp/>blue<sp/>and<sp/>clear<sp/>channel<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reads<sp/>the<sp/>raw<sp/>color<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>getRawData(&amp;r,<sp/>&amp;g,<sp/>&amp;b,<sp/>&amp;c);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>C_Color<sp/>object<sp/>from<sp/>raw<sp/>colors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>colors<sp/>=<sp/><ref refid="class_c___color_1a51e5730cb4df02ad4962fffb36936bda" kindref="member">C_Color::createFromRawColors</ref>(<ref refid="_color_sensor_8cpp_1a06cc374d41932da9f368bb65441746fe" kindref="member">C_CYCLES</ref>,<sp/>r,<sp/>g,<sp/>b,<sp/>c);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>hole<sp/>arrives<sp/>at<sp/>the<sp/>color<sp/>sensor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(colors.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref><sp/>&lt;<sp/><ref refid="_color_sensor_8cpp_1ac73c4adf0182fc73d7e273b4f4b66f74" kindref="member">C_HOLE_CLEAR</ref><sp/>&amp;&amp;<sp/>!isMeasuring<sp/>&amp;&amp;<sp/>millis()<sp/>-<sp/>lastSkittleTime<sp/>&gt;<sp/>1000)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(millis()<sp/>-<sp/>lastSkittleTime);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>lastSkittleTime<sp/>=<sp/>millis();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>lcd.setBottomText(</highlight><highlight class="stringliteral">&quot;Start<sp/>measuring&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Serial.println(&quot;Start<sp/>measuring<sp/>this<sp/>Skittle&apos;s<sp/>color.&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>isMeasuring<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>minClear<sp/>=<sp/><ref refid="_color_sensor_8cpp_1ac73c4adf0182fc73d7e273b4f4b66f74" kindref="member">C_HOLE_CLEAR</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>bestColor<sp/>=<sp/>colors;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isMeasuring)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Try<sp/>and<sp/>reach<sp/>the<sp/>ideal<sp/>clear<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(colors.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref><sp/>&lt;<sp/>minClear<sp/>&amp;&amp;<sp/>colors.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref><sp/>&gt;<sp/><ref refid="_color_sensor_8cpp_1acdff1dbd008985ad2234824c222c3d50" kindref="member">C_IDEAL_CLEAR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>best<sp/>color<sp/>sample<sp/>is<sp/>picked<sp/>when<sp/>the<sp/>clear<sp/>is<sp/>minimum<sp/>while<sp/>still<sp/>larger<sp/>than<sp/>C_IDEAL_CLEAR</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minClear<sp/>=<sp/>colors.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bestColor<sp/>=<sp/>colors;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>skittle<sp/>moves<sp/>away<sp/>and<sp/>there&apos;s<sp/>nothing<sp/>left<sp/>for<sp/>the<sp/>color<sp/>sensor<sp/>there</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(colors.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref><sp/>&gt;<sp/><ref refid="_color_sensor_8cpp_1ac73c4adf0182fc73d7e273b4f4b66f74" kindref="member">C_HOLE_CLEAR</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bestColor.<ref refid="class_c___color_1a969739c8a4a7837b05aeeb847d13469c" kindref="member">maximize</ref>();<sp/></highlight><highlight class="comment">//<sp/>Maximize<sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>bestColor.print();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Analyze<sp/>the<sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>result<sp/>=<sp/>_analyzeColor(bestColor);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!servoTop.isRemeasuring()<sp/>&amp;&amp;<sp/><ref refid="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" kindref="member">HAS_RESULT</ref>(result))<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Add<sp/>1<sp/>to<sp/>the<sp/>skittleCount<sp/>if<sp/>the<sp/>color<sp/>is<sp/>not<sp/>being<sp/>re-measured<sp/>and<sp/>we&apos;ve<sp/>got<sp/>the<sp/>result</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>skittleCount++;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>new<sp/>Skittle<sp/>count<sp/>to<sp/>the<sp/>LCD<sp/>screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lcd.setTopText(String(</highlight><highlight class="stringliteral">&quot;Count:&quot;</highlight><highlight class="normal">)<sp/>+<sp/>skittleCount);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Serial.println(&quot;Finish<sp/>measuring.&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>isMeasuring<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>printColors(r,<sp/>g,<sp/>b,<sp/>c);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_color_sensor_1a0937158718473e76cf94ff3bf6276af5" kindref="member">ColorSensor::_calibrating</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>new_color)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>avg_c(new_color);<sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>average<sp/>color<sp/>(result)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>amount<sp/>of<sp/>valid<sp/>data<sp/>samples</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>color<sp/>variance<sp/>between<sp/>the<sp/>new<sp/>color<sp/>and<sp/>the<sp/>avarage<sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>diff<sp/>=<sp/>avg_c.compare(new_color);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>Serial.print(</highlight><highlight class="stringliteral">&quot;Diff:<sp/>&quot;</highlight><highlight class="normal">);<sp/>Serial.println(diff);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>color<sp/>variance<sp/>is<sp/>out<sp/>of<sp/>a<sp/>valid<sp/>range</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(diff<sp/>&gt;<sp/><ref refid="_color_sensor_8cpp_1a467e58837d3b9743053b89e7a0e416e6" kindref="member">C_ALLOWED_COLOR_VARIANCE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Difference<sp/>too<sp/>big.<sp/>This<sp/>sample<sp/>data<sp/>is<sp/>discarded.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>new<sp/>valid<sp/>is<sp/>valid,<sp/>set<sp/>the<sp/>average<sp/>color<sp/>to<sp/>include<sp/>the<sp/>new<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>avg_c.r<sp/>=<sp/>(avg_c.r<sp/>*<sp/>count<sp/>+<sp/>new_color.<ref refid="class_c___color_1abcac64ac695ba9ec0a3865a042d27301" kindref="member">r</ref>)<sp/>/<sp/>(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>avg_c.g<sp/>=<sp/>(avg_c.g<sp/>*<sp/>count<sp/>+<sp/>new_color.<ref refid="class_c___color_1a3d2d96e69d5beada7f2cb5daacbdc698" kindref="member">g</ref>)<sp/>/<sp/>(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>avg_c.b<sp/>=<sp/>(avg_c.b<sp/>*<sp/>count<sp/>+<sp/>new_color.<ref refid="class_c___color_1aefd8b0b65d091f0298d24c7c0d84e7f0" kindref="member">b</ref>)<sp/>/<sp/>(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>avg_c.c<sp/>=<sp/>(avg_c.c<sp/>*<sp/>count<sp/>+<sp/>new_color.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>)<sp/>/<sp/>(count<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>count++;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;Average<sp/>color:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>avg_c.print();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/><ref refid="class_color_sensor_1a4b9113409cfda0f8c3f207d846bf3942" kindref="member">ColorSensor::_analyzeColor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref>&amp;<sp/>bestColor)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>a<sp/>macro<sp/>to<sp/>generate<sp/>a<sp/>constant<sp/>array<sp/>colorList</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>whose<sp/>indexes<sp/>correspond<sp/>to<sp/>the<sp/>colorResult<sp/>enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_DEF(<sp/>identifier,<sp/>name,<sp/>color,<sp/>color_view<sp/>)<sp/><sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___color" kindref="compound">C_Color</ref><sp/>colorList<sp/>[]<sp/>=<sp/>{<sp/><ref refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" kindref="member">COLORS_DEFINITION</ref><sp/>};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>COLOR_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Compare<sp/>the<sp/>best<sp/>color<sp/>with<sp/>the<sp/>colorList<sp/>and<sp/>get<sp/>the<sp/>closest<sp/>result</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>tempResult<sp/>=<sp/>bestColor.<ref refid="class_c___color_1a708868fcc2445a5965b15333b9961947" kindref="member">compareWithColorList</ref>(colorList,<sp/><ref refid="_color_sensor_8cpp_1a467e58837d3b9743053b89e7a0e416e6" kindref="member">C_ALLOWED_COLOR_VARIANCE</ref>);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tempResult<sp/>!=<sp/>RESULT_EMPTY)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;A<sp/>Skittle<sp/>has<sp/>been<sp/>detected!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Serial.println(&quot;Maximized<sp/>colors:&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>F_CALIBRATING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>we<sp/>are<sp/>calibrating<sp/>colors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="_color_sensor_8cpp_1a3276603e8aa3908218b26af25f5ed9c7" kindref="member">F_CALI_EMPTY_HOLE</ref><sp/>&amp;&amp;<sp/>tempResult<sp/>==<sp/>RESULT_EMPTY)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Ignore<sp/>empty<sp/>hole&apos;s<sp/>data<sp/>unless<sp/>F_CALI_EMPTY_HOLE<sp/>is<sp/>set</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tempResult;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>_calibrating(bestColor);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tempResult;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>the<sp/>clear<sp/>value<sp/>is<sp/>out<sp/>of<sp/>allowed<sp/>range</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" kindref="member">HAS_RESULT</ref>(tempResult)<sp/>&amp;&amp;<sp/>abs(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(bestColor.<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>)<sp/>-<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(colorList[tempResult].<ref refid="class_c___color_1afd26aba93e84833a11bea2197a21f45d" kindref="member">c</ref>))<sp/>&gt;<sp/><ref refid="_color_sensor_8cpp_1a1ddea3eabecd55603789751d97d83805" kindref="member">C_ALLOWED_CLEAR_VARIANCE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>clear<sp/>value<sp/>is<sp/>out<sp/>of<sp/>range,<sp/>then<sp/>set<sp/>this<sp/>result<sp/>back<sp/>to<sp/>unknown</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>tempResult<sp/>=<sp/>RESULT_UNKNOWN;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>result</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>colorView.setColorByResult(tempResult);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>lcd.setBottomTextByResult(tempResult);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_context_8h_1a9c298737b223dfaad76c7dff573d88c5" kindref="member">HAS_RESULT</ref>(tempResult))</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>servoBtm.setResult(tempResult);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tempResult<sp/>==<sp/>RESULT_UNKNOWN)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>color<sp/>cannot<sp/>be<sp/>detected,<sp/>try<sp/>again</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>servoTop.remeasureColor();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(servoTop.isRemeasuring())<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Serial.println(</highlight><highlight class="stringliteral">&quot;We&apos;ve<sp/>got<sp/>the<sp/>color<sp/>on<sp/>re-measurement.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>servoTop.stopRemeasuring();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tempResult;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="class_color_sensor_1ad82460707e31ec7147971aa646fc83cf" kindref="member">ColorSensor::getLastSkittleTime</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lastSkittleTime;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/ColorSensor.cpp"/>
+  </compounddef>
+</doxygen>

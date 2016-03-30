@@ -75,4 +75,5 @@ void loop() {
   // Update the color view LED output
   Context::colorView.update();
 
+  delay(100);
 }

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&lt;img<sp/>src=&quot;http://raw.github.com/CharmySoft/skittle-color-sorter/master/images/icon.png&quot;<sp/>width=&quot;48&quot;/&gt;&amp;nbsp;&amp;nbsp;**Skittle<sp/>Color<sp/>Sorter**</highlight></codeline>
+<codeline><highlight class="normal">========================</highlight></codeline>
+<codeline><highlight class="normal">Details<sp/>of<sp/>this<sp/>project<sp/>can<sp/>be<sp/>found<sp/>on<sp/>the<sp/>[Skittle<sp/>Color<sp/>Sorter<sp/>project<sp/>page][2]<sp/>under:<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">[*http://www.CharmySoft.com/app/skittle-sorter.htm*][2]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Introduction</highlight></codeline>
+<codeline><highlight class="normal">------------------------</highlight></codeline>
+<codeline><highlight class="normal">[Skittle<sp/>Color<sp/>Sorter][2]<sp/>is<sp/>an<sp/>Arduino<sp/>UNO<sp/>board<sp/>sketch<sp/>that<sp/>programs<sp/>a<sp/>color<sp/>sorting<sp/>machine<sp/>that<sp/>can<sp/>sort<sp/>Skittles<sp/>by<sp/>their<sp/>color.<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>originally<sp/>for<sp/>our<sp/>3&lt;sup&gt;rd&lt;/sup&gt;<sp/>year<sp/>course<sp/>Project<sp/>in<sp/>Computer<sp/>Engineering<sp/>(BE).<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;div<sp/>style=&quot;text-align:center&quot;&gt;&lt;img<sp/>src=&quot;http://www.charmysoft.com/img/prod/pic_skittle.svg&quot;<sp/>align=&quot;center&quot;<sp/>height=&quot;400&quot;<sp/>/&gt;&lt;/div&gt;<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instructions</highlight></codeline>
+<codeline><highlight class="normal">------------------------</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>[Skittle<sp/>Color<sp/>Sorter][2]<sp/>consists<sp/>of<sp/>a<sp/>[Adafruit<sp/>TCS34725<sp/>Color<sp/>Sensor](http://learn.adafruit.com/adafruit-color-sensors)<sp/>to<sp/>measure<sp/>color<sp/>values,<sp/>a<sp/>[Continuous<sp/>Rotation<sp/>Servo](http://learn.adafruit.com/adafruit-motor-selection-guide/continuous-rotation-servos)<sp/>at<sp/>the<sp/>top<sp/>to<sp/>keep<sp/>the<sp/>Skittles<sp/>going<sp/>down,<sp/>a<sp/>[Standard<sp/>Servo](http://learn.adafruit.com/adafruit-arduino-lesson-14-servo-motors)<sp/>at<sp/>the<sp/>bottom<sp/>to<sp/>move<sp/>the<sp/>arm<sp/>to<sp/>bring<sp/>the<sp/>Skittles<sp/>to<sp/>a<sp/>desired<sp/>place,<sp/>and<sp/>a<sp/>[LCD<sp/>Display](http://learn.adafruit.com/adafruit-arduino-lesson-11-lcd-displays-1/)<sp/>to<sp/>show<sp/>information<sp/>like<sp/>the<sp/>number<sp/>of<sp/>Skittles.<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>circuit:<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">|<sp/>Color<sp/>Sensor<sp/><sp/>|<sp/>Top<sp/>Servo<sp/>|<sp/>Bottom<sp/>Servo<sp/>|<sp/>LCD<sp/>Display<sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|:-------------:|:---------:|:------------:|:---------------:|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>SDA<sp/>-<sp/>pin<sp/>4<sp/><sp/><sp/>|<sp/>Pin<sp/>13<sp/><sp/><sp/><sp/>|<sp/>Pin<sp/>10<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>RS<sp/>-<sp/>pin<sp/>12<sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>SCL<sp/>-<sp/>pin<sp/>5<sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Enable<sp/>-<sp/>pin<sp/>11<sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Red<sp/>-<sp/>pin<sp/>7<sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>D4<sp/>-<sp/>pin<sp/>5<sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Green<sp/>-<sp/>pin<sp/>9<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>D5<sp/>-<sp/>pin<sp/>4<sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/>Blue<sp/>-<sp/>pin<sp/>6<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>D6<sp/>-<sp/>pin<sp/>3<sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>D7<sp/>-<sp/>pin<sp/>2<sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline><highlight class="normal">|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>R/W<sp/>-<sp/>ground<sp/><sp/><sp/><sp/>|<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![Schematic](/images/schematic.jpg?raw=true<sp/>&quot;Schematic&quot;)<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Because<sp/>the<sp/>color<sp/>sensor<sp/>might<sp/>report<sp/>color<sp/>values<sp/>differently<sp/>due<sp/>to<sp/>various<sp/>factors,<sp/>such<sp/>as<sp/>the<sp/>lighting<sp/>condition,<sp/>the<sp/>distance<sp/>between<sp/>the<sp/>sensor<sp/>and<sp/>the<sp/>object,<sp/>etc,<sp/>before<sp/>this<sp/>[Skittle<sp/>Color<sp/>Sorter][2]<sp/>can<sp/>work<sp/>properly<sp/>for<sp/>your<sp/>specific<sp/>set<sp/>of<sp/>Skittles,<sp/>each<sp/>color<sp/>needs<sp/>to<sp/>be<sp/>calibrated.<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>use<sp/>the<sp/>sketch<sp/>in<sp/>calibration<sp/>mode,<sp/>set<sp/>the<sp/>following<sp/>macro<sp/>definitions<sp/>to<sp/>true<sp/>on<sp/>[ColorSensor.cpp](http://github.com/CharmySoft/skittle-color-sorter/blob/a9967638f4a1e9fce1a7ef8ceb0b503633c83953/ColorSensor.cpp#L15).</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Change<sp/>the<sp/>following<sp/>line<sp/>to<sp/>enter<sp/>calibration<sp/>mode</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>F_CALIBRATING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>true<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Is<sp/>calibration<sp/>in<sp/>progress<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>F_CALI_EMPTY_HOLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>true<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Is<sp/>calibrating<sp/>the<sp/>empty<sp/>hole&apos;s<sp/>color<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">You<sp/>need<sp/>to<sp/>firstly<sp/>set<sp/>both<sp/>of<sp/>them<sp/>to<sp/>true,<sp/>this<sp/>will<sp/>make<sp/>the<sp/>sketch<sp/>program<sp/>try<sp/>and<sp/>get<sp/>the<sp/>average<sp/>color<sp/>of<sp/>the<sp/>empty<sp/>hole.<sp/>Upload<sp/>the<sp/>sketch,<sp/>open<sp/>the<sp/>Serial<sp/>Monitor<sp/>and<sp/>let<sp/>it<sp/>run<sp/>for<sp/>a<sp/>while,<sp/>and<sp/>you<sp/>will<sp/>have<sp/>the<sp/>average<sp/>color<sp/>of<sp/>when<sp/>the<sp/>hole<sp/>is<sp/>empty.<sp/>Update<sp/>the<sp/>the<sp/>color<sp/>definition<sp/>of<sp/>the<sp/>empty<sp/>hole<sp/>on<sp/>[Context.h](http://github.com/CharmySoft/skittle-color-sorter/blob/a9967638f4a1e9fce1a7ef8ceb0b503633c83953/Context.h#L27)<sp/>with<sp/>your<sp/>own<sp/>data.</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">/**<sp/>Calibrated<sp/>Skittle&apos;s<sp/>Colors.<sp/>All<sp/>the<sp/>colors<sp/>are<sp/>defined<sp/>here.<sp/>This</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>macro<sp/>will<sp/>later<sp/>be<sp/>used<sp/>to<sp/>populate<sp/>some<sp/>arrays<sp/>by<sp/>changing<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COLOR_DEF<sp/>to<sp/>retrive<sp/>only<sp/>needed<sp/>data.<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>COLORS_DEFINITION<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>/*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Identifier<sp/><sp/><sp/>|<sp/>Color<sp/>Name<sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Calibrated<sp/>Color<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Color<sp/>View<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_RED,<sp/><sp/><sp/><sp/>&quot;Red<sp/>Skittle&quot;,<sp/><sp/><sp/><sp/><sp/><sp/>C_Color(97,<sp/>73,<sp/>62,<sp/>117),<sp/><sp/><sp/>C_Color(255,<sp/>0,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_GREEN,<sp/><sp/>&quot;Green<sp/>Skittle&quot;,<sp/><sp/><sp/><sp/>C_Color(58,<sp/>106,<sp/>54,<sp/>148),<sp/><sp/>C_Color(0,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_YELLOW,<sp/>&quot;Yellow<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(90,<sp/>90,<sp/>34,<sp/>210),<sp/><sp/><sp/>C_Color(128,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_PURPLE,<sp/>&quot;Purple<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(65,<sp/>84,<sp/>81,<sp/>122),<sp/><sp/><sp/>C_Color(128,<sp/>192,<sp/>32)<sp/>),\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_ORANGE,<sp/>&quot;Orange<sp/>Skittle&quot;,<sp/><sp/><sp/>C_Color(122,<sp/>64,<sp/>40,<sp/>154),<sp/><sp/>C_Color(255,<sp/>255,<sp/>0)<sp/>),\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>/*<sp/>Don&apos;t<sp/>forget<sp/>to<sp/>exclude<sp/>these<sp/>invalid<sp/>colors<sp/>in<sp/>the<sp/>HAS_COLOR<sp/>macro<sp/>function<sp/>*/\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>COLOR_DEF(<sp/>RESULT_EMPTY,<sp/><sp/>&quot;Empty<sp/>hole&quot;,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>C_Color(66,<sp/>89,<sp/>71,<sp/>170),<sp/><sp/><sp/>C_Color(0,<sp/>0,<sp/>0)<sp/>)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Now,<sp/>you&apos;ve<sp/>had<sp/>the<sp/>empty<sp/>hole&apos;s<sp/>color<sp/>defined.<sp/>You<sp/>can<sp/>now<sp/>start<sp/>calibrating<sp/>other<sp/>colors.<sp/>Go<sp/>back<sp/>to<sp/>the<sp/>calibration<sp/>mode<sp/>macro<sp/>definition<sp/>on<sp/>[ColorSensor.cpp](http://github.com/CharmySoft/skittle-color-sorter/blob/a9967638f4a1e9fce1a7ef8ceb0b503633c83953/ColorSensor.cpp#L16)<sp/>and<sp/>change<sp/>the<sp/>F_CALI_EMPTY_HOLE<sp/>to<sp/>false.<sp/>This<sp/>will<sp/>make<sp/>the<sp/>sketch<sp/>try<sp/>and<sp/>get<sp/>the<sp/>average<sp/>color<sp/>of<sp/>a<sp/>specific<sp/>kind<sp/>of<sp/>Skittles,<sp/>while<sp/>the<sp/>empty<sp/>hole&apos;s<sp/>color<sp/>will<sp/>be<sp/>correctly<sp/>ignored.</highlight></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">//<sp/>Change<sp/>the<sp/>following<sp/>line<sp/>to<sp/>enter<sp/>calibration<sp/>mode</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>F_CALIBRATING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>true<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Is<sp/>calibration<sp/>in<sp/>progress<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">#define<sp/>F_CALI_EMPTY_HOLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>false<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**&lt;<sp/>Is<sp/>calibrating<sp/>the<sp/>empty<sp/>hole&apos;s<sp/>color<sp/>*/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">When<sp/>calibrating<sp/>a<sp/>specific<sp/>color<sp/>of<sp/>Skittles,<sp/>only<sp/>put<sp/>that<sp/>one<sp/>specific<sp/>color<sp/>of<sp/>Skittles<sp/>into<sp/>the<sp/>machine,<sp/>and<sp/>open<sp/>the<sp/>Serial<sp/>Monitor<sp/>to<sp/>see<sp/>the<sp/>reported<sp/>average<sp/>color<sp/>values.<sp/>Test<sp/>at<sp/>least<sp/>10<sp/>different<sp/>Skittles<sp/>to<sp/>ensure<sp/>the<sp/>calibration<sp/>accurarcy.<sp/>When<sp/>you<sp/>get<sp/>the<sp/>results,<sp/>replace<sp/>the<sp/>rest<sp/>of<sp/>the<sp/>definition<sp/>with<sp/>your<sp/>own<sp/>calibrated<sp/>color<sp/>values.<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>calibration<sp/>is<sp/>done,<sp/>comment<sp/>out<sp/>the<sp/>calibration<sp/>mode<sp/>flag<sp/>(or<sp/>set<sp/>it<sp/>to<sp/>false).<sp/>Upload<sp/>the<sp/>updated<sp/>sketch,<sp/>and<sp/>the<sp/>[Skittle<sp/>Color<sp/>Sorter][2]<sp/>should<sp/>be<sp/>up<sp/>and<sp/>running.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Licensing</highlight></codeline>
+<codeline><highlight class="normal">------------------------</highlight></codeline>
+<codeline><highlight class="normal">Please<sp/>see<sp/>the<sp/>file<sp/>named<sp/>[LICENSE.md](LICENSE.md).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Author</highlight></codeline>
+<codeline><highlight class="normal">------------------------</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Charlie<sp/>Chen<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>contributor<sp/>of<sp/>the<sp/>Arduino<sp/>sketch<sp/>code<sp/>for<sp/>this<sp/>project<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Paul<sp/>Boyle<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>contributor<sp/>of<sp/>the<sp/>hardware<sp/>frame<sp/>for<sp/>this<sp/>project<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Paul<sp/>Lawlor<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>contributor<sp/>of<sp/>the<sp/>hardware<sp/>frame<sp/>for<sp/>this<sp/>project<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contact</highlight></codeline>
+<codeline><highlight class="normal">------------------------</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>CharmySoft:<sp/>[*http://www.CharmySoft.com/*][1]<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">*<sp/>About:<sp/>[*http://www.CharmySoft.com/about.htm*][3]<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Email:<sp/>[*Charlie@CharmySoft.com*](mailto:Charlie@CharmySoft.com)<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[1]:<sp/>http://www.CharmySoft.com/<sp/>&quot;CharmySoft&quot;</highlight></codeline>
+<codeline><highlight class="normal">[2]:<sp/>http://www.CharmySoft.com/app/skittle-sorter.htm<sp/>&quot;Skittle<sp/>Color<sp/>Sorter&quot;</highlight></codeline>
+<codeline><highlight class="normal">[3]:<sp/>http://www.CharmySoft.com/about.htm<sp/>&quot;About<sp/>CharmySoft&quot;</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/README.md"/>
+  </compounddef>
+</doxygen>

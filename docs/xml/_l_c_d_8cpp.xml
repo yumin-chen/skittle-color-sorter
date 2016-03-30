@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.11">
+  <compounddef id="_l_c_d_8cpp" kind="file" language="C++">
+    <compoundname>LCD.cpp</compoundname>
+    <includes refid="_l_c_d_8h" local="yes">LCD.h</includes>
+    <incdepgraph>
+      <node id="88">
+        <label>LiquidCrystal.h</label>
+      </node>
+      <node id="89">
+        <label>Context.h</label>
+        <link refid="_context_8h"/>
+      </node>
+      <node id="87">
+        <label>Arduino.h</label>
+      </node>
+      <node id="85">
+        <label>C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp</label>
+        <link refid="LCD.cpp"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>LCD.h</label>
+        <link refid="_l_c_d_8h"/>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_l_c_d_8cpp_1a43c0959d5054a2213a6d27a555a49901" prot="public" static="no">
+        <name>PIN_LCD_RS</name>
+        <initializer>12</initializer>
+        <briefdescription>
+<para>The RS pin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="19" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a35151c3bc76cdbb61db8c1aae941db95" prot="public" static="no">
+        <name>PIN_LCD_ENABLE</name>
+        <initializer>11</initializer>
+        <briefdescription>
+<para>The Enable pin. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="20" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a3b068b254b46cbf74d72233a12d897b4" prot="public" static="no">
+        <name>PIN_LCD_D4</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>The data pin D4. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="21" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a138921074f6fbef7204383e9ec887205" prot="public" static="no">
+        <name>PIN_LCD_D5</name>
+        <initializer>4</initializer>
+        <briefdescription>
+<para>The data pin D5. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="22" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a83eb95b8a2f7521964b3279ef55c2387" prot="public" static="no">
+        <name>PIN_LCD_D6</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>The data pin D6. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="23" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a39d3d28f9914cde07af0cf5b2746d094" prot="public" static="no">
+        <name>PIN_LCD_D7</name>
+        <initializer>2</initializer>
+        <briefdescription>
+<para>The data pin D7. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="24" column="9" bodyfile="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="_l_c_d_8cpp_1a0f059975bddefae342343b7ad3c5057c" prot="public" static="no">
+        <name>COLOR_DEF</name>
+        <param><defname>identifier</defname></param>
+        <param><defname>name</defname></param>
+        <param><defname>color</defname></param>
+        <param><defname>color_view</defname></param>
+        <initializer>name</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp" line="74" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Liquid-Crystal Display (<ref refid="class_l_c_d" kindref="compound">LCD</ref>) </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Charlie Chen (CharmySoft) <ulink url="mailto:Charlie@CharmySoft.com">Charlie@CharmySoft.com</ulink></para></simplesect>
+</para><sect1 id="_top_servo_8cpp_1Circuit">
+<title>Circuit</title>
+<para><itemizedlist>
+<listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref><itemizedlist>
+<listitem><para>RS pin to digital pin 12</para></listitem><listitem><para>Enable pin to digital pin 11</para></listitem><listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref> D4 pin to digital pin 5</para></listitem><listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref> D5 pin to digital pin 4</para></listitem><listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref> D6 pin to digital pin 3</para></listitem><listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref> D7 pin to digital pin 2</para></listitem><listitem><para><ref refid="class_l_c_d" kindref="compound">LCD</ref> R/W pin to ground </para></listitem></itemizedlist>
+</para></listitem></itemizedlist>
+</para></sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**************************************************************************/</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">/**************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PIN_LCD_RS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>12<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor">#define<sp/>PIN_LCD_ENABLE<sp/><sp/><sp/><sp/>11<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor">#define<sp/>PIN_LCD_D4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor">#define<sp/>PIN_LCD_D5<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>4<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor">#define<sp/>PIN_LCD_D6<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor">#define<sp/>PIN_LCD_D7<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor">#include<sp/>&quot;LCD.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><ref refid="class_l_c_d_1a00bb2db1390721abc7b24ac4b8c276c8" kindref="member">LCD::LCD</ref>()<sp/>:<sp/>LiquidCrystal(<ref refid="_l_c_d_8cpp_1a43c0959d5054a2213a6d27a555a49901" kindref="member">PIN_LCD_RS</ref>,<sp/><ref refid="_l_c_d_8cpp_1a35151c3bc76cdbb61db8c1aae941db95" kindref="member">PIN_LCD_ENABLE</ref>,<sp/><ref refid="_l_c_d_8cpp_1a3b068b254b46cbf74d72233a12d897b4" kindref="member">PIN_LCD_D4</ref>,<sp/><ref refid="_l_c_d_8cpp_1a138921074f6fbef7204383e9ec887205" kindref="member">PIN_LCD_D5</ref>,<sp/><ref refid="_l_c_d_8cpp_1a83eb95b8a2f7521964b3279ef55c2387" kindref="member">PIN_LCD_D6</ref>,<sp/><ref refid="_l_c_d_8cpp_1a39d3d28f9914cde07af0cf5b2746d094" kindref="member">PIN_LCD_D7</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>bDirty<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a8bda968bfa59a858067074a1aa3dc061" kindref="member">LCD::setup</ref>()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>this-&gt;begin(16,<sp/>2);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a3d6c8e6194c23cfcfe43b8ad8899689c" kindref="member">LCD::update</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>content<sp/>is<sp/>still<sp/>not<sp/>dirty,<sp/>there&apos;s<sp/>no<sp/>need<sp/>to<sp/>refresh</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!bDirty)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>Screen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>this-&gt;clear();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>out<sp/>the<sp/>first<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>this-&gt;setCursor(0,<sp/>0);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>this-&gt;print(sTopText.c_str());</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>out<sp/>the<sp/>the<sp/>second<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>this-&gt;setCursor(0,<sp/>1);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>this-&gt;print(sBtmText.c_str());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1adfb9be5eb1ad16bf7c761eb7458fad21" kindref="member">LCD::setTopText</ref>(String<sp/>text)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>top<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>sTopText<sp/>=<sp/>text;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Invalidate<sp/>the<sp/>content<sp/>to<sp/>make<sp/>it<sp/>refresh</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>bDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a75367f16d2d043db4d82a125d542835d" kindref="member">LCD::setBottomText</ref>(String<sp/>text)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>the<sp/>bottom<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>sBtmText<sp/>=<sp/>text;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Invalidate<sp/>the<sp/>content<sp/>to<sp/>make<sp/>it<sp/>refresh</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>bDirty<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1aa44f72dd3dc2c8fccb0dbc0c5959efa2" kindref="member">LCD::setBottomTextByResult</ref>(<ref refid="_context_8h_1a038b66a9faa1ac0fb02c0c1a87f4ee6d" kindref="member">colorResult</ref><sp/>result)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Generate<sp/>the<sp/>colorResult<sp/>enum-indexed<sp/>constant<sp/>array<sp/>nameList</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLOR_DEF(<sp/>identifier,<sp/>name,<sp/>color,<sp/>color_view<sp/>)<sp/><sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>String<sp/>nameList<sp/>[]<sp/>=<sp/>{<sp/><ref refid="_context_8h_1a1dc6cafabe01db99708f2c6f3af24e5f" kindref="member">COLORS_DEFINITION</ref><sp/>};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>COLOR_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>out<sp/>the<sp/>color<sp/>result&apos;s<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>Serial.println(nameList[result]);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>setBottomText(nameList[result]);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l_c_d_1a7f4cebe16a39c366b8cd3897df0bfeaf" kindref="member">LCD::print</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">*<sp/>text)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>LiquidCrystal::print(text);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/charc/Documents/GitHub/skittle-color-sorter/LCD.cpp"/>
+  </compounddef>
+</doxygen>
