@@ -40,7 +40,7 @@ void ColorSensor::setup() {
   if (!this->begin()) {
     // If the color sensor failed to initialize, print out an error
     Serial.println("Error: Color sensor not found.");
-    lcd.setTopText("ERR: Color Sensor Connection");
+    lcd.setTopText("ERR: Sensor Cnct");
 
     // Infinite loop so the program won't continue
     while (1);
